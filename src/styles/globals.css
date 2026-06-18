@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0302ff;
+  --color-text: #222222;
+  --color-text-muted: #444444;
+  --color-text-light: #333333;
+  --color-border: #dddddd;
+  --color-border-light: #e6e6e6;
+  --color-border-dark: #222222;
+  --color-accent-hover: #955b89;
+  --color-star: #f4c100;
+  --color-star-muted: #c8c8c8;
+  --font-outfit: "Outfit", Helvetica, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-outfit);
+    color: var(--color-text);
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .section-heading {
+    @apply text-center text-[28px] font-bold leading-tight text-text md:text-[32px];
+  }
+
+  .section-heading-underline {
+    @apply mx-auto mt-2.5 h-1 w-12 rounded bg-primary;
+  }
+
+  .product-card-title {
+    @apply text-[15px] font-normal text-text-muted transition-colors hover:text-accent-hover;
+  }
+
+  .quote-btn {
+    @apply inline-block border border-border-dark bg-transparent px-5 py-2.5 text-sm text-text-muted transition-all hover:border-border-dark hover:bg-border-dark hover:text-white;
+  }
+
+  .hsn-table th {
+    background: #0302ff;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 22px 24px;
+  }
+
+  .hsn-table td {
+    padding: 22px 24px;
+    border-top: 1px solid #eee;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .blog-content h3 {
+    @apply mb-3 mt-6 text-xl font-semibold text-text;
+  }
+
+  .blog-content p {
+    @apply mb-4 text-[15px] leading-relaxed text-text-light;
+  }
+
+  .blog-content ul {
+    @apply mb-4 list-disc pl-6 text-[15px] leading-relaxed text-text-light;
+  }
+
+  .blog-content strong {
+    @apply font-semibold text-text;
+  }
+}
+
+.swiper-pagination-bullet {
+  background: #cccccc !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #333333 !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #444444 !important;
+  border: 1px solid #aaaaaa;
+  background: transparent;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 0;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #ffffff !important;
+  background: #444444 !important;
+  border-color: #444444 !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px !important;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.testimonials-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.testimonials-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  transition: background 0.3s ease;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  background: #0302ff !important;
+}
