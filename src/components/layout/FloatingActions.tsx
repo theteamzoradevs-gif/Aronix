@@ -18,7 +18,7 @@ export function FloatingActions() {
       <button
         type="button"
         onClick={open}
-        className="fixed bottom-24 right-4 z-40 hidden rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white shadow-lg hover:bg-[#0201cc] md:block"
+        className="fixed bottom-24 right-4 z-40 hidden rounded-full bg-primary px-5 py-2.5 text-xs font-semibold text-white shadow-lg transition-colors hover:bg-[#0201cc] md:block"
       >
         Get a Quote
       </button>
@@ -27,7 +27,7 @@ export function FloatingActions() {
         href="https://wa.me/919999092934"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#1da851]"
+        className="fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105 hover:bg-[#1da851]"
         aria-label="WhatsApp"
       >
         <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">

@@ -1,32 +1,41 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { AboutSection } from "@/components/home/AboutSection";
-import { ClientsMarquee } from "@/components/home/ClientsMarquee";
-import { VideoSection } from "@/components/home/VideoSection";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
-import { TrustedBy } from "@/components/home/TrustedBy";
 import { PrefabComparison } from "@/components/home/PrefabComparison";
-import { BlogCarousel } from "@/components/home/BlogCarousel";
+import { ServicesSection } from "@/components/home/ServicesSection";
+import { ClientsSection } from "@/components/home/ClientsSection";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { QuoteCtaBand } from "@/components/home/QuoteCtaBand";
+import { HowItWorks } from "@/components/home/HowItWorks";
 import { TestimonialsCarousel } from "@/components/home/TestimonialsCarousel";
-import { ProductSlider } from "@/components/products/ProductSlider";
+import { AboutSection } from "@/components/home/AboutSection";
+import { BlogSection } from "@/components/home/BlogSection";
+import { FaqSection } from "@/components/home/FaqSection";
+import { ContactCta } from "@/components/home/ContactCta";
 import { site, getProductsBySlugs } from "@/lib/data";
 
 export default function HomePage() {
-  const featuredProducts = getProductsBySlugs(site.featuredProductSlugs);
-  const homeProducts = getProductsBySlugs(site.homeProductSlugs);
+  const showcaseProducts = getProductsBySlugs(site.featuredProductSlugs).slice(0, 5);
+  const extra = site.homeProductSlugs.find((slug) => !site.featuredProductSlugs.includes(slug));
+  const serviceSlugs = (extra
+    ? [...site.featuredProductSlugs, extra]
+    : site.featuredProductSlugs
+  ).slice(0, 6);
+
+  const serviceProducts = getProductsBySlugs(serviceSlugs);
 
   return (
     <>
       <HeroSection />
-      <ProductSlider products={featuredProducts} title="Explore Our Demanding Product" />
-      <AboutSection />
-      <ProductSlider products={homeProducts} title="Our Products" showViewAll />
-      <ClientsMarquee />
-      <VideoSection />
-      <WhyChooseUs />
-      <TrustedBy />
       <PrefabComparison />
-      <BlogCarousel />
+      <ServicesSection products={showcaseProducts.length >= 5 ? showcaseProducts : serviceProducts} />
+      <ClientsSection />
+      <WhyChooseUs />
+      <QuoteCtaBand />
+      <HowItWorks />
       <TestimonialsCarousel />
+      <AboutSection />
+      <BlogSection />
+      <FaqSection />
+      <ContactCta />
     </>
   );
 }

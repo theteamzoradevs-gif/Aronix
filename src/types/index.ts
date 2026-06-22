@@ -50,6 +50,23 @@ export interface SiteConfig {
   certification: { title: string; subtitle: string };
   footerMeta: { employees: string; gstRegistrationDate: string };
   tagline: string;
+  heroHeadline: string;
+  heroSubtext: string;
+  heroTrustBadges: string[];
+  heroFeatureItems: { label: string; href: string }[];
+  statsYears: string;
+  impactStats: { value: string; label: string }[];
+  howItWorks: {
+    step: string;
+    navLabel: string;
+    title: string;
+    headline: string;
+    desc: string;
+    image: string;
+  }[];
+  urgentCta: { title: string; description: string };
+  contactCta: { title: string; description: string };
+  faqs: { q: string; a: string }[];
   aboutText: string;
   ceo: { name: string; bio: string; image: string };
   videoUrl: string;
@@ -63,6 +80,7 @@ export interface SiteConfig {
   whyChooseUs: {
     title: string;
     intro: string;
+    mobileIntro: string;
     advantages: { title: string; desc: string }[];
   };
   trustedBy: {
@@ -75,5 +93,6 @@ export interface SiteConfig {
     intro: string;
     benefits: string[];
     traditional: string;
+    traditionalPoints: string[];
   };
 }

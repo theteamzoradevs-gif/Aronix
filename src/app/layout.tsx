@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
-import { TopBar } from "@/components/layout/TopBar";
+import { Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
+import { Main } from "@/components/layout/Main";
 import { Footer } from "@/components/layout/Footer";
 import { QuoteModal } from "@/components/layout/QuoteModal";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { QuoteModalProvider } from "@/context/QuoteModalContext";
 import "@/styles/globals.css";
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -27,11 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} font-outfit antialiased`}>
+      <body className={`${inter.variable} font-inter antialiased`}>
         <QuoteModalProvider>
-          <TopBar />
           <Header />
-          <main>{children}</main>
+          <Main>{children}</Main>
           <Footer />
           <FloatingActions />
           <QuoteModal />

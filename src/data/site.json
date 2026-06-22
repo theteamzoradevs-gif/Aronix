@@ -30,6 +30,86 @@
     "gstRegistrationDate": "23-08-2023"
   },
   "tagline": "Manufacturer and traders of shipping containers and Porta cabins",
+  "heroHeadline": "Smart solutions for portable cabins & containers",
+  "heroSubtext": "Fast, professional portable infrastructure for industrial, construction, and commercial sites. Pan-India delivery with certified quality you can trust.",
+  "heroTrustBadges": [
+    "Pan-India delivery",
+    "Certified quality & MSME approved",
+    "7–15 day delivery",
+    "GST registered"
+  ],
+  "heroFeatureItems": [
+    { "label": "Portable cabins", "href": "/products" },
+    { "label": "Shipping containers", "href": "/product/used-shipping-containers" },
+    { "label": "Guard cabins", "href": "/product/mild-steel-portable-guard-cabin-2" }
+  ],
+  "statsYears": "7+",
+  "impactStats": [
+    { "value": "50+", "label": "Happy Clients" },
+    { "value": "25+", "label": "Product Types" },
+    { "value": "7–15", "label": "Day Delivery" },
+    { "value": "Pan-India", "label": "Delivery Reach" }
+  ],
+  "howItWorks": [
+    {
+      "step": "01",
+      "navLabel": "Share requirement",
+      "title": "Share your requirement",
+      "headline": "Tell us what you need and we're ready to help.",
+      "desc": "Reach out via phone, WhatsApp, or our quote form. Tell us your cabin or container needs, dimensions, and timeline — our team confirms your request quickly.",
+      "image": "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg"
+    },
+    {
+      "step": "02",
+      "navLabel": "Quote & design",
+      "title": "Get quote & design",
+      "headline": "Receive a clear quote tailored to your site.",
+      "desc": "Our team confirms specifications, shares a transparent quote, and finalizes the design for your portable cabin or container requirements.",
+      "image": "/assets/2025/10/Untitled-design-2025-10-09T174216.396.png"
+    },
+    {
+      "step": "03",
+      "navLabel": "Manufacture & deliver",
+      "title": "Manufacture & deliver",
+      "headline": "We build and deliver to your location on time.",
+      "desc": "We manufacture at our Greater Noida facility and deliver across India — ready for immediate deployment at your construction or industrial site.",
+      "image": "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png"
+    }
+  ],
+  "urgentCta": {
+    "title": "Need portable cabins on urgent basis?",
+    "description": "We provide fast and reliable manufacturing and delivery whenever your project timeline is tight."
+  },
+  "contactCta": {
+    "title": "Let's build your portable solution today",
+    "description": "Our experienced team is ready to handle your portable cabin, shipping container, and prefab structure requirements quickly and professionally."
+  },
+  "faqs": [
+    {
+      "q": "What products does Aronix Infra manufacture?",
+      "a": "We manufacture and supply portable workstation cabins, security guard cabins, portable site offices, prefabricated structures, used shipping and storage containers, and FRP modular toilets."
+    },
+    {
+      "q": "What is the typical delivery timeline?",
+      "a": "Most standard portable cabins and containers are delivered within 7–15 days depending on specifications, quantity, and delivery location across India."
+    },
+    {
+      "q": "Do you deliver across India?",
+      "a": "Yes. Aronix Infra provides pan-India delivery with reliable logistics for industrial, construction, and commercial projects."
+    },
+    {
+      "q": "Can I get a custom-sized portable cabin?",
+      "a": "Yes. We offer tailored solutions based on your site requirements, including custom dimensions, layouts, and material specifications."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Call us, message on WhatsApp, or use the Get a Quote button on this website. Share your requirements and we will respond with a detailed quote."
+    },
+    {
+      "q": "Is Aronix Infra GST registered?",
+      "a": "Yes. Aronix Infra is GST registered (09ACCFA4106B1Z3) and MSME approved, with IndiaMART Trust Seal verification."
+    }
+  ],
   "aboutText": "Aronix Infra is a dynamic manufacturer and supplier dedicated to delivering high-quality, reliable portable infrastructure solutions that meet the evolving needs of today's industrial, construction, and commercial environments. Founded in 2023 and based in Greater Noida, Uttar Pradesh, we have built a reputation for excellence by combining engineering precision, efficient production processes, and customer-focused services. Our product range spans portable workstation cabins, security guard cabins, portable site offices, prefabricated structures, used shipping and storage containers, and FRP modular toilets—each designed for durability, mobility, and adaptability. At the heart of our operations lies a commitment to quality. We use premium materials, apply rigorous manufacturing standards, and maintain an operational setup that supports both large-scale orders and tailored solutions. With our skilled team and responsive logistics, we ensure timely delivery and dependable service across diverse project requirements.",
   "ceo": {
     "name": "Vijay Kumar",
@@ -98,6 +178,7 @@
   "whyChooseUs": {
     "title": "Container Offices & Porta Cabins in India",
     "intro": "Aronix Infra is India's trusted manufacturer of container offices and portable cabins. We deliver high-quality cabins and containers faster, combining durability, modern design, and cost efficiency. Every project is executed with precision, speed, and attention to detail.",
+    "mobileIntro": "India's trusted manufacturer of portable cabins and containers. We deliver durable, modern solutions with speed and precision on every project.",
     "advantages": [
       {"title": "Delivery in 7–15 Days", "desc": "Quick production and setup for rapid deployment."},
       {"title": "Certified Quality", "desc": "Built using premium materials meeting Indian standards."},
@@ -127,6 +208,12 @@
       "Flexible and Portable: Easily relocatable and expandable.",
       "Eco-Friendly: Sustainable, energy-efficient, and modern."
     ],
-    "traditional": "Traditional construction, on the other hand, is slower, weather-dependent, costlier, and generates higher waste."
+    "traditional": "Traditional construction, on the other hand, is slower, weather-dependent, costlier, and generates higher waste.",
+    "traditionalPoints": [
+      "Slower completion with longer timelines",
+      "Weather-dependent — frequent on-site delays",
+      "Higher total project costs",
+      "More material waste and site disruption"
+    ]
   }
 }
