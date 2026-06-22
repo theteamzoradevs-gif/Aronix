@@ -9,11 +9,9 @@ export function ProductGrid({
   showPrice?: boolean;
 }) {
   return (
-    <div className="-ml-2.5 grid grid-cols-2 gap-y-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <div className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-6">
       {products.map((product) => (
-        <div key={product.id} className="pl-2.5">
-          <ProductCard product={product} showPrice={showPrice} />
-        </div>
+        <ProductCard key={product.id} product={product} showPrice={showPrice} />
       ))}
     </div>
   );

@@ -1,72 +1,87 @@
 import Link from "next/link";
 import { site } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
+import { navItems } from "./TopBar";
+
+const productLinks = [
+  { href: "/products", label: "All Products" },
+  { href: "/product/used-shipping-containers", label: "Shipping Containers" },
+  { href: "/product/portable-workstation-cabin", label: "Portable Cabins" },
+  { href: "/product/mild-steel-portable-guard-cabin-2", label: "Guard Cabins" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-[#1a1a2e] text-white">
-      <Container className="py-12 md:py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+    <footer className="bg-dark text-white">
+      <Container className="py-14 md:py-16">
+        <div className="flex flex-col gap-4 border-b border-white/10 pb-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Our Company</h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>
-                <Link href="/about-us" className="hover:text-white">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/products" className="hover:text-white">
-                  Product & Service
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact-us" className="hover:text-white">
-                  Contact Us
-                </Link>
-              </li>
+            <p className="text-lg font-semibold">Aronix Infra</p>
+            <p className="mt-1 text-sm text-gray-400">{site.tagline}</p>
+          </div>
+          <div className="flex flex-wrap gap-4 text-sm">
+            <a href={`tel:${site.phone}`} className="font-medium hover:text-primary">
+              {site.phone}
+            </a>
+            <a href={`mailto:${site.email}`} className="text-gray-300 hover:text-white">
+              {site.email}
+            </a>
+          </div>
+        </div>
+
+        <div className="grid gap-10 py-10 md:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
+              Company
+            </h3>
+            <ul className="space-y-2.5 text-sm text-gray-300">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="hover:text-white">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-            <div className="mt-6 flex gap-4">
-              <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <FacebookIcon />
-              </a>
-              <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <LinkedInIcon />
-              </a>
-              <a href={site.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <TwitterIcon />
-              </a>
+          </div>
+
+          <div>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
+              Products
+            </h3>
+            <ul className="space-y-2.5 text-sm text-gray-300">
+              {productLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="hover:text-white">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
+              Certification
+            </h3>
+            <p className="text-sm font-medium text-white">{site.certification.title}</p>
+            <p className="mt-1 text-sm text-gray-300">{site.certification.subtitle}</p>
+            <div className="mt-4 space-y-2 text-sm text-gray-300">
+              <p>GST: {site.gst}</p>
+              <p>Employees: {site.footerMeta.employees}</p>
             </div>
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg font-semibold">{site.certification.title}</h3>
-            <p className="text-sm text-gray-300">{site.certification.subtitle}</p>
-            <div className="mt-6 space-y-2 text-sm text-gray-300">
-              <p>
-                <span className="font-medium text-white">GST Number</span>
-                <br />
-                {site.gst}
-              </p>
-              <p>
-                <span className="font-medium text-white">Number of Employees</span>
-                <br />
-                {site.footerMeta.employees}
-              </p>
-              <p>
-                <span className="font-medium text-white">GST Registration Date</span>
-                <br />
-                {site.footerMeta.gstRegistrationDate}
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Reach Out</h3>
-            <ul className="space-y-4 text-sm text-gray-300">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
+              Contact
+            </h3>
+            <ul className="space-y-3 text-sm text-gray-300">
               {site.addresses.map((addr) => (
                 <li key={addr.label}>
-                  <strong className="text-white">{addr.label}:</strong> {addr.text}
+                  <strong className="text-white">{addr.label}</strong>
+                  <br />
+                  {addr.text}
                 </li>
               ))}
             </ul>
@@ -76,13 +91,24 @@ export function Footer() {
               rel="noopener noreferrer"
               className="mt-4 inline-block text-sm font-medium text-primary hover:underline"
             >
-              Get Direction
+              Get Directions
             </a>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-6 text-center text-sm text-gray-400">
-          Copyright © Aronixinfra all rights reserved.
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-gray-400 md:flex-row">
+          <p>Copyright © Aronix Infra. All rights reserved.</p>
+          <div className="flex gap-4">
+            <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white">
+              <FacebookIcon />
+            </a>
+            <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-white">
+              <LinkedInIcon />
+            </a>
+            <a href={site.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-white">
+              <TwitterIcon />
+            </a>
+          </div>
         </div>
       </Container>
     </footer>

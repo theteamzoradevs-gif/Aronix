@@ -1,10 +1,10 @@
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { CompanyAlbum } from "@/components/about/CompanyAlbum";
 import { CeoSection } from "@/components/about/CeoSection";
-import { QuickActions } from "@/components/about/QuickActions";
+import { ImpactStats } from "@/components/about/ImpactStats";
+import { AboutProductsSection } from "@/components/about/AboutProductsSection";
 import { HsnTable } from "@/components/about/HsnTable";
-import { ProductSlider } from "@/components/products/ProductSlider";
 import { site, getProductsBySlugs } from "@/lib/data";
 
 export const metadata = {
@@ -16,19 +16,25 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="py-12 md:py-16">
+      <section className="about-cream py-16 md:py-20">
         <Container>
-          <SectionHeading>About Us</SectionHeading>
-          <h3 className="mb-6 text-center text-xl font-bold text-text">About Aronix Infra</h3>
-          <p className="mx-auto max-w-4xl text-[15px] leading-relaxed text-text-light">
-            {site.aboutText}
-          </p>
+          <div className="mx-auto max-w-3xl">
+            <div className="text-center">
+              <SectionBadge className="mx-auto">About us</SectionBadge>
+              <h1 className="text-[32px] font-bold tracking-tight text-text md:text-[40px]">
+                About Aronix Infra
+              </h1>
+            </div>
+            <p className="mt-5 text-justify text-[15px] leading-relaxed text-text-muted">
+              {site.aboutText}
+            </p>
+          </div>
         </Container>
       </section>
       <CompanyAlbum />
       <CeoSection />
-      <QuickActions />
-      <ProductSlider products={sliderProducts} title="Our Products" />
+      <ImpactStats />
+      <AboutProductsSection products={sliderProducts} />
       <HsnTable />
     </>
   );

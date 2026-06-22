@@ -2,18 +2,23 @@
 
 import { site } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionHeader } from "@/components/ui/SectionBadge";
 
 export function VideoSection() {
   return (
-    <section className="py-12 md:py-16">
+    <section className="bg-white py-14 md:py-20">
       <Container>
-        <SectionHeading>Product Video</SectionHeading>
-        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
+        <SectionHeader
+          badge="Videos"
+          title="Product Video"
+          subtitle="A quick look at our portable cabins, containers, and prefab interiors."
+          align="center"
+        />
+        <div className="mt-10 grid grid-cols-2 gap-4 md:mt-12 md:grid-cols-4 md:gap-5">
           {site.productVideos.map((src, i) => (
             <div
               key={src}
-              className="group relative overflow-hidden rounded-xl border border-border/60 bg-black shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow hover:shadow-[0_12px_32px_rgba(0,0,0,0.14)]"
+              className="group relative overflow-hidden rounded-[20px] border border-border/60 bg-black shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-shadow hover:shadow-[0_12px_32px_rgba(0,0,0,0.14)]"
             >
               <video
                 src={src}

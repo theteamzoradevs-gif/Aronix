@@ -1,38 +1,63 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { resolveImageSrc, resolveImageFallback } from "@/lib/images";
 import { cn } from "@/lib/utils";
 
-export function SiteImage({
-  src,
-  alt,
-  className,
-  width,
-  height,
-}: {
+type SiteImageProps = {
   src: string | null | undefined;
   alt: string;
   className?: string;
   width?: number;
   height?: number;
-}) {
-  const imgWidth = width || 800;
-  const [imgSrc, setImgSrc] = useState(() => resolveImageSrc(src, imgWidth));
+  priority?: boolean;
+  sizes?: string;
+  fill?: boolean;
+};
+
+export function SiteImage({
+  src,
+  alt,
+  className,
+  width = 800,
+  height,
+  priority = false,
+  sizes = "(max-width: 768px) 100vw, 800px",
+  fill = false,
+}: SiteImageProps) {
+  const [imgSrc, setImgSrc] = useState(() => resolveImageSrc(src, width));
+  const computedHeight = height || Math.round(width * 0.75);
+
+  const handleError = () => {
+    const fallback = resolveImageFallback(src, width);
+    if (imgSrc !== fallback) setImgSrc(fallback);
+  };
+
+  if (fill) {
+    return (
+      <Image
+        src={imgSrc}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes={sizes}
+        className={cn("object-cover", className)}
+        onError={handleError}
+      />
+    );
+  }
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src={imgSrc}
       alt={alt}
       width={width}
-      height={height}
-      className={cn("max-w-full", className)}
-      loading="lazy"
-      onError={() => {
-        const fallback = resolveImageFallback(src, imgWidth);
-        if (imgSrc !== fallback) setImgSrc(fallback);
-      }}
+      height={computedHeight}
+      priority={priority}
+      sizes={sizes}
+      className={cn("max-w-full h-auto", className)}
+      onError={handleError}
     />
   );
 }

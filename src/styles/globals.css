@@ -9,9 +9,12 @@
   --color-border-light: #e6e6e6;
   --color-border-dark: #222222;
   --color-accent-hover: #955b89;
+  --color-accent: #f4c100;
   --color-star: #f4c100;
   --color-star-muted: #c8c8c8;
-  --font-outfit: "Outfit", Helvetica, sans-serif;
+  --color-surface: #f8f9ff;
+  --color-dark: #1a1a2e;
+  --font-inter: "Inter", system-ui, sans-serif;
 }
 
 @layer base {
@@ -24,7 +27,7 @@
   }
 
   body {
-    font-family: var(--font-outfit);
+    font-family: var(--font-inter);
     color: var(--color-text);
     background: #ffffff;
     -webkit-font-smoothing: antialiased;
@@ -36,20 +39,64 @@
 }
 
 @layer components {
+  .nav-glass {
+    @apply border-b border-white/5 bg-black/15 backdrop-blur-xl;
+  }
+
+  .hero-cta {
+    @apply inline-flex items-center gap-3 rounded-full bg-white py-2 pl-6 pr-2 text-[15px] font-medium text-text shadow-lg transition-all hover:bg-white/95 hover:shadow-xl;
+  }
+
+  .hero-cta-icon {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-text transition-colors group-hover:bg-accent/90;
+  }
+
+  .hero-feature-bar {
+    @apply border-t border-white/5 bg-black/20 backdrop-blur-lg;
+  }
+
+  .section-badge-pill {
+    @apply mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-white px-3 py-1.5 text-[11px] font-semibold uppercase tracking-widest text-text-muted;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .section-label {
+    @apply mb-3 text-xs font-semibold uppercase tracking-widest text-primary;
+  }
+
   .section-heading {
-    @apply text-center text-[28px] font-bold leading-tight text-text md:text-[32px];
+    @apply text-center text-[28px] font-bold leading-tight text-text md:text-[36px];
   }
 
   .section-heading-underline {
-    @apply mx-auto mt-2.5 h-1 w-12 rounded bg-primary;
+    @apply mx-auto mt-3 h-1 w-12 rounded-full bg-primary;
+  }
+
+  .section-subheading {
+    @apply mx-auto mt-4 max-w-2xl text-center text-[15px] leading-relaxed text-text-muted md:text-base;
+  }
+
+  .card-surface {
+    @apply rounded-xl border border-border bg-white shadow-sm transition-shadow hover:shadow-md;
   }
 
   .product-card-title {
-    @apply text-[15px] font-normal text-text-muted transition-colors hover:text-accent-hover;
+    @apply text-[15px] font-medium text-text-muted transition-colors hover:text-accent-hover;
   }
 
   .quote-btn {
-    @apply inline-block border border-border-dark bg-transparent px-5 py-2.5 text-sm text-text-muted transition-all hover:border-border-dark hover:bg-border-dark hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-border-dark bg-transparent px-6 py-2.5 text-sm font-medium text-text-muted transition-all hover:border-border-dark hover:bg-border-dark hover:text-white;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#0201cc];
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-text shadow-sm transition-colors hover:bg-accent/90;
   }
 
   .hsn-table th {
@@ -91,7 +138,7 @@
 }
 
 .swiper-pagination-bullet-active {
-  background: #333333 !important;
+  background: #0302ff !important;
 }
 
 .swiper-button-prev,
@@ -101,7 +148,7 @@
   background: transparent;
   width: 40px !important;
   height: 40px !important;
-  border-radius: 0;
+  border-radius: 9999px;
 }
 
 .swiper-button-prev:hover,
@@ -133,6 +180,28 @@
   animation-play-state: paused;
 }
 
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 45s linear infinite;
+  width: max-content;
+}
+
+.animate-marquee-ltr:hover {
+  animation-play-state: paused;
+}
+
+.about-cream {
+  background-color: #faf8f5;
+}
+
 .testimonials-swiper .swiper-pagination {
   bottom: 0 !important;
 }
@@ -144,5 +213,5 @@
 }
 
 .testimonials-swiper .swiper-pagination-bullet-active {
-  background: #0302ff !important;
+  background: #f4c100 !important;
 }
