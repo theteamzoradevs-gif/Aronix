@@ -17,7 +17,7 @@ export function ProductCard({ product, showPrice = false, layout = "grid" }: Pro
   const { open } = useQuoteModal();
 
   return (
-    <div className={cn("group", layout === "slider" && "px-2.5")}>
+    <div className={cn("group card-hover-lift", layout === "slider" && "px-2.5")}>
       <div className="card-surface flex h-full flex-col overflow-hidden">
         <Link href={`/product/${product.slug}`} className="block">
           <div className="relative aspect-square overflow-hidden bg-surface">
@@ -30,7 +30,7 @@ export function ProductCard({ product, showPrice = false, layout = "grid" }: Pro
             />
           </div>
         </Link>
-        <div className="flex flex-1 flex-col p-4 text-center md:p-5">
+        <div className="flex flex-1 flex-col p-3 text-center sm:p-4 md:p-5">
           <Link
             href={`/product/${product.slug}`}
             className="text-sm font-semibold text-text transition-colors group-hover:text-primary md:text-[15px]"

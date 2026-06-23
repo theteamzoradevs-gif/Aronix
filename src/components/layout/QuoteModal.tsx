@@ -1,30 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { site } from "@/lib/data";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 
 export function QuoteModal() {
-  const { isOpen, close } = useQuoteModal();
+  const { isOpen, close, initialMessage } = useQuoteModal();
   const [submitted, setSubmitted] = useState(false);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (isOpen) {
+      setMessage(initialMessage);
+      setSubmitted(false);
+    }
+  }, [isOpen, initialMessage]);
 
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      close();
-    }, 1500);
   };
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={close} aria-hidden />
 
-      <div className="relative w-full max-w-md overflow-hidden rounded-[24px] bg-white shadow-2xl">
+      <div className="relative w-full max-w-md overflow-hidden rounded-xl bg-white shadow-2xl">
         <div className="bg-dark px-6 py-5 md:px-8">
           <button
             type="button"
@@ -41,52 +45,81 @@ export function QuoteModal() {
             Tell us what you need
           </h2>
           <p className="mt-2 text-sm text-white/70">
-            Fill the form and our team will call you back shortly.
+            Fill the form and our team will call you back within 24 hours.
           </p>
         </div>
 
         <div className="px-6 py-5 md:px-8 md:py-6">
-          <div className="mb-5 flex flex-wrap gap-3">
-            <a
-              href={`tel:${site.phone}`}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-[#faf8f5] px-4 py-2 text-sm font-semibold text-text transition-colors hover:border-primary hover:text-primary"
-            >
-              <PhoneIcon />
-              Call now
-            </a>
-            <a
-              href={`https://wa.me/${site.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/30 bg-[#25D366]/10 px-4 py-2 text-sm font-semibold text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20"
-            >
-              <WhatsAppIcon />
-              WhatsApp
-            </a>
-          </div>
+          {submitted ? (
+            <div className="space-y-4 text-center">
+              <p className="text-sm leading-relaxed text-text-muted">
+                Thank you. We&apos;ll call you within 24 hours on business days. For urgent
+                requirements, reach us directly:
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <a href={`tel:${site.phone}`} className="btn-accent text-sm">
+                  Call {site.phone}
+                </a>
+                <a
+                  href={`https://wa.me/${site.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 px-4 py-2 text-sm font-semibold text-[#1a9e4a]"
+                >
+                  WhatsApp
+                </a>
+              </div>
+              <button type="button" onClick={close} className="text-sm text-text-muted hover:text-text">
+                Close
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="mb-5 flex flex-wrap gap-3">
+                <a
+                  href={`tel:${site.phone}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-[#faf8f5] px-4 py-2 text-sm font-semibold text-text transition-colors hover:border-primary hover:text-primary"
+                >
+                  <PhoneIcon />
+                  Call now
+                </a>
+                <a
+                  href={`https://wa.me/${site.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/30 bg-[#25D366]/10 px-4 py-2 text-sm font-semibold text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20"
+                >
+                  <WhatsAppIcon />
+                  WhatsApp
+                </a>
+              </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              required
-              className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-            />
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              required
-              className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-            />
-            <textarea
-              placeholder="Tell us about your requirement"
-              rows={3}
-              className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-            />
-            <button type="submit" className="btn-accent w-full">
-              {submitted ? "Sent!" : "Send enquiry"}
-            </button>
-          </form>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  required
+                  className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  required
+                  className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+                />
+                <textarea
+                  placeholder="Tell us about your requirement"
+                  rows={3}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+                />
+                <button type="submit" className="btn-accent w-full">
+                  Send enquiry
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </div>
     </div>

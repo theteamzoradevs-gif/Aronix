@@ -215,5 +215,129 @@
       "Higher total project costs",
       "More material waste and site disruption"
     ]
-  }
+  },
+  "trustBadges": [
+    { "label": "GST Registered", "detail": "09ACCFA4106B1Z3" },
+    { "label": "MSME Approved" },
+    { "label": "IndiaMART Trust Seal" },
+    { "label": "Pan-India Delivery" },
+    { "label": "7–15 Day Delivery" },
+    { "label": "50+ Happy Clients" }
+  ],
+  "productCategories": [
+    {
+      "id": "office",
+      "title": "Portable Office Cabins",
+      "description": "Site offices, manager cabins, and workstation units for construction and industrial projects.",
+      "useCase": "Construction sites, corporate site HQs",
+      "image": "/assets/2025/10/Untitled-design-2025-10-09T174216.396.png",
+      "href": "/products?category=office",
+      "priceFrom": 110000,
+      "specSummary": "MS steel frame, insulated panels, electrical ready"
+    },
+    {
+      "id": "guard",
+      "title": "Security & Guard Cabins",
+      "description": "Compact, weather-resistant guard rooms for gates, factories, and societies.",
+      "useCase": "Industrial gates, parking, toll booths",
+      "image": "/assets/2025/10/Untitled-design-2025-10-09T115320.232.png",
+      "href": "/products?category=guard",
+      "priceFrom": 110000,
+      "specSummary": "MS / cement fiber, powder-coated finish"
+    },
+    {
+      "id": "container",
+      "title": "Shipping Containers",
+      "description": "New and used containers for storage, offices, and site headquarters.",
+      "useCase": "Storage, container offices, site HQ",
+      "image": "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg",
+      "href": "/products?category=container",
+      "priceFrom": 235000,
+      "specSummary": "20ft & 40ft, corrosion-resistant steel"
+    },
+    {
+      "id": "bunk",
+      "title": "Bunk Houses & Labour Camps",
+      "description": "Modular accommodation for workforce housing at construction and industrial sites.",
+      "useCase": "Labour colonies, worker housing",
+      "image": "/assets/2025/10/Untitled-design-2025-10-09T174055.467.png",
+      "href": "/products?category=bunk",
+      "specSummary": "Multi-unit camps, ventilation & lighting"
+    },
+    {
+      "id": "toilet",
+      "title": "Toilet & Sanitation Units",
+      "description": "Portable toilet containers and sanitation cabins for site compliance.",
+      "useCase": "Construction sites, events, industrial units",
+      "image": "/assets/2025/10/Untitled-design-2025-10-09T114928.702.png",
+      "href": "/products?category=toilet",
+      "priceFrom": 235000,
+      "specSummary": "MS frame, hygienic interiors"
+    },
+    {
+      "id": "custom",
+      "title": "Custom Prefab Structures",
+      "description": "Glass cabins, PUF units, and fully customized portable buildings.",
+      "useCase": "Special layouts, branded structures",
+      "image": "/assets/2025/10/Untitled-design-2025-10-09T115749.089.png",
+      "href": "/contact-us",
+      "specSummary": "Custom dimensions, materials & finishes"
+    }
+  ],
+  "qualityAssurance": {
+    "title": "Quality Assured Manufacturing",
+    "intro": "Every unit is built at our Greater Noida facility with premium materials, factory quality checks, and a committed delivery window.",
+    "items": [
+      { "title": "Premium MS Steel Frame", "desc": "Robust mild steel structure with corrosion-resistant treatment." },
+      { "title": "Factory QC Before Dispatch", "desc": "Each cabin inspected for structure, finish, and fittings before delivery." },
+      { "title": "Quality Assured Materials", "desc": "Insulated panels and hardware meeting Indian industrial standards." },
+      { "title": "7–15 Day Delivery Window", "desc": "Committed production and logistics for rapid site deployment." }
+    ]
+  },
+  "chatbotGreeting": "Hi! I'm here to help with portable cabins and containers. Ask about delivery, pricing, or products — or tap a quick topic below.",
+  "chatbotFallback": "I don't have a specific answer for that. Our team can help — request a quote or message us on WhatsApp for a response within 24 hours.",
+  "chatbotIntents": [
+    {
+      "id": "delivery",
+      "label": "Delivery time",
+      "keywords": ["delivery", "deliver", "timeline", "days", "how long", "when"],
+      "answer": "Most standard portable cabins and containers are delivered within 7–15 days depending on specifications, quantity, and delivery location across India."
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing",
+      "keywords": ["price", "pricing", "cost", "rate", "how much", "quote", "₹", "rupee"],
+      "answer": "Prices vary by size and specifications. Modular cabins start from around ₹1,10,000; containers from ₹2,35,000. Share your requirements for a detailed, transparent quote — no hidden charges."
+    },
+    {
+      "id": "custom",
+      "label": "Custom sizes",
+      "keywords": ["custom", "size", "dimension", "layout", "modify", "tailored"],
+      "answer": "Yes. We offer tailored solutions based on your site requirements, including custom dimensions, layouts, and material specifications."
+    },
+    {
+      "id": "panindia",
+      "label": "Pan-India delivery",
+      "keywords": ["pan india", "pan-india", "india", "states", "location", "deliver to"],
+      "answer": "Yes. Aronix Infra provides pan-India delivery with reliable logistics for industrial, construction, and commercial projects."
+    },
+    {
+      "id": "products",
+      "label": "Products",
+      "keywords": ["product", "cabin", "container", "guard", "office", "bunk", "toilet", "manufacture"],
+      "answer": "We manufacture portable workstation cabins, security guard cabins, portable site offices, prefabricated structures, used shipping containers, and FRP/modular toilets. Browse all products at /products."
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "keywords": ["contact", "phone", "call", "email", "whatsapp", "address", "location"],
+      "answer": "Call us at 9999092934, email vijay.aronixinfra@gmail.com, or WhatsApp us. Our facility is in Greater Noida, Uttar Pradesh. Use the Get Quote button for a callback."
+    },
+    {
+      "id": "gst",
+      "label": "GST & certification",
+      "keywords": ["gst", "msme", "certificate", "indiamart", "trust", "registered"],
+      "answer": "Aronix Infra is GST registered (09ACCFA4106B1Z3), MSME approved, and IndiaMART Trust Seal verified."
+    }
+  ]
 }

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Portable Site Office Cabin",
+    "location": "Greater Noida, Uttar Pradesh",
+    "category": "office",
+    "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6011.jpg",
+    "description": "Factory-built site office delivered and installed for a construction project in NCR."
+  },
+  {
+    "id": 2,
+    "title": "MS Security Guard Cabin",
+    "location": "Gautam Buddha Nagar, UP",
+    "category": "guard",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T115320.232.png",
+    "description": "Heavy-duty mild steel guard cabin for industrial gate security."
+  },
+  {
+    "id": 3,
+    "title": "20 Ft Used Shipping Container",
+    "location": "Delhi NCR",
+    "category": "container",
+    "image": "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg",
+    "description": "Shipping container supplied for on-site storage and workspace conversion."
+  },
+  {
+    "id": 4,
+    "title": "Portable Workstation Cabin",
+    "location": "Greater Noida, Uttar Pradesh",
+    "category": "office",
+    "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6012.jpg",
+    "description": "Workstation cabin manufactured at our Greater Noida facility."
+  },
+  {
+    "id": 5,
+    "title": "Labour Bunk House Unit",
+    "location": "Uttar Pradesh",
+    "category": "bunk",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T174216.396.png",
+    "description": "Modular bunk house for workforce accommodation at a construction site."
+  },
+  {
+    "id": 6,
+    "title": "Manufacturing Facility",
+    "location": "Greater Noida, UP",
+    "category": "factory",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png",
+    "description": "Aronix Infra production and quality control at our Greater Noida unit."
+  },
+  {
+    "id": 7,
+    "title": "Container Office Conversion",
+    "location": "Pan-India Delivery",
+    "category": "container",
+    "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6013.jpg",
+    "description": "Converted shipping container office with electrical fittings and insulation."
+  },
+  {
+    "id": 8,
+    "title": "Portable Toilet Container",
+    "location": "Construction Site, NCR",
+    "category": "toilet",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T114928.702.png",
+    "description": "MS portable toilet container for site sanitation compliance."
+  },
+  {
+    "id": 9,
+    "title": "Prefab Modular Cabin",
+    "location": "Gautam Buddha Nagar, UP",
+    "category": "office",
+    "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6014.jpg",
+    "description": "Custom prefab cabin delivered ready for immediate site deployment."
+  },
+  {
+    "id": 10,
+    "title": "Security Cabin Installation",
+    "location": "Greater Noida, Uttar Pradesh",
+    "category": "guard",
+    "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6015.jpg",
+    "description": "Portable security cabin installed at an industrial entrance."
+  }
+]

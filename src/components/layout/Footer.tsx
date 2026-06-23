@@ -5,14 +5,41 @@ import { navItems } from "./TopBar";
 
 const productLinks = [
   { href: "/products", label: "All Products" },
-  { href: "/product/used-shipping-containers", label: "Shipping Containers" },
-  { href: "/product/portable-workstation-cabin", label: "Portable Cabins" },
-  { href: "/product/mild-steel-portable-guard-cabin-2", label: "Guard Cabins" },
+  { href: "/products?category=container", label: "Shipping Containers" },
+  { href: "/products?category=office", label: "Portable Cabins" },
+  { href: "/products?category=guard", label: "Guard Cabins" },
+  { href: "/projects", label: "Projects" },
 ];
 
 export function Footer() {
   return (
     <footer className="bg-dark text-white">
+      <div className="border-b border-white/10 bg-[#141428]">
+        <Container className="flex flex-col items-center justify-between gap-4 py-5 md:flex-row">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+            {site.trustBadges.slice(0, 4).map((badge) => (
+              <span key={badge.label} className="flex items-center gap-2 text-white/80">
+                <CheckIcon />
+                {badge.label}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 text-sm">
+            <a href={`tel:${site.phone}`} className="font-semibold text-accent hover:text-accent/90">
+              {site.phone}
+            </a>
+            <a
+              href={`https://wa.me/${site.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/80 hover:text-white"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </Container>
+      </div>
+
       <Container className="py-14 md:py-16">
         <div className="flex flex-col gap-4 border-b border-white/10 pb-8 md:flex-row md:items-center md:justify-between">
           <div>
@@ -68,6 +95,7 @@ export function Footer() {
             <p className="mt-1 text-sm text-gray-300">{site.certification.subtitle}</p>
             <div className="mt-4 space-y-2 text-sm text-gray-300">
               <p>GST: {site.gst}</p>
+              <p>MSME Approved</p>
               <p>Employees: {site.footerMeta.employees}</p>
             </div>
           </div>
@@ -112,6 +140,14 @@ export function Footer() {
         </div>
       </Container>
     </footer>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg className="h-4 w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+    </svg>
   );
 }
 

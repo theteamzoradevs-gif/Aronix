@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/data";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 import { formatPhoneDisplay, navItems } from "./TopBar";
 
 export function MobileMenu({
@@ -14,12 +15,12 @@ export function MobileMenu({
   onClose: () => void;
 }) {
   const pathname = usePathname();
+  const { open: openQuote } = useQuoteModal();
 
   if (!open) return null;
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    if (href.startsWith("/#")) return pathname === "/";
     return pathname === href;
   };
 
@@ -62,13 +63,16 @@ export function MobileMenu({
             <PhoneIcon />
             {formatPhoneDisplay(site.phone)}
           </a>
-          <Link
-            href="/contact-us"
-            onClick={onClose}
-            className="inline-flex w-full items-center justify-center rounded-full bg-white py-3 text-sm font-semibold text-text hover:bg-white/90"
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              openQuote();
+            }}
+            className="inline-flex w-full items-center justify-center rounded-full bg-accent py-3 text-sm font-semibold text-text hover:bg-accent/90"
           >
-            Contact us
-          </Link>
+            Get Quote
+          </button>
         </div>
       </div>
     </div>

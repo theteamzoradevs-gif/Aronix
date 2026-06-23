@@ -1,3 +1,7 @@
+export type ProductCategory = "office" | "guard" | "container" | "bunk" | "toilet" | "custom";
+
+export type ProjectCategory = ProductCategory | "factory" | "all";
+
 export interface ProductSpec {
   label: string;
   value: string;
@@ -12,6 +16,44 @@ export interface Product {
   specs: ProductSpec[];
   description: string;
   link: string;
+  category?: ProductCategory;
+}
+
+export interface Project {
+  id: number;
+  title: string;
+  location: string;
+  category: ProjectCategory;
+  image: string;
+  description: string;
+}
+
+export interface TrustBadge {
+  label: string;
+  detail?: string;
+}
+
+export interface ProductCategoryCard {
+  id: ProductCategory | "custom";
+  title: string;
+  description: string;
+  useCase: string;
+  image: string;
+  href: string;
+  priceFrom?: number;
+  specSummary?: string;
+}
+
+export interface ChatbotIntent {
+  id: string;
+  label: string;
+  keywords: string[];
+  answer: string;
+}
+
+export interface QualityAssuranceItem {
+  title: string;
+  desc: string;
 }
 
 export interface Blog {
@@ -29,6 +71,7 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  tag?: string;
 }
 
 export interface Client {
@@ -95,4 +138,14 @@ export interface SiteConfig {
     traditional: string;
     traditionalPoints: string[];
   };
+  trustBadges: TrustBadge[];
+  productCategories: ProductCategoryCard[];
+  qualityAssurance: {
+    title: string;
+    intro: string;
+    items: QualityAssuranceItem[];
+  };
+  chatbotIntents: ChatbotIntent[];
+  chatbotGreeting: string;
+  chatbotFallback: string;
 }

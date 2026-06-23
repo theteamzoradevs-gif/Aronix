@@ -33,16 +33,16 @@ export function PrefabComparison() {
   const heroImage = site.heroImages[1] || site.heroImages[0];
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="section-padding section-surface">
       <Container>
         <SectionHeader
           badge="Comparison"
           title={prefabComparison.title}
-          subtitle={prefabComparison.intro}
+          subtitle={`${prefabComparison.intro} Aronix Infra manufactures every unit at our Greater Noida facility with committed 7–15 day delivery.`}
           align="center"
         />
 
-        <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
+        <div className="mt-10 grid items-stretch gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
           <div className="rounded-[24px] border border-border bg-[#faf8f5] p-6 shadow-sm md:p-8">
             <h3 className="text-lg font-bold text-text md:text-xl">Traditional Construction</h3>
             <ul className="mt-6 space-y-4">

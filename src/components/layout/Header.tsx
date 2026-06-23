@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { site } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 import { formatPhoneDisplay, navItems } from "./TopBar";
 import { MobileMenu } from "./MobileMenu";
 
@@ -29,11 +30,11 @@ function BrandLogo() {
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { open } = useQuoteModal();
   const isHome = pathname === "/";
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    if (href.startsWith("/#")) return isHome;
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
@@ -41,14 +42,14 @@ export function Header() {
     <>
       <header
         className={cn(
-          "fixed left-0 right-0 top-0 z-50 nav-glass",
-          !isHome && "shadow-lg"
+          "fixed left-0 right-0 top-0 z-50",
+          isHome ? "nav-glass" : "nav-solid shadow-lg"
         )}
       >
         <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-3.5 md:px-6 md:py-4">
           <BrandLogo />
 
-          <nav className="hidden items-center gap-7 xl:flex">
+          <nav className="hidden items-center gap-6 xl:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -63,7 +64,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex items-center gap-2 md:gap-3">
             <a
               href={`tel:${site.phone}`}
               className="hidden items-center gap-2 text-[14px] font-medium text-white/85 transition-colors hover:text-white lg:flex"
@@ -72,12 +73,13 @@ export function Header() {
               <span>{formatPhoneDisplay(site.phone)}</span>
             </a>
 
-            <Link
-              href="/contact-us"
-              className="hidden rounded-full bg-white px-5 py-2.5 text-[14px] font-semibold text-text transition-colors hover:bg-white/90 md:inline-flex"
+            <button
+              type="button"
+              onClick={open}
+              className="hidden rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-text transition-colors hover:bg-accent/90 md:inline-flex"
             >
-              Contact us
-            </Link>
+              Get Quote
+            </button>
 
             <button
               type="button"

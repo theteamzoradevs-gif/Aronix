@@ -14,8 +14,8 @@ export function QuoteCtaBand() {
           <h2 className="text-2xl font-bold text-white md:text-3xl">{urgentCta.title}</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-white/70">{urgentCta.description}</p>
         </div>
-        <QuoteButton variant="white" href="/contact-us" className="shrink-0">
-          Contact our experts
+        <QuoteButton variant="white" className="shrink-0">
+          Get a quote
         </QuoteButton>
       </Container>
     </section>
