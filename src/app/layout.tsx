@@ -5,6 +5,7 @@ import { Main } from "@/components/layout/Main";
 import { Footer } from "@/components/layout/Footer";
 import { QuoteModal } from "@/components/layout/QuoteModal";
 import { FloatingActions } from "@/components/layout/FloatingActions";
+import { FaqChatbot } from "@/components/layout/FaqChatbot";
 import { QuoteModalProvider } from "@/context/QuoteModalContext";
 import "@/styles/globals.css";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
           <Main>{children}</Main>
           <Footer />
           <FloatingActions />
+          <FaqChatbot />
           <QuoteModal />
         </QuoteModalProvider>
       </body>

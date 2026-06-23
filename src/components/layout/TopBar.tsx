@@ -4,10 +4,10 @@ import { site } from "@/lib/data";
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
-  { href: "/#how-it-works", label: "How it works" },
-  { href: "/about-us", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/about-us", label: "About Us" },
   { href: "/blogs", label: "Blog" },
-  { href: "/#faqs", label: "FAQs" },
+  { href: "/contact-us", label: "Contact" },
 ];
 
 export function formatPhoneDisplay(phone: string) {

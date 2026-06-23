@@ -64,6 +64,11 @@ export function TestimonialsCarousel() {
             <SwiperSlide key={t.name}>
               <div className="flex h-full flex-col rounded-[20px] bg-white p-6 md:p-7">
                 <StarRating />
+                {t.tag && (
+                  <span className="mt-3 inline-block rounded-full bg-[#f4f5f7] px-2.5 py-1 text-[11px] font-medium text-text-muted">
+                    {t.tag}
+                  </span>
+                )}
                 <p className="mt-4 flex-1 text-left text-[14px] leading-relaxed text-text-light md:text-[15px]">
                   &ldquo;{t.quote}&rdquo;
                 </p>

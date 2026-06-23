@@ -70,9 +70,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
 export function FaqAskButton() {
   return (
     <div className="mt-10 text-center">
-      <QuoteButton variant="dark" href="/contact-us">
-        Ask a question
-      </QuoteButton>
+      <QuoteButton variant="dark">Ask a question</QuoteButton>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { site } from "@/lib/data";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export function FloatingActions() {
@@ -14,20 +15,20 @@ export function FloatingActions() {
   }, []);
 
   return (
-    <>
+    <div className="fab-safe pointer-events-none fixed inset-x-0 bottom-0 z-40">
       <button
         type="button"
         onClick={open}
-        className="fixed bottom-24 right-4 z-40 hidden rounded-full bg-primary px-5 py-2.5 text-xs font-semibold text-white shadow-lg transition-colors hover:bg-[#0201cc] md:block"
+        className="pointer-events-auto fixed bottom-[4.5rem] right-4 rounded-full bg-accent px-4 py-2.5 text-xs font-semibold text-text shadow-lg transition-colors hover:bg-accent/90 md:bottom-6 md:px-5 md:text-sm"
       >
-        Get a Quote
+        Get Quote
       </button>
 
       <a
-        href="https://wa.me/919999092934"
+        href={`https://wa.me/${site.whatsapp}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105 hover:bg-[#1da851]"
+        className="pointer-events-auto fixed bottom-4 right-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105 hover:bg-[#1da851] md:bottom-6"
         aria-label="WhatsApp"
       >
         <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
@@ -39,7 +40,7 @@ export function FloatingActions() {
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-20 right-4 z-40 flex h-10 w-10 items-center justify-center rounded-full bg-text text-white shadow-lg hover:bg-text-muted md:bottom-4 md:right-20"
+          className="pointer-events-auto fixed bottom-[8.5rem] right-4 flex h-10 w-10 items-center justify-center rounded-full bg-text text-white shadow-lg hover:bg-text-muted md:bottom-6 md:right-[7.5rem]"
           aria-label="Scroll to top"
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,6 +48,6 @@ export function FloatingActions() {
           </svg>
         </button>
       )}
-    </>
+    </div>
   );
 }
