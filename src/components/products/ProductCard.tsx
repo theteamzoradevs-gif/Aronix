@@ -7,6 +7,7 @@ import { formatPrice } from "@/lib/utils";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { productCategoryLabels } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { resolveDisplayImage } from "@/lib/gallery";
 import { site } from "@/lib/data";
 
 interface ProductCardProps {
@@ -15,6 +16,7 @@ interface ProductCardProps {
   showCategory?: boolean;
   layout?: "grid" | "slider";
   compact?: boolean;
+  imageOverride?: string;
 }
 
 export function ProductCard({
@@ -23,11 +25,12 @@ export function ProductCard({
   showCategory = false,
   layout = "grid",
   compact = false,
+  imageOverride,
 }: ProductCardProps) {
   const { open } = useQuoteModal();
 
   return (
-    <div className={cn("group", layout === "slider" && "px-2.5")}>
+    <div className={cn("group h-full", layout === "slider" && "px-2.5")}>
       <div className="card-premium flex h-full flex-col overflow-hidden">
         <Link href={`/product/${product.slug}`} className="block">
           <div
@@ -37,7 +40,7 @@ export function ProductCard({
             )}
           >
             <SiteImage
-              src={product.image}
+              src={imageOverride ?? resolveDisplayImage(product.image, product.slug)}
               alt={product.title}
               fill
               sizes="(max-width: 640px) 72vw, (max-width: 1024px) 33vw, 20vw"
@@ -81,7 +84,7 @@ export function ProductCard({
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "flex shrink-0 items-center justify-center rounded-full border border-border text-[#25D366] transition-colors hover:border-[#25D366] hover:bg-[#25D366]/5",
+                "flex shrink-0 cursor-pointer items-center justify-center rounded-full border border-border text-[#25D366] transition-colors hover:border-[#25D366] hover:bg-[#25D366]/5",
                 compact ? "h-8 w-8" : "h-10 w-10"
               )}
               aria-label="WhatsApp"

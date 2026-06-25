@@ -15,7 +15,7 @@
   ],
   "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.198!2d77.536!3d28.474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5c8b8b8b8b9%3A0x0!2sGreater%20Noida!5e0!3m2!1sen!2sin!4v1699000000000",
   "directionsUrl": "https://maps.google.com/?q=Khata+no+276+Village+makora+gol+chakar+Gautam+Buddha+nagar+Uttar+Pradesh+201306",
-  "logo": "/assets/2025/10/Untitled-design-2025-10-09T174359.888.png",
+  "logo": "/assets/brand/logo.png?v=2",
   "social": {
     "facebook": "https://www.facebook.com/",
     "linkedin": "https://www.linkedin.com/",
@@ -25,6 +25,7 @@
     "title": "IndiaMART Certification",
     "subtitle": "Trust Seal Verified"
   },
+  "indiamartUrl": "https://www.indiamart.com/aronix-infra/",
   "footerMeta": {
     "employees": "11 to 25 People",
     "gstRegistrationDate": "23-08-2023"
@@ -171,12 +172,18 @@
     "ms-portable-security-guard-cabin"
   ],
   "albumImages": [
-    "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png",
-    "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg",
-    "/assets/2025/10/Untitled-design-2025-10-09T113233.303.png",
-    "/assets/2025/10/Untitled-design-2025-10-09T174359.888.png",
-    "/assets/2025/10/Untitled-design-2025-10-09T174216.396.png",
-    "/assets/2025/10/Untitled-design-2025-10-09T174055.467.png"
+    "/assets/gallery/product-28.jpg",
+    "/assets/gallery/product-30.jpg",
+    "/assets/gallery/product-32.jpg",
+    "/assets/gallery/product-36.jpg",
+    "/assets/gallery/product-39.jpg",
+    "/assets/gallery/product-24.jpg",
+    "/assets/gallery/product-25.jpg",
+    "/assets/gallery/product-27.jpg",
+    "/assets/gallery/product-31.jpg",
+    "/assets/gallery/product-33.jpg",
+    "/assets/gallery/product-35.jpg",
+    "/assets/gallery/product-40.jpg"
   ],
   "hsnCodes": [
     {"code": "6910", "description": "Ceramic sinks, wash basins, wash basin pedestals, baths, bidets, water closet pans, flushing cisterns, urinals and similar sanitary fixtures"},
@@ -303,7 +310,7 @@
       { "title": "7–15 Day Delivery Window", "desc": "Committed production and logistics for rapid site deployment." }
     ]
   },
-  "chatbotGreeting": "Hi! I'm here to help with portable cabins and containers. Ask about delivery, pricing, or products — or tap a quick topic below.",
+  "chatbotGreeting": "Hi! I'm here to help with portable cabins and containers. For queries, call us at 9999092934. Ask about delivery, pricing, or products — or tap a quick topic below.",
   "chatbotFallback": "I don't have a specific answer for that. Our team can help — request a quote or message us on WhatsApp for a response within 24 hours.",
   "chatbotIntents": [
     {

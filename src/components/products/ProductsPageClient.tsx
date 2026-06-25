@@ -53,7 +53,7 @@ export function ProductsPageClient() {
 
       <div
         ref={filterRef}
-        className="sticky top-[var(--header-height)] z-30 border-b border-border-light bg-white/95 backdrop-blur-md"
+        className="sticky top-[var(--header-total-offset)] z-30 border-b border-border-light bg-white/95 backdrop-blur-md"
       >
         <Container className="py-3">
           <div className="-mx-4 overflow-x-auto px-4 md:mx-0 md:px-0">

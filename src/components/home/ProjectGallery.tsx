@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { projects, projectCategoryLabels } from "@/lib/data";
+import { resolveDisplayImage } from "@/lib/gallery";
 import type { ProjectCategory } from "@/types";
 import { Container } from "@/components/ui/Container";
 import { EditorialHeader } from "@/components/ui/EditorialHeader";
@@ -114,7 +115,7 @@ export function ProjectGallery({
                   )}
                 >
                   <SiteImage
-                    src={project.image}
+                    src={resolveDisplayImage(project.image, project.id)}
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"

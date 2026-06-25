@@ -36,7 +36,11 @@ export function resolveImageSrc(src: string | null | undefined, width = 800): st
 
   if (
     src.startsWith("/assets/") &&
-    (VALID_LOCAL.has(filename) || src.startsWith("/assets/team/"))
+    (VALID_LOCAL.has(filename) ||
+      src.startsWith("/assets/team/") ||
+      src.startsWith("/assets/gallery/") ||
+      src.startsWith("/assets/brand/") ||
+      filename === "logo.png")
   ) {
     return src;
   }
@@ -45,6 +49,12 @@ export function resolveImageSrc(src: string | null | undefined, width = 800): st
 }
 
 export function resolveImageFallback(src: string | null | undefined, width = 800): string {
-  if (src?.startsWith("/assets/team/")) return src;
+  if (
+    src?.startsWith("/assets/team/") ||
+    src?.startsWith("/assets/gallery/") ||
+    src?.startsWith("/assets/brand/")
+  ) {
+    return src;
+  }
   return proxyUrl(src ? toRemotePath(src) : DEFAULT_IMAGE, width);
 }

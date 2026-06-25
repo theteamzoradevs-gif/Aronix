@@ -30,11 +30,14 @@
 
   html {
     scroll-behavior: smooth;
+    --trust-bar-height: 36px;
     --header-height: 72px;
+    --header-total-offset: calc(var(--trust-bar-height) + var(--header-height));
   }
 
   @media (min-width: 768px) {
     html {
+      --trust-bar-height: 40px;
       --header-height: 80px;
     }
   }
@@ -120,8 +123,39 @@
     @apply w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/45 outline-none transition-all focus:border-accent/60 focus:bg-white/15 focus:ring-2 focus:ring-accent/20;
   }
 
+  .hero-form-input.form-input-error {
+    @apply border-red-400 focus:border-red-400 focus:ring-red-400/20;
+  }
+
+  .hero-form-input.form-input-valid {
+    @apply border-green-400 focus:border-green-400 focus:ring-green-400/20;
+  }
+
   .popup-form-input {
     @apply w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-text outline-none transition-all focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/15;
+  }
+
+  .form-input-error {
+    @apply border-red-500 bg-white focus:border-red-500 focus:ring-red-500/15;
+  }
+
+  .form-input-valid {
+    @apply border-green-500 bg-white focus:border-green-500 focus:ring-green-500/15;
+  }
+
+  button,
+  [role="button"],
+  .btn-primary,
+  .btn-accent,
+  .quote-btn,
+  .hero-cta,
+  a.btn-primary,
+  a.btn-accent {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
   }
 
   .section-editorial {
@@ -233,15 +267,15 @@
   }
 
   .quote-btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-border-dark bg-transparent px-6 py-2.5 text-sm font-medium text-text-muted transition-all hover:border-border-dark hover:bg-border-dark hover:text-white;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-border-dark bg-transparent px-6 py-2.5 text-sm font-medium text-text-muted transition-all hover:border-border-dark hover:bg-border-dark hover:text-white;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#16304f];
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#16304f];
   }
 
   .btn-accent {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-text shadow-sm transition-colors hover:bg-accent/90;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-text shadow-sm transition-colors hover:bg-accent/90;
   }
 
   .hsn-table th {
@@ -354,7 +388,12 @@
 .testimonials-swiper .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
+  background: rgba(0, 0, 0, 0.15) !important;
   transition: background 0.3s ease;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  background: var(--color-primary) !important;
 }
 
 .testimonials-swiper-dark .swiper-pagination-bullet {

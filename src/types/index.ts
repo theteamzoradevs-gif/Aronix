@@ -91,6 +91,7 @@ export interface SiteConfig {
   logo: string;
   social: { facebook: string; linkedin: string; twitter: string };
   certification: { title: string; subtitle: string };
+  indiamartUrl?: string;
   footerMeta: { employees: string; gstRegistrationDate: string };
   tagline: string;
   heroHeadline: string;

@@ -12,6 +12,6 @@ export function Main({
   const isHome = pathname === "/";
 
   return (
-    <main className={cn(!isHome && "pt-[var(--header-height)]")}>{children}</main>
+    <main className={cn(!isHome && "pt-[var(--header-total-offset)]")}>{children}</main>
   );
 }

@@ -1,21 +1,15 @@
 import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
 import { EditorialHeader } from "@/components/ui/EditorialHeader";
-import { ContactCards } from "@/components/contact/ContactCards";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { QuickActions } from "@/components/about/QuickActions";
-import { AboutProductsSection } from "@/components/about/AboutProductsSection";
-import { ContactCta } from "@/components/home/ContactCta";
+import { ContactSidebar, ContactMapPanel } from "@/components/contact/ContactSidebar";
 import { MotionReveal } from "@/components/motion/MotionReveal";
-import { site, getProductsBySlugs } from "@/lib/data";
 
 export const metadata = {
   title: "Contact Us - aronixinfra.com",
 };
 
 export default function ContactPage() {
-  const sliderProducts = getProductsBySlugs(site.sliderProductSlugs);
-
   return (
     <>
       <PageHero>
@@ -32,31 +26,23 @@ export default function ContactPage() {
         </MotionReveal>
       </PageHero>
 
-      <section className="section-white section-editorial">
-        <ContactCards />
-        <ContactForm />
-      </section>
-
-      <section className="section-band-light section-editorial border-t border-border-light">
+      <section className="section-white section-compact border-b border-border-light">
         <Container>
-          <MotionReveal>
-            <div className="overflow-hidden rounded-3xl border border-border-light bg-white shadow-[var(--shadow-card)]">
-              <iframe
-                src={site.mapUrl}
-                title="Location Map"
-                className="aspect-video w-full"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </MotionReveal>
+          <div className="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">
+            <MotionReveal>
+              <ContactSidebar />
+            </MotionReveal>
+
+            <MotionReveal delay={0.06}>
+              <ContactForm />
+            </MotionReveal>
+
+            <MotionReveal delay={0.1} className="lg:col-span-2">
+              <ContactMapPanel className="min-h-[320px] lg:min-h-[420px]" />
+            </MotionReveal>
+          </div>
         </Container>
       </section>
-
-      <QuickActions />
-      <AboutProductsSection products={sliderProducts} />
-      <ContactCta />
     </>
   );
 }

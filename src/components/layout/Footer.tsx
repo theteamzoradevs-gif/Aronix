@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
+import { IndiaMARTBadge } from "@/components/ui/IndiaMARTBadge";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { navItems } from "./TopBar";
 
 const productLinks = [
@@ -15,56 +18,32 @@ export function Footer() {
   return (
     <footer className="bg-dark text-white">
       <div className="border-b border-white/10 bg-[#141428]">
-        <Container className="flex flex-col items-center justify-between gap-4 py-5 md:flex-row">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-            {site.trustBadges.slice(0, 4).map((badge) => (
-              <span key={badge.label} className="flex items-center gap-2 text-white/80">
-                <CheckIcon />
-                {badge.label}
-              </span>
-            ))}
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-3 text-sm">
-            <a href={`tel:${site.phone}`} className="font-semibold text-accent hover:text-accent/90">
-              {site.phone}
-            </a>
-            <a
-              href={`https://wa.me/${site.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/80 hover:text-white"
-            >
-              WhatsApp
-            </a>
-          </div>
+        <Container className="flex items-center justify-center gap-3 py-4 md:justify-end md:py-5">
+          <a href={`tel:${site.phone}`} className="text-sm font-semibold text-accent hover:text-accent/90">
+            {site.phone}
+          </a>
+          <a
+            href={`https://wa.me/${site.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex cursor-pointer items-center justify-center rounded-full border border-[#25D366]/40 bg-[#25D366]/10 p-2 text-[#25D366] transition-colors hover:bg-[#25D366]/20"
+            aria-label="WhatsApp"
+          >
+            <WhatsAppIcon />
+          </a>
         </Container>
       </div>
 
-      <Container className="py-14 md:py-16">
-        <div className="flex flex-col gap-4 border-b border-white/10 pb-8 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-lg font-semibold">Aronix Infra</p>
-            <p className="mt-1 text-sm text-gray-400">{site.tagline}</p>
-          </div>
-          <div className="flex flex-wrap gap-4 text-sm">
-            <a href={`tel:${site.phone}`} className="font-medium hover:text-primary">
-              {site.phone}
-            </a>
-            <a href={`mailto:${site.email}`} className="text-gray-300 hover:text-white">
-              {site.email}
-            </a>
-          </div>
-        </div>
-
-        <div className="grid gap-10 py-10 md:grid-cols-2 lg:grid-cols-4">
-          <div>
+      <Container className="py-12 md:py-14">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <div className="sm:col-span-1">
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
               Company
             </h3>
             <ul className="space-y-2.5 text-sm text-gray-300">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-white">
+                  <Link href={item.href} className="transition-colors hover:text-white">
                     {item.label}
                   </Link>
                 </li>
@@ -79,7 +58,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm text-gray-300">
               {productLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-white">
+                  <Link href={item.href} className="transition-colors hover:text-white">
                     {item.label}
                   </Link>
                 </li>
@@ -92,7 +71,7 @@ export function Footer() {
               Certification
             </h3>
             <p className="text-sm font-medium text-white">{site.certification.title}</p>
-            <p className="mt-1 text-sm text-gray-300">{site.certification.subtitle}</p>
+            <p className="mt-1 text-sm leading-relaxed text-gray-300">{site.certification.subtitle}</p>
             <div className="mt-4 space-y-2 text-sm text-gray-300">
               <p>GST: {site.gst}</p>
               <p>MSME Approved</p>
@@ -124,7 +103,41 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-gray-400 md:flex-row">
+        <div className="mt-12 border-t border-white/10 pt-10">
+          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-6 lg:gap-10">
+            <Link
+              href="/"
+              className="relative mx-auto h-28 w-56 shrink-0 md:mx-0 md:h-32 md:w-64 md:justify-self-start"
+            >
+              <Image
+                src={site.logo}
+                alt="Aronix Infra"
+                fill
+                className="object-contain object-center md:object-left"
+                sizes="(max-width: 768px) 224px, 256px"
+                unoptimized
+              />
+            </Link>
+
+            <div className="mx-auto grid max-w-sm grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2 md:max-w-md lg:max-w-lg">
+              {site.trustBadges.slice(0, 4).map((badge) => (
+                <span
+                  key={badge.label}
+                  className="flex items-center justify-center gap-2 text-center text-xs text-white/80 sm:justify-start sm:text-left md:text-sm"
+                >
+                  <CheckIcon />
+                  <span>{badge.label}</span>
+                </span>
+              ))}
+            </div>
+
+            <div className="flex shrink-0 items-center justify-center md:justify-self-end">
+              <IndiaMARTBadge size="2xl" />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-center text-sm text-gray-400 md:flex-row md:text-left">
           <p>Copyright © Aronix Infra. All rights reserved.</p>
           <div className="flex gap-4">
             <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white">
@@ -145,7 +158,7 @@ export function Footer() {
 
 function CheckIcon() {
   return (
-    <svg className="h-4 w-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
     </svg>
   );
