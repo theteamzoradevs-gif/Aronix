@@ -11,14 +11,14 @@ const actions = [
 
 export function QuickActions() {
   return (
-    <section className="py-10">
+    <section className="section-band-light section-compact border-t border-border-light">
       <Container>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
           {actions.map((action) => {
             const content = (
-              <div className="flex flex-col items-center rounded border border-border bg-white p-6 text-center shadow-[0_4px_14px_rgba(46,43,146,0.06)] transition-colors hover:border-primary">
+              <div className="card-premium flex flex-col items-center p-6 text-center md:p-8">
                 <span className="mb-3 text-3xl">{action.icon}</span>
-                <h3 className="text-sm font-semibold text-text">{action.label}</h3>
+                <h3 className="font-display text-sm font-semibold text-ink">{action.label}</h3>
               </div>
             );
 

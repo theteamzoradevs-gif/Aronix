@@ -1,9 +1,10 @@
 import { site } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
+import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { SiteImage } from "@/components/ui/SiteImage";
+import { MotionReveal } from "@/components/motion/MotionReveal";
+import { StaggerChildren, StaggerItem } from "@/components/motion/StaggerChildren";
 import { QuoteButton } from "@/components/products/QuoteButton";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const advantageIcons = [
   <svg key="0" className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -21,110 +22,79 @@ const advantageIcons = [
   </svg>,
 ];
 
-const qualityIcons = [
-  <svg key="q0" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-  </svg>,
-  <svg key="q1" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-  </svg>,
-  <svg key="q2" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-  </svg>,
-  <svg key="q3" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>,
-];
-
 export function WhyChooseUs() {
-  const { whyChooseUs, qualityAssurance, trustedBy } = site;
-  const factoryImage = site.albumImages[1] || site.heroImages[0];
+  const { whyChooseUs } = site;
+  const factoryImage = "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg";
 
   return (
-    <section className="section-padding section-white">
-      <Container>
-        <ScrollReveal>
-          <SectionLabel>Why choose us</SectionLabel>
-          <h2 className="section-heading-left">{whyChooseUs.title}</h2>
-          <span className="section-heading-underline-left" />
-          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-text-muted md:text-base">
-            {whyChooseUs.intro}
-          </p>
-        </ScrollReveal>
+    <section className="section-compact relative overflow-hidden bg-ink text-white md:py-16">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.04]">
+        <div
+          className="h-full w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+      </div>
+      <div className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
 
-        {/* Mobile image banner */}
-        <div className="relative mt-8 h-56 overflow-hidden rounded-xl border border-border shadow-md lg:hidden">
-          <SiteImage
-            src={factoryImage}
-            alt="Aronix Infra manufacturing facility"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-
-        <div className="mt-8 grid items-stretch gap-8 lg:mt-12 lg:grid-cols-2 lg:gap-12">
-          <div className="flex flex-col">
-            <div className="grid gap-3 sm:grid-cols-2">
-              {whyChooseUs.advantages.map((item, i) => (
-                <div key={item.title} className="card-surface card-hover-lift p-4">
-                  <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    {advantageIcons[i]}
-                  </div>
-                  <h3 className="text-sm font-semibold text-text">{item.title}</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-text-muted">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop sticky image */}
-          <div className="relative hidden min-h-[480px] overflow-hidden rounded-xl border border-border shadow-md lg:block lg:min-h-full lg:sticky lg:top-28 lg:self-start">
-            <SiteImage
-              src={factoryImage}
-              alt="Aronix Infra manufacturing facility"
-              fill
-              sizes="50vw"
-              className="object-cover"
+      <Container className="relative">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <MotionReveal>
+            <EditorialHeader
+              label="Why Aronix"
+              title="Factory-direct portable infrastructure"
+              subtitle={whyChooseUs.title}
+              description={whyChooseUs.intro}
+              dark
+              prominentLabel
             />
-          </div>
-        </div>
-
-        <ScrollReveal className="mt-12">
-          <div className="rounded-xl border border-border bg-surface p-6 md:p-8">
-            <h3 className="text-xl font-bold text-text md:text-2xl">{qualityAssurance.title}</h3>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-muted">
-              {qualityAssurance.intro}
-            </p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {qualityAssurance.items.map((item, i) => (
-                <div key={item.title} className="card-hover-lift rounded-lg bg-white p-4 shadow-sm">
-                  <div className="mb-2 text-primary">{qualityIcons[i]}</div>
-                  <h4 className="text-sm font-semibold text-text">{item.title}</h4>
-                  <p className="mt-1 text-xs leading-relaxed text-text-muted">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 border-t border-border pt-8">
-              <p className="text-center text-sm font-medium text-text-muted">{trustedBy.title}</p>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {trustedBy.advantages.map((item) => (
-                  <div
-                    key={item.title}
-                    className="card-hover-lift rounded-lg border border-border bg-white p-4 text-left"
-                  >
-                    <h4 className="text-sm font-semibold text-text">{item.title}</h4>
-                    <p className="mt-1 text-xs text-text-muted">{item.desc}</p>
+            <StaggerChildren className="mt-8 grid gap-3 sm:grid-cols-2">
+              {whyChooseUs.advantages.map((item, i) => (
+                <StaggerItem key={item.title}>
+                  <div className="h-full rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-colors hover:border-accent/30 hover:bg-white/8">
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15 text-accent">
+                      {advantageIcons[i]}
+                    </div>
+                    <h3 className="font-display text-card-title font-bold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-body-sm text-white/55">{item.desc}</p>
                   </div>
-                ))}
-              </div>
-              <div className="mt-8 text-center">
-                <QuoteButton variant="primary" />
+                </StaggerItem>
+              ))}
+            </StaggerChildren>
+            <div className="mt-8">
+              <QuoteButton variant="hero" />
+            </div>
+          </MotionReveal>
+
+          <MotionReveal direction="left">
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
+              <div className="relative aspect-[4/3] w-full lg:aspect-square">
+                <SiteImage
+                  src={factoryImage}
+                  alt="Aronix Infra shipping container manufacturing"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="text-label text-accent">Factory direct</p>
+                  <p className="mt-1 font-display text-card-title font-bold text-white">
+                    Greater Noida manufacturing unit
+                  </p>
+                  <p className="mt-1 text-body-sm text-white/60">
+                    MS steel frames · QC before dispatch · Pan-India logistics
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </MotionReveal>
+        </div>
       </Container>
     </section>
   );

@@ -42,13 +42,13 @@ export function ContactCards() {
             href={card.href}
             target={card.href.startsWith("http") ? "_blank" : undefined}
             rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="card-surface group flex flex-col items-center p-8 text-center transition-shadow hover:shadow-lg"
+            className="card-premium group flex flex-col items-center p-8 text-center"
           >
             <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/15 text-text transition-colors group-hover:bg-accent">
               {cardIcons[i]}
             </span>
-            <h3 className="text-base font-bold text-text md:text-lg">{card.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-text-muted">{card.subtitle}</p>
+            <h3 className="font-display text-base font-semibold text-ink md:text-lg">{card.title}</h3>
+            <p className="mt-2 text-description text-text-muted">{card.subtitle}</p>
           </a>
         ))}
       </div>

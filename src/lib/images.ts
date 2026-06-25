@@ -34,7 +34,10 @@ export function resolveImageSrc(src: string | null | undefined, width = 800): st
 
   const filename = src.split("/").pop() || "";
 
-  if (src.startsWith("/assets/") && VALID_LOCAL.has(filename)) {
+  if (
+    src.startsWith("/assets/") &&
+    (VALID_LOCAL.has(filename) || src.startsWith("/assets/team/"))
+  ) {
     return src;
   }
 
@@ -42,5 +45,6 @@ export function resolveImageSrc(src: string | null | undefined, width = 800): st
 }
 
 export function resolveImageFallback(src: string | null | undefined, width = 800): string {
+  if (src?.startsWith("/assets/team/")) return src;
   return proxyUrl(src ? toRemotePath(src) : DEFAULT_IMAGE, width);
 }

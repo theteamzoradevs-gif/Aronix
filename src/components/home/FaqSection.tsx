@@ -1,23 +1,25 @@
 import { site } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
-import { SectionHeader } from "@/components/ui/SectionBadge";
+import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { FaqAccordion, FaqAskButton } from "@/components/ui/FaqAccordion";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 
 export function FaqSection() {
   return (
-    <section id="faqs" className="section-padding section-white">
+    <section id="faqs" className="section-editorial section-white">
       <Container>
-        <ScrollReveal>
+        <MotionReveal>
           <div className="mx-auto max-w-3xl">
-            <SectionHeader
-              badge="FAQs"
-              title="Frequently asked questions"
-              subtitle="Common questions about our portable cabins, shipping containers, and delivery process."
+            <EditorialHeader
+              label="FAQs"
+              title="Questions about delivery, pricing & specifications?"
+              subtitle="Everything you need to know before placing an order."
+              description="Common questions about our portable cabins, shipping containers, and delivery process."
               align="center"
+              prominentLabel
             />
           </div>
-        </ScrollReveal>
+        </MotionReveal>
         <div className="mx-auto mt-10 max-w-3xl">
           <FaqAccordion items={site.faqs} />
           <FaqAskButton />
