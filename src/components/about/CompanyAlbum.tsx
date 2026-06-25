@@ -1,6 +1,6 @@
 "use client";
 
-import { site } from "@/lib/data";
+import { companyAlbumImages } from "@/lib/gallery";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionBadge";
@@ -10,7 +10,7 @@ import { MotionReveal } from "@/components/motion/MotionReveal";
 const albumWidths = [200, 280, 220, 260, 180, 300, 240, 210, 270];
 
 export function CompanyAlbum() {
-  const items = [...site.albumImages, ...site.albumImages].map((img, i) => ({
+  const items = [...companyAlbumImages, ...companyAlbumImages].map((img, i) => ({
     src: img,
     width: albumWidths[i % albumWidths.length],
   }));
@@ -39,7 +39,7 @@ export function CompanyAlbum() {
             >
               <SiteImage
                 src={item.src}
-                alt={`Aronix Infra album ${(i % site.albumImages.length) + 1}`}
+                alt={`Aronix Infra album ${(i % companyAlbumImages.length) + 1}`}
                 fill
                 sizes={`${item.width}px`}
                 className="object-cover"

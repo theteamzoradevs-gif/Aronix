@@ -1,30 +1,24 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { TrustStats } from "@/components/home/TrustStats";
-import { SolutionShowcase } from "@/components/home/SolutionShowcase";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { HomeProjectsGrid } from "@/components/home/HomeProjectsGrid";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
-import { ProjectGallery } from "@/components/home/ProjectGallery";
-import { ProcessJourney } from "@/components/home/ProcessJourney";
+import { ClientsMarquee } from "@/components/home/ClientsMarquee";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { TestimonialsCarousel } from "@/components/home/TestimonialsCarousel";
-import { FaqSection } from "@/components/home/FaqSection";
-import { ContactCta } from "@/components/home/ContactCta";
+import { PrefabComparison } from "@/components/home/PrefabComparison";
 import { site, getProductsBySlugs } from "@/lib/data";
 
 export default function HomePage() {
-  const featuredProducts = getProductsBySlugs(site.featuredProductSlugs).slice(0, 6);
+  const featuredProducts = getProductsBySlugs(site.homeProductSlugs).slice(0, 9);
 
   return (
     <>
       <HeroSection />
-      <TrustStats />
-      <SolutionShowcase />
-      <WhyChooseUs />
+      <HomeProjectsGrid />
       <FeaturedProducts products={featuredProducts} />
-      <ProjectGallery limit={6} showFilters={false} />
-      <ProcessJourney />
+      <ClientsMarquee />
+      <WhyChooseUs />
       <TestimonialsCarousel />
-      <FaqSection />
-      <ContactCta />
+      <PrefabComparison />
     </>
   );
 }

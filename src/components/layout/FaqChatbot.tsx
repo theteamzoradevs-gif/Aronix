@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { site } from "@/lib/data";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { cn } from "@/lib/utils";
 
 interface ChatMessage {
@@ -49,7 +50,7 @@ export function FaqChatbot() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="pointer-events-auto fixed bottom-4 left-4 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-transform hover:scale-105 md:bottom-6 md:left-6"
+        className="pointer-events-auto fixed bottom-20 right-4 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-primary text-white shadow-lg transition-transform hover:scale-105 md:bottom-6 md:right-6"
         aria-label={open ? "Close chat" : "Open FAQ chat"}
       >
         {open ? (
@@ -69,7 +70,7 @@ export function FaqChatbot() {
       </button>
 
       {open && (
-        <div className="pointer-events-auto fixed bottom-[5.5rem] left-4 z-40 flex w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-xl border border-border bg-white shadow-2xl md:bottom-24 md:left-6">
+        <div className="pointer-events-auto fixed bottom-[8.5rem] right-4 z-40 flex w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-xl border border-border bg-white shadow-2xl md:bottom-24 md:right-6">
           <div className="bg-dark px-4 py-3">
             <p className="text-sm font-semibold text-white">Aronix FAQ Assistant</p>
             <p className="text-xs text-white/70">Delivery, pricing, products & more</p>
@@ -97,7 +98,7 @@ export function FaqChatbot() {
                 key={intent.id}
                 type="button"
                 onClick={() => handleChip(intent.id)}
-                className="rounded-full border border-border bg-white px-2.5 py-1 text-[11px] font-medium text-text-muted hover:border-primary hover:text-primary"
+                className="cursor-pointer rounded-full border border-border bg-white px-2.5 py-1 text-[11px] font-medium text-text-muted hover:border-primary hover:text-primary"
               >
                 {intent.label}
               </button>
@@ -118,7 +119,7 @@ export function FaqChatbot() {
               placeholder="Ask a question..."
               className="flex-1 rounded-lg border border-border px-3 py-2 text-sm outline-none focus:border-primary"
             />
-            <button type="submit" className="rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-text">
+            <button type="submit" className="cursor-pointer rounded-lg bg-accent px-3 py-2 text-sm font-semibold text-text">
               Send
             </button>
           </form>
@@ -130,7 +131,7 @@ export function FaqChatbot() {
                 openWithMessage("I'd like to request a quote.");
                 setOpen(false);
               }}
-              className="flex-1 rounded-lg bg-primary py-2 text-xs font-semibold text-white"
+              className="flex-1 cursor-pointer rounded-lg bg-primary py-2 text-xs font-semibold text-white"
             >
               Get Quote
             </button>
@@ -138,9 +139,10 @@ export function FaqChatbot() {
               href={`https://wa.me/${site.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 rounded-lg border border-[#25D366] py-2 text-center text-xs font-semibold text-[#1a9e4a]"
+              className="flex flex-1 cursor-pointer items-center justify-center rounded-lg border border-[#25D366] py-2 text-[#1a9e4a]"
+              aria-label="WhatsApp"
             >
-              WhatsApp
+              <WhatsAppIcon className="h-5 w-5" />
             </a>
           </div>
         </div>

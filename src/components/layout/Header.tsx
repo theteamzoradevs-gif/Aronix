@@ -12,17 +12,16 @@ import { MobileMenu } from "./MobileMenu";
 
 function BrandLogo() {
   return (
-    <Link href="/" className="flex shrink-0 items-center gap-3 text-white">
-      <span className="relative h-9 w-9 overflow-hidden rounded-lg bg-white/10 ring-1 ring-white/20">
-        <Image
-          src={site.logo}
-          alt="Aronix Infra"
-          fill
-          className="object-contain p-1"
-          sizes="36px"
-        />
-      </span>
-      <span className="font-display text-[17px] font-semibold tracking-tight">Aronix Infra</span>
+    <Link href="/" className="relative block h-14 w-40 shrink-0 md:h-16 md:w-48">
+      <Image
+        src={site.logo}
+        alt="Aronix Infra"
+        fill
+        className="object-contain object-left"
+        sizes="(max-width: 768px) 160px, 192px"
+        priority
+        unoptimized
+      />
     </Link>
   );
 }
@@ -54,7 +53,7 @@ export function Header() {
 
   return (
     <>
-      <header className={cn("fixed left-0 right-0 top-0 z-50 transition-all duration-300", navClass)}>
+      <header className={cn("fixed left-0 right-0 top-[var(--trust-bar-height)] z-50 transition-all duration-300", navClass)}>
         <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-3.5 md:px-6 md:py-4">
           <BrandLogo />
 
@@ -88,14 +87,14 @@ export function Header() {
             <button
               type="button"
               onClick={open}
-              className="hidden rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:bg-accent/90 md:inline-flex"
+              className="hidden cursor-pointer rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:bg-accent/90 md:inline-flex"
             >
               Get Quote
             </button>
 
             <button
               type="button"
-              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg border border-white/20 bg-white/5 xl:hidden"
+              className="flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-1.5 rounded-lg border border-white/20 bg-white/5 xl:hidden"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >

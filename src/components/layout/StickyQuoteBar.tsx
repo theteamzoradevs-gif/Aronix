@@ -27,13 +27,13 @@ export function StickyQuoteBar() {
         <button
           type="button"
           onClick={open}
-          className="flex-1 rounded-full bg-accent py-3 text-sm font-semibold text-ink"
+          className="flex-1 cursor-pointer rounded-full bg-accent py-3 text-sm font-semibold text-ink"
         >
           Get Free Quote
         </button>
         <a
           href={`tel:${site.phone}`}
-          className="flex items-center justify-center rounded-full border border-border px-4 py-3 text-sm font-semibold text-primary"
+          className="flex cursor-pointer items-center justify-center rounded-full border border-border px-4 py-3 text-sm font-semibold text-primary"
           aria-label="Call"
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

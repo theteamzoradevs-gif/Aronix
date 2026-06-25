@@ -60,7 +60,7 @@ export function QuoteButton({
     }
 
     return (
-      <button type="button" onClick={open} className={classes}>
+      <button type="button" onClick={open} className={cn(classes, "cursor-pointer")}>
         {inner}
       </button>
     );
@@ -70,7 +70,7 @@ export function QuoteButton({
     <button
       type="button"
       onClick={open}
-      className={cn(variant === "primary" ? "btn-primary" : "quote-btn", className)}
+      className={cn(variant === "primary" ? "btn-primary" : "quote-btn", "cursor-pointer", className)}
     >
       {children}
     </button>

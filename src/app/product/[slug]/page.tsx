@@ -13,7 +13,9 @@ import {
   site,
 } from "@/lib/data";
 import { formatPrice } from "@/lib/utils";
+import { resolveDisplayImage } from "@/lib/gallery";
 import { QuoteButton } from "@/components/products/QuoteButton";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -77,7 +79,7 @@ export default async function ProductPage({
             <MotionReveal direction="left">
               <div className="overflow-hidden rounded-3xl bg-surface shadow-[var(--shadow-card)]">
                 <SiteImage
-                  src={product.image}
+                  src={resolveDisplayImage(product.image, product.slug)}
                   alt={product.title}
                   className="aspect-square w-full object-cover"
                 />
@@ -129,9 +131,10 @@ export default async function ProductPage({
                     href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in ${product.title}. Please share a quote.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 px-6 py-3 text-sm font-semibold text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20"
+                    className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20"
+                    aria-label="WhatsApp"
                   >
-                    WhatsApp
+                    <WhatsAppIcon />
                   </a>
                   <Link href="/contact-us" className="btn-accent">
                     Contact us

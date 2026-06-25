@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { TrustTopBar } from "@/components/layout/TrustTopBar";
 import { Header } from "@/components/layout/Header";
 import { Main } from "@/components/layout/Main";
 import { Footer } from "@/components/layout/Footer";
 import { QuoteModal } from "@/components/layout/QuoteModal";
-import { FloatingActions } from "@/components/layout/FloatingActions";
 import { FaqChatbot } from "@/components/layout/FaqChatbot";
 import { StickyQuoteBar } from "@/components/layout/StickyQuoteBar";
 import { LeadPopup } from "@/components/layout/LeadPopup";
+import { IndiaMARTTrustFloat } from "@/components/layout/IndiaMARTTrustFloat";
 import { QuoteModalProvider } from "@/context/QuoteModalContext";
 import "@/styles/globals.css";
 
@@ -38,14 +39,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${plusJakarta.variable} font-inter antialiased`}>
         <QuoteModalProvider>
+          <TrustTopBar />
           <Header />
           <Main>{children}</Main>
           <Footer />
-          <FloatingActions />
           <StickyQuoteBar />
           <FaqChatbot />
           <QuoteModal />
           <LeadPopup />
+          <IndiaMARTTrustFloat />
         </QuoteModalProvider>
       </body>
     </html>
