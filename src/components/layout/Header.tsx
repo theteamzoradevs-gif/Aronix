@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { site } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { useQuoteModal } from "@/context/QuoteModalContext";
@@ -11,18 +12,17 @@ import { MobileMenu } from "./MobileMenu";
 
 function BrandLogo() {
   return (
-    <Link href="/" className="flex shrink-0 items-center gap-2.5 text-white">
-      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent shadow-sm">
-        <svg className="h-5 w-5 text-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.75}
-            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-          />
-        </svg>
+    <Link href="/" className="flex shrink-0 items-center gap-3 text-white">
+      <span className="relative h-9 w-9 overflow-hidden rounded-lg bg-white/10 ring-1 ring-white/20">
+        <Image
+          src={site.logo}
+          alt="Aronix Infra"
+          fill
+          className="object-contain p-1"
+          sizes="36px"
+        />
       </span>
-      <span className="text-[17px] font-semibold tracking-tight">Aronix Infra</span>
+      <span className="font-display text-[17px] font-semibold tracking-tight">Aronix Infra</span>
     </Link>
   );
 }
@@ -30,36 +30,48 @@ function BrandLogo() {
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { open } = useQuoteModal();
   const isHome = pathname === "/";
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 48);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
+  const navClass = isHome
+    ? scrolled
+      ? "nav-scrolled"
+      : "nav-glass"
+    : "nav-solid";
+
   return (
     <>
-      <header
-        className={cn(
-          "fixed left-0 right-0 top-0 z-50",
-          isHome ? "nav-glass" : "nav-solid shadow-lg"
-        )}
-      >
+      <header className={cn("fixed left-0 right-0 top-0 z-50 transition-all duration-300", navClass)}>
         <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-3.5 md:px-6 md:py-4">
           <BrandLogo />
 
-          <nav className="hidden items-center gap-6 xl:flex">
+          <nav className="hidden items-center gap-8 xl:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-[14px] font-medium text-white/80 transition-colors hover:text-white",
+                  "relative text-[14px] font-medium text-white/75 transition-colors hover:text-white",
                   isActive(item.href) && "text-white"
                 )}
               >
                 {item.label}
+                {isActive(item.href) && (
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-accent" />
+                )}
               </Link>
             ))}
           </nav>
@@ -76,7 +88,7 @@ export function Header() {
             <button
               type="button"
               onClick={open}
-              className="hidden rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-text transition-colors hover:bg-accent/90 md:inline-flex"
+              className="hidden rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:bg-accent/90 md:inline-flex"
             >
               Get Quote
             </button>

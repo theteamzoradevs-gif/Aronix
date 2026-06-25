@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
 import { SiteImage } from "@/components/ui/SiteImage";
-import { SectionBadge } from "@/components/ui/SectionBadge";
+import { ContactCta } from "@/components/home/ContactCta";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 import { blogs, getBlogBySlug } from "@/lib/data";
 
 const BLOG_SLUGS = blogs.map((b) => b.slug);
@@ -34,34 +36,38 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <section className="about-cream py-12 md:py-16">
-        <Container>
-          <SectionBadge className="mb-3">Blog</SectionBadge>
-          <Link href="/blogs" className="text-sm text-text-muted hover:text-primary">
+      <PageHero>
+        <MotionReveal>
+          <Link
+            href="/blogs"
+            className="inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-primary"
+          >
             ← Back to all posts
           </Link>
-        </Container>
-      </section>
+        </MotionReveal>
+      </PageHero>
 
-      <section className="pb-16 md:pb-24">
+      <section className="section-white section-editorial pt-0">
         <Container>
           <article className="mx-auto max-w-3xl">
-            <div className="overflow-hidden rounded-[24px] shadow-md">
-              <SiteImage
-                src={blog.image}
-                alt={blog.title}
-                className="aspect-video w-full object-cover"
-              />
-            </div>
-            <time className="mt-8 block text-sm text-text-muted">{blog.date}</time>
-            <h1 className="mt-2 text-[28px] font-bold leading-tight text-text md:text-[36px]">
-              {blog.title}
-            </h1>
+            <MotionReveal>
+              <div className="overflow-hidden rounded-3xl shadow-[var(--shadow-card)]">
+                <SiteImage
+                  src={blog.image}
+                  alt={blog.title}
+                  className="aspect-video w-full object-cover"
+                />
+              </div>
+              <time className="mt-8 block text-body-sm text-text-muted">{blog.date}</time>
+              <h1 className="mt-3 font-display text-section-title text-ink">
+                {blog.title}
+              </h1>
+            </MotionReveal>
             <div
               className="blog-content mt-8"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
-            <div className="mt-10 flex flex-wrap gap-4 border-t border-border pt-8">
+            <div className="mt-10 flex flex-wrap gap-4 border-t border-border-light pt-8">
               <Link href="/contact-us" className="btn-accent">
                 Contact us
               </Link>
@@ -72,6 +78,8 @@ export default async function BlogPostPage({
           </article>
         </Container>
       </section>
+
+      <ContactCta />
     </>
   );
 }

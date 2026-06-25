@@ -111,7 +111,7 @@ export interface SiteConfig {
   contactCta: { title: string; description: string };
   faqs: { q: string; a: string }[];
   aboutText: string;
-  ceo: { name: string; bio: string; image: string };
+  ceo: { name: string; bio: string; image: string; role?: string };
   videoUrl: string;
   heroImages: string[];
   productVideos: string[];

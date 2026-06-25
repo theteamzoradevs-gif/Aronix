@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Main } from "@/components/layout/Main";
 import { Footer } from "@/components/layout/Footer";
 import { QuoteModal } from "@/components/layout/QuoteModal";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { FaqChatbot } from "@/components/layout/FaqChatbot";
+import { StickyQuoteBar } from "@/components/layout/StickyQuoteBar";
+import { LeadPopup } from "@/components/layout/LeadPopup";
 import { QuoteModalProvider } from "@/context/QuoteModalContext";
 import "@/styles/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -28,14 +36,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-inter antialiased`}>
+      <body className={`${inter.variable} ${plusJakarta.variable} font-inter antialiased`}>
         <QuoteModalProvider>
           <Header />
           <Main>{children}</Main>
           <Footer />
           <FloatingActions />
+          <StickyQuoteBar />
           <FaqChatbot />
           <QuoteModal />
+          <LeadPopup />
         </QuoteModalProvider>
       </body>
     </html>

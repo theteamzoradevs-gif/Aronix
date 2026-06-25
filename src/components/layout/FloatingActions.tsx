@@ -19,7 +19,7 @@ export function FloatingActions() {
       <button
         type="button"
         onClick={open}
-        className="pointer-events-auto fixed bottom-[4.5rem] right-4 rounded-full bg-accent px-4 py-2.5 text-xs font-semibold text-text shadow-lg transition-colors hover:bg-accent/90 md:bottom-6 md:px-5 md:text-sm"
+        className="pointer-events-auto fixed bottom-6 right-4 hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-ink shadow-lg transition-colors hover:bg-accent/90 md:inline-flex"
       >
         Get Quote
       </button>
@@ -28,7 +28,7 @@ export function FloatingActions() {
         href={`https://wa.me/${site.whatsapp}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="pointer-events-auto fixed bottom-4 right-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105 hover:bg-[#1da851] md:bottom-6"
+        className="pointer-events-auto fixed bottom-[4.75rem] right-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105 hover:bg-[#1da851] md:bottom-6"
         aria-label="WhatsApp"
       >
         <svg className="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
@@ -40,7 +40,7 @@ export function FloatingActions() {
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="pointer-events-auto fixed bottom-[8.5rem] right-4 flex h-10 w-10 items-center justify-center rounded-full bg-text text-white shadow-lg hover:bg-text-muted md:bottom-6 md:right-[7.5rem]"
+          className="pointer-events-auto fixed bottom-[9.5rem] right-4 flex h-10 w-10 items-center justify-center rounded-full bg-ink text-white shadow-lg hover:bg-primary md:bottom-6 md:right-[7.5rem]"
           aria-label="Scroll to top"
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,7 +1,9 @@
-import { Container } from "@/components/ui/Container";
-import { SectionHeader } from "@/components/ui/SectionBadge";
+import { PageHero } from "@/components/layout/PageHero";
+import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { ProjectGallery } from "@/components/home/ProjectGallery";
 import { VideoSection } from "@/components/home/VideoSection";
+import { ContactCta } from "@/components/home/ContactCta";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 
 export const metadata = {
   title: "Projects - aronixinfra.com",
@@ -12,20 +14,24 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <section className="about-cream py-12 md:py-16">
-        <Container>
-          <SectionHeader
-            badge="Projects"
-            title="Our Project Gallery"
-            subtitle="Manufacturing, delivery, and installation of portable infrastructure for construction, industrial, and commercial sites."
+      <PageHero>
+        <MotionReveal>
+          <EditorialHeader
+            label="Project gallery"
+            title="Delivered across construction sites, factories & commercial projects"
+            subtitle="Manufacturing, delivery, and installation from our Greater Noida facility."
+            description="Deployed at sites across India — offices, guard cabins, containers, and prefab structures."
             align="center"
+            className="mx-auto max-w-3xl"
+            prominentLabel
           />
-        </Container>
-      </section>
+        </MotionReveal>
+      </PageHero>
 
-      <ProjectGallery showFilters hideHeader compact />
+      <ProjectGallery showFilters hideHeader compact masonry />
 
       <VideoSection />
+      <ContactCta />
     </>
   );
 }

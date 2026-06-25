@@ -1,10 +1,13 @@
+import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
-import { SectionBadge } from "@/components/ui/SectionBadge";
+import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { CompanyAlbum } from "@/components/about/CompanyAlbum";
 import { CeoSection } from "@/components/about/CeoSection";
 import { ImpactStats } from "@/components/about/ImpactStats";
 import { AboutProductsSection } from "@/components/about/AboutProductsSection";
 import { HsnTable } from "@/components/about/HsnTable";
+import { ContactCta } from "@/components/home/ContactCta";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 import { site, getProductsBySlugs } from "@/lib/data";
 
 export const metadata = {
@@ -16,26 +19,35 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="about-cream py-16 md:py-20">
+      <PageHero>
+        <MotionReveal>
+          <EditorialHeader
+            label="About us"
+            title="Manufacturer of portable cabins & shipping containers"
+            subtitle="Factory-direct from Greater Noida with pan-India delivery."
+            align="center"
+            className="mx-auto max-w-2xl"
+            prominentLabel
+          />
+        </MotionReveal>
+      </PageHero>
+
+      <section className="section-white border-b border-border-light py-10 md:py-14">
         <Container>
-          <div className="mx-auto max-w-3xl">
-            <div className="text-center">
-              <SectionBadge className="mx-auto">About us</SectionBadge>
-              <h1 className="text-[32px] font-bold tracking-tight text-text md:text-[40px]">
-                About Aronix Infra
-              </h1>
-            </div>
-            <p className="mt-5 text-justify text-[15px] leading-relaxed text-text-muted">
+          <MotionReveal>
+            <p className="mx-auto max-w-3xl text-center text-subheading leading-relaxed text-text-muted">
               {site.aboutText}
             </p>
-          </div>
+          </MotionReveal>
         </Container>
       </section>
+
       <CompanyAlbum />
       <CeoSection />
       <ImpactStats />
       <AboutProductsSection products={sliderProducts} />
       <HsnTable />
+      <ContactCta />
     </>
   );
 }

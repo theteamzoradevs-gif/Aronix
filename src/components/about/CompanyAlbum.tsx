@@ -4,6 +4,7 @@ import { site } from "@/lib/data";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionBadge";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 
 /** Same height, varied widths for a natural album strip */
 const albumWidths = [200, 280, 220, 260, 180, 300, 240, 210, 270];
@@ -15,14 +16,17 @@ export function CompanyAlbum() {
   }));
 
   return (
-    <section className="about-cream overflow-hidden py-16 md:py-24">
+    <section className="section-band-light overflow-hidden section-editorial border-t border-border-light">
       <Container>
-        <SectionHeader
-          badge="Photos"
-          title="Company Album"
-          subtitle="Explore moments from our manufacturing facility, product deliveries, and projects built on quality portable infrastructure across India."
-          align="center"
-        />
+        <MotionReveal>
+          <SectionHeader
+            badge="Photos"
+            title="Company album"
+            subtitle="Moments from our manufacturing facility, product deliveries, and projects across India."
+            align="center"
+            className="mx-auto max-w-2xl"
+          />
+        </MotionReveal>
       </Container>
 
       <div className="relative mt-10 md:mt-12">
@@ -30,7 +34,7 @@ export function CompanyAlbum() {
           {items.map((item, i) => (
             <div
               key={`${item.src}-${i}`}
-              className="relative h-[260px] shrink-0 overflow-hidden rounded-[24px] shadow-md sm:h-[300px] md:h-[340px]"
+              className="relative h-[260px] shrink-0 overflow-hidden rounded-3xl shadow-[var(--shadow-card)] sm:h-[300px] md:h-[340px]"
               style={{ width: item.width }}
             >
               <SiteImage

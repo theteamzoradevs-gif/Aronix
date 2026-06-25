@@ -1,32 +1,30 @@
 import Link from "next/link";
 import type { Product } from "@/types";
 import { Container } from "@/components/ui/Container";
-import { SectionHeader } from "@/components/ui/SectionBadge";
-import { ProductCard } from "@/components/products/ProductCard";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { EditorialHeader } from "@/components/ui/EditorialHeader";
+import { ProductCubeCarousel } from "@/components/home/ProductCubeCarousel";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 
 export function FeaturedProducts({ products }: { products: Product[] }) {
   return (
-    <section className="section-padding section-dark">
+    <section className="section-compact section-white overflow-hidden">
       <Container>
-        <ScrollReveal>
-          <SectionHeader
-            badge="Featured Products"
-            title="Popular cabins and containers"
-            subtitle="Starting prices shown — request a quote for custom specifications and bulk orders."
+        <MotionReveal>
+          <EditorialHeader
+            label="Popular products"
+            title="Cabins and containers ready to order"
+            subtitle="Factory-built units with transparent starting prices."
             align="center"
-            badgeVariant="dark"
+            className="mx-auto max-w-xl"
+            compact
+            prominentLabel
           />
-        </ScrollReveal>
+        </MotionReveal>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-3 md:gap-6">
-          {products.map((product) => (
-            <ProductCard key={product.slug} product={product} showPrice />
-          ))}
-        </div>
+        <ProductCubeCarousel products={products} />
 
-        <div className="mt-10 text-center md:mt-12">
-          <Link href="/products" className="btn-accent">
+        <div className="mt-6 text-center">
+          <Link href="/products" className="btn-primary text-sm">
             View all products
           </Link>
         </div>

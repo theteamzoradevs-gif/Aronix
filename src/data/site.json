@@ -30,8 +30,8 @@
     "gstRegistrationDate": "23-08-2023"
   },
   "tagline": "Manufacturer and traders of shipping containers and Porta cabins",
-  "heroHeadline": "Smart solutions for portable cabins & containers",
-  "heroSubtext": "Fast, professional portable infrastructure for industrial, construction, and commercial sites. Pan-India delivery with certified quality you can trust.",
+  "heroHeadline": "Your site infrastructure. Manufactured, delivered, ready.",
+  "heroSubtext": "End-to-end portable cabins and containers — from our Greater Noida factory to your construction, industrial, or commercial site. No running around.",
   "heroTrustBadges": [
     "Pan-India delivery",
     "Certified quality & MSME approved",
@@ -45,10 +45,10 @@
   ],
   "statsYears": "7+",
   "impactStats": [
-    { "value": "50+", "label": "Happy Clients" },
-    { "value": "25+", "label": "Product Types" },
+    { "value": "50+", "label": "Projects Delivered" },
+    { "value": "7+", "label": "Years Experience" },
     { "value": "7–15", "label": "Day Delivery" },
-    { "value": "Pan-India", "label": "Delivery Reach" }
+    { "value": "100%", "label": "Factory Direct" }
   ],
   "howItWorks": [
     {
@@ -57,7 +57,7 @@
       "title": "Share your requirement",
       "headline": "Tell us what you need and we're ready to help.",
       "desc": "Reach out via phone, WhatsApp, or our quote form. Tell us your cabin or container needs, dimensions, and timeline — our team confirms your request quickly.",
-      "image": "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg"
+      "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6011.jpg"
     },
     {
       "step": "02",
@@ -65,15 +65,23 @@
       "title": "Get quote & design",
       "headline": "Receive a clear quote tailored to your site.",
       "desc": "Our team confirms specifications, shares a transparent quote, and finalizes the design for your portable cabin or container requirements.",
-      "image": "/assets/2025/10/Untitled-design-2025-10-09T174216.396.png"
+      "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6012.jpg"
     },
     {
       "step": "03",
       "navLabel": "Manufacture & deliver",
       "title": "Manufacture & deliver",
-      "headline": "We build and deliver to your location on time.",
-      "desc": "We manufacture at our Greater Noida facility and deliver across India — ready for immediate deployment at your construction or industrial site.",
-      "image": "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png"
+      "headline": "We build at our factory and deliver to your site.",
+      "desc": "We manufacture at our Greater Noida facility with factory QC checks, then coordinate logistics for pan-India delivery — ready for immediate deployment.",
+      "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6013.jpg"
+    },
+    {
+      "step": "04",
+      "navLabel": "Install & handover",
+      "title": "Install & handover",
+      "headline": "Your unit is placed, connected, and site-ready.",
+      "desc": "Our team supports on-site placement and basic setup so your portable office, guard cabin, or container is ready to use from day one.",
+      "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6014.jpg"
     }
   ],
   "urgentCta": {
@@ -81,8 +89,8 @@
     "description": "We provide fast and reliable manufacturing and delivery whenever your project timeline is tight."
   },
   "contactCta": {
-    "title": "Let's build your portable solution today",
-    "description": "Our experienced team is ready to handle your portable cabin, shipping container, and prefab structure requirements quickly and professionally."
+    "title": "Confused about size, specs, or delivery?",
+    "description": "Talk to our team for a free site consultation. We'll help you choose the right cabin or container and share a transparent quote — no obligation."
   },
   "faqs": [
     {
@@ -114,7 +122,8 @@
   "ceo": {
     "name": "Vijay Kumar",
     "bio": "Vijay Kumar, Founder and Director of Aronix Infra, brings over 7 years of experience in the portable infrastructure and modular building industry. With a strong understanding of site needs, materials, and manufacturing, he has built the company on values of quality, reliability, and trust. His practical approach and focus on client satisfaction have helped Aronix Infra deliver smart, durable, and cost-effective solutions across India.",
-    "image": "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png"
+    "image": "/assets/team/vijay-kumar-founder.png",
+    "role": "Founder & Director"
   },
   "videoUrl": "https://www.youtube.com/embed/J---aiyznGQ",
   "heroImages": [
@@ -230,7 +239,7 @@
       "title": "Portable Office Cabins",
       "description": "Site offices, manager cabins, and workstation units for construction and industrial projects.",
       "useCase": "Construction sites, corporate site HQs",
-      "image": "/assets/2025/10/Untitled-design-2025-10-09T174216.396.png",
+      "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6011.jpg",
       "href": "/products?category=office",
       "priceFrom": 110000,
       "specSummary": "MS steel frame, insulated panels, electrical ready"
@@ -240,7 +249,7 @@
       "title": "Security & Guard Cabins",
       "description": "Compact, weather-resistant guard rooms for gates, factories, and societies.",
       "useCase": "Industrial gates, parking, toll booths",
-      "image": "/assets/2025/10/Untitled-design-2025-10-09T115320.232.png",
+      "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6013.jpg",
       "href": "/products?category=guard",
       "priceFrom": 110000,
       "specSummary": "MS / cement fiber, powder-coated finish"
@@ -260,7 +269,7 @@
       "title": "Bunk Houses & Labour Camps",
       "description": "Modular accommodation for workforce housing at construction and industrial sites.",
       "useCase": "Labour colonies, worker housing",
-      "image": "/assets/2025/10/Untitled-design-2025-10-09T174055.467.png",
+      "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6014.jpg",
       "href": "/products?category=bunk",
       "specSummary": "Multi-unit camps, ventilation & lighting"
     },

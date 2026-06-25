@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { EditorialHeader } from "@/components/ui/EditorialHeader";
 
 function FlameIcon({ className }: { className?: string }) {
   return (
@@ -37,41 +38,29 @@ export function SectionHeader({
   badge,
   title,
   subtitle,
+  description,
   align = "left",
   badgeVariant = "light",
+  className,
 }: {
   badge: string;
   title: string;
   subtitle?: string;
+  description?: string;
   align?: "left" | "center";
   badgeVariant?: "light" | "dark";
+  className?: string;
 }) {
-  const centered = align === "center";
-
   return (
-    <div className={cn(centered && "text-center")}>
-      <SectionBadge variant={badgeVariant} className={cn(centered && "mx-auto")}>
-        {badge}
-      </SectionBadge>
-      <h2
-        className={cn(
-          "text-[28px] font-bold leading-tight tracking-tight md:text-[36px] lg:text-[40px]",
-          badgeVariant === "dark" ? "text-white" : "text-text"
-        )}
-      >
-        {title}
-      </h2>
-      {subtitle && (
-        <p
-          className={cn(
-            "mt-4 max-w-2xl text-[15px] leading-relaxed md:text-base",
-            centered && "mx-auto",
-            badgeVariant === "dark" ? "text-white/70" : "text-text-muted"
-          )}
-        >
-          {subtitle}
-        </p>
-      )}
-    </div>
+    <EditorialHeader
+      label={badge}
+      title={title}
+      subtitle={subtitle}
+      description={description}
+      align={align}
+      dark={badgeVariant === "dark"}
+      prominentLabel
+      className={className}
+    />
   );
 }

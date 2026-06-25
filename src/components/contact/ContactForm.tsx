@@ -16,9 +16,9 @@ export function ContactForm() {
     <Container>
       <form
         onSubmit={handleSubmit}
-        className="mx-auto mt-12 max-w-xl space-y-4 rounded-xl border border-border bg-white p-6 shadow-sm md:mt-14 md:p-8"
+        className="mx-auto mt-10 max-w-xl space-y-4 rounded-3xl border border-border-light bg-white p-6 shadow-[var(--shadow-soft)] md:mt-12 md:p-8"
       >
-        <h3 className="text-center text-lg font-bold text-text">Send us a message</h3>
+        <h3 className="text-center font-display text-lg font-semibold text-ink">Send us a message</h3>
         {sent ? (
           <div className="space-y-4 text-center">
             <p className="text-sm leading-relaxed text-text-muted">
@@ -45,24 +45,24 @@ export function ContactForm() {
               type="text"
               placeholder="Your Name"
               required
-              className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+              className="popup-form-input"
             />
             <input
               type="email"
               placeholder="Your Email"
               required
-              className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+              className="popup-form-input"
             />
             <input
               type="tel"
               placeholder="Phone Number"
-              className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+              className="popup-form-input"
             />
             <textarea
               placeholder="Your Message"
               rows={5}
               required
-              className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+              className="popup-form-input"
             />
             <button type="submit" className="btn-accent w-full md:w-auto">
               Send message

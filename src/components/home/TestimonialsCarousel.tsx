@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { testimonials } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
-import { SectionHeader } from "@/components/ui/SectionBadge";
+import { EditorialHeader } from "@/components/ui/EditorialHeader";
+import { MotionReveal } from "@/components/motion/MotionReveal";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -29,7 +30,7 @@ function Avatar({ name }: { name: string }) {
     .slice(0, 2);
 
   return (
-    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-dark text-sm font-semibold text-white">
+    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-sm font-bold text-ink">
       {initials}
     </div>
   );
@@ -37,15 +38,21 @@ function Avatar({ name }: { name: string }) {
 
 export function TestimonialsCarousel() {
   return (
-    <section className="section-padding bg-dark">
-      <Container>
-        <SectionHeader
-          badge="Testimonials"
-          title="What our clients say"
-          subtitle="Trusted by businesses and project managers across India."
-          align="center"
-          badgeVariant="dark"
-        />
+    <section className="section-compact relative overflow-hidden bg-ink text-white md:py-16">
+      <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-primary/25 blur-3xl" />
+      <Container className="relative">
+        <MotionReveal>
+          <EditorialHeader
+            label="Testimonials"
+            title="What our clients say"
+            subtitle="Trusted by businesses and project managers across India."
+            align="center"
+            className="mx-auto max-w-xl"
+            dark
+            compact
+            prominentLabel
+          />
+        </MotionReveal>
 
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -58,25 +65,25 @@ export function TestimonialsCarousel() {
             640: { slidesPerView: 2, slidesPerGroup: 2 },
             1024: { slidesPerView: 3, slidesPerGroup: 3 },
           }}
-          className="testimonials-swiper !pb-14 !pt-4"
+          className="testimonials-swiper testimonials-swiper-dark !pb-14 !pt-8"
         >
           {testimonials.map((t) => (
             <SwiperSlide key={t.name}>
-              <div className="flex h-full flex-col rounded-[20px] bg-white p-6 md:p-7">
+              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:p-7">
                 <StarRating />
                 {t.tag && (
-                  <span className="mt-3 inline-block rounded-full bg-[#f4f5f7] px-2.5 py-1 text-[11px] font-medium text-text-muted">
+                  <span className="mt-3 inline-block w-fit rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white/70">
                     {t.tag}
                   </span>
                 )}
-                <p className="mt-4 flex-1 text-left text-[14px] leading-relaxed text-text-light md:text-[15px]">
+                <p className="mt-4 flex-1 text-left text-body-sm leading-relaxed text-white/75">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
+                <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
                   <Avatar name={t.name} />
                   <div className="text-left">
-                    <h4 className="text-sm font-bold text-text">{t.name}</h4>
-                    <p className="text-xs text-text-muted">{t.role}</p>
+                    <h4 className="text-sm font-bold text-white">{t.name}</h4>
+                    <p className="text-body-sm text-white/50">{t.role}</p>
                   </div>
                 </div>
               </div>

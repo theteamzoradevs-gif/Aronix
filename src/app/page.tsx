@@ -1,12 +1,10 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { TrustCertifications } from "@/components/home/TrustCertifications";
-import { ProductCategories } from "@/components/home/ProductCategories";
-import { PrefabComparison } from "@/components/home/PrefabComparison";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { TrustStats } from "@/components/home/TrustStats";
+import { SolutionShowcase } from "@/components/home/SolutionShowcase";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { ProjectGallery } from "@/components/home/ProjectGallery";
-import { HowItWorks } from "@/components/home/HowItWorks";
+import { ProcessJourney } from "@/components/home/ProcessJourney";
 import { TestimonialsCarousel } from "@/components/home/TestimonialsCarousel";
 import { FaqSection } from "@/components/home/FaqSection";
 import { ContactCta } from "@/components/home/ContactCta";
@@ -18,15 +16,12 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <TrustCertifications />
-      <ProductCategories />
-      <ScrollReveal>
-        <PrefabComparison />
-      </ScrollReveal>
+      <TrustStats />
+      <SolutionShowcase />
       <WhyChooseUs />
       <FeaturedProducts products={featuredProducts} />
-      <ProjectGallery limit={6} />
-      <HowItWorks />
+      <ProjectGallery limit={6} showFilters={false} />
+      <ProcessJourney />
       <TestimonialsCarousel />
       <FaqSection />
       <ContactCta />
