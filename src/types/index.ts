@@ -72,6 +72,10 @@ export interface Testimonial {
   name: string;
   role: string;
   tag?: string;
+  product?: string;
+  date?: string;
+  rating?: number;
+  source?: "indiamart" | "google";
 }
 
 export interface Client {
@@ -89,7 +93,7 @@ export interface SiteConfig {
   mapUrl: string;
   directionsUrl: string;
   logo: string;
-  social: { facebook: string; linkedin: string; twitter: string };
+  social: { facebook: string; instagram: string; linkedin: string; twitter: string };
   certification: { title: string; subtitle: string };
   indiamartUrl?: string;
   footerMeta: { employees: string; gstRegistrationDate: string };

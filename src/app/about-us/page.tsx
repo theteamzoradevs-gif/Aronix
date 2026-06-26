@@ -35,7 +35,7 @@ export default function AboutPage() {
       <section className="section-white border-b border-border-light py-10 md:py-14">
         <Container>
           <MotionReveal>
-            <p className="mx-auto max-w-3xl text-center text-subheading leading-relaxed text-text-muted">
+            <p className="mx-auto max-w-3xl text-justify text-subheading leading-relaxed text-text-muted">
               {site.aboutText}
             </p>
           </MotionReveal>

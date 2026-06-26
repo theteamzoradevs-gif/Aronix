@@ -5,25 +5,24 @@ import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
 import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { ContactCta } from "@/components/home/ContactCta";
-import { ProductGrid } from "@/components/products/ProductGrid";
+import { ProjectGallery } from "@/components/home/ProjectGallery";
 import { MotionReveal } from "@/components/motion/MotionReveal";
-import { products, productCategoryLabels } from "@/lib/data";
-import type { ProductCategory } from "@/types";
+import { projects, projectCategoryLabels } from "@/lib/data";
+import type { ProjectCategory } from "@/types";
 import { cn } from "@/lib/utils";
 
-const categories: { value: ProductCategory | "all"; label: string }[] = [
-  { value: "all", label: "All Products" },
-  { value: "office", label: productCategoryLabels.office },
-  { value: "guard", label: productCategoryLabels.guard },
-  { value: "container", label: productCategoryLabels.container },
-  { value: "bunk", label: productCategoryLabels.bunk },
-  { value: "toilet", label: productCategoryLabels.toilet },
-  { value: "custom", label: productCategoryLabels.custom },
+const categories: { value: ProjectCategory; label: string }[] = [
+  { value: "all", label: projectCategoryLabels.all },
+  { value: "office", label: projectCategoryLabels.office },
+  { value: "guard", label: projectCategoryLabels.guard },
+  { value: "container", label: projectCategoryLabels.container },
+  { value: "bunk", label: projectCategoryLabels.bunk },
+  { value: "factory", label: projectCategoryLabels.factory },
 ];
 
-export function ProductsPageClient() {
+export function ProjectsPageClient() {
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState<ProductCategory | "all">("all");
+  const [category, setCategory] = useState<ProjectCategory>("all");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -39,27 +38,28 @@ export function ProductsPageClient() {
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase();
-    return products.filter((p) => {
+    return projects.filter((p) => {
       const matchesCategory = category === "all" || p.category === category;
       const matchesSearch =
         !term ||
         p.title.toLowerCase().includes(term) ||
-        p.description.toLowerCase().includes(term);
+        p.description.toLowerCase().includes(term) ||
+        p.location.toLowerCase().includes(term);
       return matchesCategory && matchesSearch;
     });
   }, [search, category]);
 
-  const activeLabel = categories.find((c) => c.value === category)?.label ?? "All Products";
+  const activeLabel = categories.find((c) => c.value === category)?.label ?? "All Projects";
 
   return (
     <>
       <PageHero>
         <MotionReveal>
           <EditorialHeader
-            label="Our products"
-            title="Site-ready cabins, containers & prefab structures"
-            subtitle="Portable offices, guard cabins, shipping containers, and custom prefab units."
-            description="Factory-built in Greater Noida and delivered across India."
+            label="Project gallery"
+            title="Delivered across construction sites, factories & commercial projects"
+            subtitle="Manufacturing, delivery, and installation from our Greater Noida facility."
+            description="Deployed at sites across India — offices, guard cabins, containers, and prefab structures."
             align="center"
             className="mx-auto max-w-3xl"
             prominentLabel
@@ -89,7 +89,7 @@ export function ProductsPageClient() {
                 type="search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search cabins, containers, toilets..."
+                placeholder="Search projects, locations, categories..."
                 className="w-full rounded-xl border border-border-light bg-cream/50 py-3 pl-11 pr-4 text-sm text-ink outline-none transition-all placeholder:text-text-muted/70 focus:border-primary focus:bg-white focus:shadow-[0_0_0_3px_rgba(30,58,95,0.08)]"
               />
             </div>
@@ -149,20 +149,20 @@ export function ProductsPageClient() {
           </div>
 
           <p className="mt-3 text-center text-xs text-text-muted sm:text-left">
-            {filtered.length} product{filtered.length !== 1 ? "s" : ""} found
+            {filtered.length} project{filtered.length !== 1 ? "s" : ""} found
             {category !== "all" && ` in ${activeLabel}`}
             {search.trim() && ` matching "${search.trim()}"`}
           </p>
         </Container>
       </div>
 
-      <section className="section-editorial section-white">
-        <Container>
-          {filtered.length > 0 ? (
-            <ProductGrid products={filtered} showPrice />
-          ) : (
+      {filtered.length > 0 ? (
+        <ProjectGallery items={filtered} hideHeader compact showFilters={false} />
+      ) : (
+        <section className="section-editorial section-white">
+          <Container>
             <div className="rounded-2xl border border-dashed border-border-light bg-cream/40 px-6 py-16 text-center">
-              <p className="font-display text-lg font-semibold text-ink">No products found</p>
+              <p className="font-display text-lg font-semibold text-ink">No projects found</p>
               <p className="mt-2 text-sm text-text-muted">Try a different search term or category.</p>
               <button
                 type="button"
@@ -175,17 +175,9 @@ export function ProductsPageClient() {
                 Clear filters
               </button>
             </div>
-          )}
-        </Container>
-      </section>
-
-      <section className="border-y border-border-light bg-cream py-5">
-        <Container>
-          <p className="text-center text-description font-medium text-text-muted">
-            GST invoicing · HSN codes available · Factory direct from Greater Noida · Pan-India delivery
-          </p>
-        </Container>
-      </section>
+          </Container>
+        </section>
+      )}
 
       <ContactCta />
     </>

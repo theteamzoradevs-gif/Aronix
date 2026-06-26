@@ -1,8 +1,47 @@
 [
-  {"quote":"Aronix Infra delivers top-notch quality and on-time supply. Their materials have truly strengthened our projects.","name":"Rajesh Verma","role":"CEO, BuildCore Constructions","tag":"Construction — NCR"},
-  {"quote":"Highly reliable and professional team. We trust Aronix Infra for all our infrastructure requirements.","name":"Priya Mehta","role":"Founder, UrbanEdge Developers","tag":"Real Estate — Delhi"},
-  {"quote":"Great experience working with Aronix Infra. They understand project needs and deliver accordingly.","name":"Ankit Sharma","role":"Managing Director, Nexon Builders Pvt. Ltd","tag":"Infrastructure — UP"},
-  {"quote":"Aronix Infra has been a dependable partner for our large-scale projects. Strongly recommended.","name":"Neha Kapoor","role":"CEO, Metroline Projects","tag":"Construction — Pan-India"},
-  {"quote":"Excellent craftsmanship and timely delivery. Their portable cabins exceeded our expectations on every project.","name":"Suresh Patel","role":"Director, Horizon Infra Solutions","tag":"Industrial — NCR"},
-  {"quote":"From design to installation, the team was responsive and professional. A trusted partner for modular construction.","name":"Kavita Singh","role":"Project Head, GreenBuild India","tag":"Modular — Greater Noida"}
+  {
+    "quote": "They did a very satisfying job, i needed a porta cabin on urgent basis and they delivered in very less business days compared to others.",
+    "name": "Dhruv Kaushik",
+    "role": "Delhi",
+    "product": "FRP Cabin",
+    "date": "November 2025",
+    "rating": 5,
+    "source": "indiamart"
+  },
+  {
+    "quote": "Service was good and response was on time. I think it has been over 1 year for Aronix but the owner has over 5 yrs of exp through his job career.",
+    "name": "Basant Dutt",
+    "role": "Noida, Uttar Pradesh",
+    "product": "Blue FRP Portable Toilet Cabin",
+    "date": "August 2024",
+    "rating": 5,
+    "source": "indiamart"
+  },
+  {
+    "quote": "Have a great experience",
+    "name": "Prakhar Sharma",
+    "role": "Greater Noida, Uttar Pradesh",
+    "product": "MS Porta Cabin",
+    "date": "April 2025",
+    "rating": 5,
+    "source": "indiamart"
+  },
+  {
+    "quote": "Have a good work experience",
+    "name": "Vivek Singh",
+    "role": "Greater Noida, Uttar Pradesh",
+    "product": "MS Porta Cabin",
+    "date": "April 2025",
+    "rating": 5,
+    "source": "indiamart"
+  },
+  {
+    "quote": "Good service",
+    "name": "IndiaMART Buyer",
+    "role": "India",
+    "product": "Marine Container",
+    "date": "April 2024",
+    "rating": 5,
+    "source": "indiamart"
+  }
 ]
