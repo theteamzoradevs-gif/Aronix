@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { formatPhoneDisplay, navItems } from "./TopBar";
 import { MobileMenu } from "./MobileMenu";
+import { IndiaMARTBadge } from "@/components/ui/IndiaMARTBadge";
 
 function BrandLogo() {
   return (
@@ -54,35 +55,46 @@ export function Header() {
   return (
     <>
       <header className={cn("fixed left-0 right-0 top-[var(--trust-bar-height)] z-50 transition-all duration-300", navClass)}>
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-3.5 md:px-6 md:py-4">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-3.5">
           <BrandLogo />
 
-          <nav className="hidden items-center gap-8 xl:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "relative text-[14px] font-medium text-white/75 transition-colors hover:text-white",
-                  isActive(item.href) && "text-white"
-                )}
-              >
-                {item.label}
-                {isActive(item.href) && (
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-accent" />
-                )}
-              </Link>
-            ))}
-          </nav>
+          <div className="hidden items-center gap-6 xl:flex xl:gap-8">
+            <nav className="flex items-center gap-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "relative text-[14px] font-medium text-white/75 transition-colors hover:text-white",
+                    isActive(item.href) && "text-white"
+                  )}
+                >
+                  {item.label}
+                  {isActive(item.href) && (
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-accent" />
+                  )}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="shrink-0 border-l border-white/15 pl-6">
+              <IndiaMARTBadge size="lg" />
+            </div>
+          </div>
 
           <div className="flex items-center gap-2 md:gap-3">
-            <a
-              href={`tel:${site.phone}`}
-              className="hidden items-center gap-2 text-[14px] font-medium text-white/85 transition-colors hover:text-white lg:flex"
-            >
-              <PhoneIcon />
-              <span>{formatPhoneDisplay(site.phone)}</span>
-            </a>
+            <div className="hidden flex-col items-end lg:flex">
+              <a
+                href={`tel:${site.phone}`}
+                className="flex items-center gap-2 text-[14px] font-semibold text-white transition-colors hover:text-accent"
+              >
+                <PhoneIcon />
+                <span>{formatPhoneDisplay(site.phone)}</span>
+              </a>
+              <span className="mt-0.5 text-[11px] font-medium text-white/65">
+                100% response rate
+              </span>
+            </div>
 
             <button
               type="button"
@@ -112,7 +124,7 @@ export function Header() {
 
 function PhoneIcon() {
   return (
-    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

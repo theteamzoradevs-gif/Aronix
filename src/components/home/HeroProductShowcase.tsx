@@ -29,10 +29,10 @@ export function HeroProductShowcase() {
 
   return (
     <div className="w-full" role="region" aria-label="Featured products and projects">
-      <div className="relative px-5 md:px-6">
+      <div className="flex items-center gap-2 md:gap-3">
         <NavButton direction="prev" onClick={() => goTo(active - 1)} />
 
-        <div className="overflow-hidden rounded-2xl border border-white/20 bg-black/30 shadow-[var(--shadow-elevated)] backdrop-blur-md">
+        <div className="min-w-0 flex-1 overflow-hidden rounded-2xl border border-white/20 bg-black/30 shadow-[var(--shadow-elevated)] backdrop-blur-md">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
@@ -112,13 +112,10 @@ function NavButton({
     <button
       type="button"
       onClick={onClick}
-      className={cn(
-        "absolute top-[38%] z-10 -translate-y-1/2 cursor-pointer text-xl font-light leading-none text-white/75 transition-colors hover:text-accent md:text-2xl",
-        direction === "prev" ? "left-0" : "right-0"
-      )}
+      className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-white/10 text-lg font-light leading-none text-white/80 backdrop-blur-sm transition-colors hover:border-accent hover:bg-white/15 hover:text-accent md:h-10 md:w-10 md:text-xl"
       aria-label={direction === "prev" ? "Previous slide" : "Next slide"}
     >
-      {direction === "prev" ? "<" : ">"}
+      {direction === "prev" ? "‹" : "›"}
     </button>
   );
 }

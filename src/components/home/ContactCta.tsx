@@ -8,7 +8,7 @@ export function ContactCta() {
   const { contactCta } = site;
 
   return (
-    <section className="relative min-h-[480px] overflow-hidden md:min-h-[540px]">
+    <section className="relative min-h-[360px] overflow-hidden md:min-h-[400px]">
       <div className="absolute inset-0">
         <SiteImage
           src={site.heroImages[1]}
@@ -20,7 +20,7 @@ export function ContactCta() {
         <div className="absolute inset-0 bg-ink/70" />
       </div>
 
-      <Container className="relative z-10 flex min-h-[480px] flex-col items-center justify-center px-4 py-20 text-center md:min-h-[540px] md:py-24">
+      <Container className="relative z-10 flex min-h-[360px] flex-col items-center justify-center px-4 py-12 text-center md:min-h-[400px] md:py-14">
         <MotionReveal>
           <p className="text-label text-accent">Free site consultation</p>
           <h2 className="mt-4 max-w-2xl font-display text-section-title text-white">

@@ -1,10 +1,12 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { HomeProjectsGrid } from "@/components/home/HomeProjectsGrid";
-import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { ClientsMarquee } from "@/components/home/ClientsMarquee";
+import { HomeProjectsGrid } from "@/components/home/HomeProjectsGrid";
+import { HomeAboutSection } from "@/components/home/HomeAboutSection";
+import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { TestimonialsCarousel } from "@/components/home/TestimonialsCarousel";
 import { PrefabComparison } from "@/components/home/PrefabComparison";
+import { BlogSection } from "@/components/home/BlogSection";
 import { site, getProductsBySlugs } from "@/lib/data";
 
 export default function HomePage() {
@@ -13,12 +15,14 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <HomeProjectsGrid />
-      <FeaturedProducts products={featuredProducts} />
       <ClientsMarquee />
+      <HomeProjectsGrid />
+      <HomeAboutSection />
+      <FeaturedProducts products={featuredProducts} />
       <WhyChooseUs />
       <TestimonialsCarousel />
       <PrefabComparison />
+      <BlogSection />
     </>
   );
 }

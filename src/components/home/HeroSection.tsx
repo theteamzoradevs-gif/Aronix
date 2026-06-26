@@ -62,7 +62,9 @@ export function HeroSection() {
             </motion.p>
 
             <motion.div className="mt-6 flex items-center gap-3" {...fadeUp(0.38)}>
-              <QuoteButton variant="hero">Get free quote</QuoteButton>
+              <QuoteButton variant="hero" href="/products">
+                View All Cabin/Container
+              </QuoteButton>
               <a
                 href={`https://wa.me/${site.whatsapp}`}
                 target="_blank"

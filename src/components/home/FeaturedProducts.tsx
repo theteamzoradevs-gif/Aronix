@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Product } from "@/types";
 import { Container } from "@/components/ui/Container";
 import { EditorialHeader } from "@/components/ui/EditorialHeader";
@@ -28,12 +27,6 @@ export function FeaturedProducts({ products }: { products: Product[] }) {
         </MotionReveal>
 
         <ProductCubeCarousel items={items} />
-
-        <div className="mt-6 text-center">
-          <Link href="/products" className="btn-primary text-sm">
-            View all products
-          </Link>
-        </div>
       </Container>
     </section>
   );

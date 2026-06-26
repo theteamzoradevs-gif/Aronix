@@ -14,142 +14,167 @@ const productLinks = [
   { href: "/projects", label: "Projects" },
 ];
 
+const topCertifications = [
+  "GST Registered",
+  "MSME Approved",
+  "IndiaMART Trust Seal",
+  "Pan-India Delivery",
+];
+
 export function Footer() {
   return (
     <footer className="bg-dark text-white">
       <div className="border-b border-white/10 bg-[#141428]">
-        <Container className="flex items-center justify-center gap-3 py-4 md:justify-end md:py-5">
-          <a href={`tel:${site.phone}`} className="text-sm font-semibold text-accent hover:text-accent/90">
-            {site.phone}
-          </a>
-          <a
-            href={`https://wa.me/${site.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex cursor-pointer items-center justify-center rounded-full border border-[#25D366]/40 bg-[#25D366]/10 p-2 text-[#25D366] transition-colors hover:bg-[#25D366]/20"
-            aria-label="WhatsApp"
-          >
-            <WhatsAppIcon />
-          </a>
+        <Container className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between md:py-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[11px] font-medium text-white/80 md:justify-start md:text-xs">
+            {topCertifications.map((item, i) => (
+              <span key={item} className="flex items-center gap-3">
+                {i > 0 && <span className="text-white/25">|</span>}
+                <span className="flex items-center gap-1.5">
+                  <CheckIcon />
+                  {item}
+                </span>
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 md:ml-auto md:justify-end">
+            <a
+              href={`tel:${site.phone}`}
+              className="text-sm font-semibold text-accent transition-colors hover:text-accent/90"
+            >
+              {site.phone}
+            </a>
+            <a
+              href={`https://wa.me/${site.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex cursor-pointer items-center justify-center text-[#25D366] transition-transform hover:scale-110"
+              aria-label="WhatsApp"
+            >
+              <WhatsAppIcon className="h-6 w-6" />
+            </a>
+            <span className="h-4 w-px bg-white/20" aria-hidden />
+            <a
+              href={site.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="text-white/60 transition-colors hover:text-white"
+            >
+              <FacebookIcon />
+            </a>
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-white/60 transition-colors hover:text-white"
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              href={site.social.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+              className="text-white/60 transition-colors hover:text-white"
+            >
+              <TwitterIcon />
+            </a>
+          </div>
         </Container>
       </div>
 
-      <Container className="py-12 md:py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          <div className="sm:col-span-1">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
-              Company
-            </h3>
-            <ul className="space-y-2.5 text-sm text-gray-300">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="transition-colors hover:text-white">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
-              Products
-            </h3>
-            <ul className="space-y-2.5 text-sm text-gray-300">
-              {productLinks.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="transition-colors hover:text-white">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
-              Certification
-            </h3>
-            <p className="text-sm font-medium text-white">{site.certification.title}</p>
-            <p className="mt-1 text-sm leading-relaxed text-gray-300">{site.certification.subtitle}</p>
-            <div className="mt-4 space-y-2 text-sm text-gray-300">
-              <p>GST: {site.gst}</p>
-              <p>MSME Approved</p>
-              <p>Employees: {site.footerMeta.employees}</p>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/60">
-              Contact
-            </h3>
-            <ul className="space-y-3 text-sm text-gray-300">
-              {site.addresses.map((addr) => (
-                <li key={addr.label}>
-                  <strong className="text-white">{addr.label}</strong>
-                  <br />
-                  {addr.text}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={site.directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-block text-sm font-medium text-primary hover:underline"
-            >
-              Get Directions
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-12 border-t border-white/10 pt-10">
-          <div className="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:gap-6 lg:gap-10">
-            <Link
-              href="/"
-              className="relative mx-auto h-28 w-56 shrink-0 md:mx-0 md:h-32 md:w-64 md:justify-self-start"
-            >
+      <Container className="py-8 md:py-10">
+        <div className="flex flex-col gap-8 pb-8 lg:flex-row lg:items-start lg:gap-8">
+          <div className="flex w-full max-w-[220px] shrink-0 flex-col items-center gap-4 lg:items-start">
+            <Link href="/" className="relative block h-24 w-full max-w-[200px] md:h-28">
               <Image
                 src={site.logo}
                 alt="Aronix Infra"
                 fill
-                className="object-contain object-center md:object-left"
-                sizes="(max-width: 768px) 224px, 256px"
+                className="object-contain object-left"
+                sizes="200px"
                 unoptimized
               />
             </Link>
+            <div className="w-full max-w-[200px] [&_a]:block">
+              <IndiaMARTBadge size="xl" className="!h-20 !w-full max-w-[200px] !object-contain !object-left md:!h-24" />
+            </div>
+          </div>
 
-            <div className="mx-auto grid max-w-sm grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2 md:max-w-md lg:max-w-lg">
-              {site.trustBadges.slice(0, 4).map((badge) => (
-                <span
-                  key={badge.label}
-                  className="flex items-center justify-center gap-2 text-center text-xs text-white/80 sm:justify-start sm:text-left md:text-sm"
-                >
-                  <CheckIcon />
-                  <span>{badge.label}</span>
-                </span>
-              ))}
+          <div className="grid min-w-0 flex-1 grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4 lg:gap-5">
+            <div>
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/60">
+                Company
+              </h3>
+              <ul className="space-y-2 text-sm text-gray-300">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="transition-colors hover:text-white">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            <div className="flex shrink-0 items-center justify-center md:justify-self-end">
-              <IndiaMARTBadge size="2xl" />
+            <div>
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/60">
+                Products
+              </h3>
+              <ul className="space-y-2 text-sm text-gray-300">
+                {productLinks.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="transition-colors hover:text-white">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/60">
+                Certification
+              </h3>
+              <p className="text-sm font-medium text-white">{site.certification.title}</p>
+              <p className="mt-1 text-sm leading-relaxed text-gray-300">{site.certification.subtitle}</p>
+              <div className="mt-3 space-y-1.5 text-sm text-gray-300">
+                <p>GST: {site.gst}</p>
+                <p>MSME Approved</p>
+                <p>Employees: {site.footerMeta.employees}</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/60">
+                Contact
+              </h3>
+              <ul className="space-y-2.5 text-sm text-gray-300">
+                {site.addresses.map((addr) => (
+                  <li key={addr.label}>
+                    <strong className="text-white">{addr.label}</strong>
+                    <br />
+                    {addr.text}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={site.directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-sm font-medium text-accent hover:underline"
+              >
+                Get Directions
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-center text-sm text-gray-400 md:flex-row md:text-left">
+        <div className="border-t border-white/10 pt-5 text-center text-sm text-gray-400 lg:text-left">
           <p>Copyright © Aronix Infra. All rights reserved.</p>
-          <div className="flex gap-4">
-            <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white">
-              <FacebookIcon />
-            </a>
-            <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-white">
-              <LinkedInIcon />
-            </a>
-            <a href={site.social.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-white">
-              <TwitterIcon />
-            </a>
-          </div>
         </div>
       </Container>
     </footer>
@@ -158,7 +183,7 @@ export function Footer() {
 
 function CheckIcon() {
   return (
-    <svg className="h-4 w-4 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="h-3.5 w-3.5 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
     </svg>
   );
@@ -172,10 +197,10 @@ function FacebookIcon() {
   );
 }
 
-function LinkedInIcon() {
+function InstagramIcon() {
   return (
     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.127 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
     </svg>
   );
 }

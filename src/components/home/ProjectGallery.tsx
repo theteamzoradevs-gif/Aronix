@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { projects, projectCategoryLabels } from "@/lib/data";
 import { resolveDisplayImage } from "@/lib/gallery";
-import type { ProjectCategory } from "@/types";
+import type { Project, ProjectCategory } from "@/types";
 import { Container } from "@/components/ui/Container";
 import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { SiteImage } from "@/components/ui/SiteImage";
@@ -23,6 +23,7 @@ const filterCategories: ProjectCategory[] = [
 ];
 
 interface ProjectGalleryProps {
+  items?: Project[];
   limit?: number;
   showFilters?: boolean;
   hideHeader?: boolean;
@@ -31,6 +32,7 @@ interface ProjectGalleryProps {
 }
 
 export function ProjectGallery({
+  items: externalItems,
   limit,
   showFilters = true,
   hideHeader = false,
@@ -40,7 +42,8 @@ export function ProjectGallery({
   const [active, setActive] = useState<ProjectCategory>("all");
 
   const filtered =
-    active === "all" ? projects : projects.filter((p) => p.category === active);
+    externalItems ??
+    (active === "all" ? projects : projects.filter((p) => p.category === active));
   const displayed = limit ? filtered.slice(0, limit) : filtered;
 
   return (
@@ -64,7 +67,7 @@ export function ProjectGallery({
           </MotionReveal>
         )}
 
-        {showFilters && (
+        {showFilters && !externalItems && (
           <div className={cn("-mx-4 overflow-x-auto px-4 md:mx-0 md:px-0", hideHeader ? "mt-0" : "mt-10 md:mt-12")}>
             <div className="flex w-max gap-2 md:w-auto md:flex-wrap md:justify-center">
               {filterCategories.map((cat) => {
@@ -94,26 +97,11 @@ export function ProjectGallery({
           </div>
         )}
 
-        <StaggerChildren
-          className={cn(
-            "mt-10 gap-5",
-            masonry
-              ? "columns-1 sm:columns-2 lg:columns-3"
-              : "grid sm:grid-cols-2 lg:grid-cols-3"
-          )}
-        >
-          {displayed.map((project, i) => (
-            <StaggerItem
-              key={project.id}
-              className={cn(masonry && "mb-5 break-inside-avoid")}
-            >
-              <article className="card-premium group overflow-hidden">
-                <div
-                  className={cn(
-                    "relative overflow-hidden",
-                    masonry && i % 3 === 1 ? "aspect-[3/4]" : "aspect-[4/3]"
-                  )}
-                >
+        <StaggerChildren className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {displayed.map((project) => (
+            <StaggerItem key={project.id} className="h-full">
+              <article className="card-premium group flex h-full flex-col overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <SiteImage
                     src={resolveDisplayImage(project.image, project.id)}
                     alt={project.title}
@@ -135,9 +123,9 @@ export function ProjectGallery({
                     {projectCategoryLabels[project.category]}
                   </span>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-display font-semibold text-ink">{project.title}</h3>
-                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-text-muted">
+                <div className="flex flex-1 flex-col p-4">
+                  <h3 className="line-clamp-2 font-display font-semibold text-ink">{project.title}</h3>
+                  <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-text-muted">
                     {project.description}
                   </p>
                 </div>
