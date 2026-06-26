@@ -38,7 +38,14 @@ export const galleryImages = [
   "/assets/gallery/product-22.png",
 ] as const;
 
-const LEGACY_KEEP_PREFIXES = ["/assets/gallery/", "/assets/brand/", "/assets/team/"];
+const LEGACY_KEEP_PREFIXES = [
+  "/assets/gallery/",
+  "/assets/brand/",
+  "/assets/team/",
+  "/assets/2025/",
+  "https://aronixinfra.com/",
+  "http://aronixinfra.com/",
+];
 
 export function isLegacyMediaImage(src: string | null | undefined): boolean {
   if (!src) return true;
@@ -69,10 +76,19 @@ export type HomeProjectGridItem = {
   src: string;
 };
 
+const homeProjectVideoTitles = [
+  "Guard cabin — on-truck delivery",
+  "Portable office container delivery",
+  "Factory delivery footage",
+  "Site installation clip",
+  "On-truck deployment",
+  "Project deployment footage",
+];
+
 export function buildHomeProjectGridItems(videos: string[]): HomeProjectGridItem[] {
-  const items: HomeProjectGridItem[] = videos.slice(0, 3).map((src, i) => ({
+  const videoItems: HomeProjectGridItem[] = videos.map((src, i) => ({
     id: `video-${i}`,
-    title: ["Factory delivery footage", "Site installation clip", "On-truck deployment"][i] ?? `Project video ${i + 1}`,
+    title: homeProjectVideoTitles[i] ?? `Project video ${i + 1}`,
     kind: "video" as const,
     src,
   }));
@@ -80,21 +96,16 @@ export function buildHomeProjectGridItems(videos: string[]): HomeProjectGridItem
   const imageTitles = [
     "Portable office on delivery truck",
     "Finished cabin interior",
-    "Site office with glass doors",
-    "Guard cabin — custom colours",
-    "Container unit at project site",
   ];
 
-  galleryImages.slice(0, 5).forEach((src, i) => {
-    items.push({
-      id: `gallery-${i}`,
-      title: imageTitles[i] ?? `Delivered project ${i + 1}`,
-      kind: "image",
-      src,
-    });
-  });
+  const imageItems: HomeProjectGridItem[] = galleryImages.slice(0, 2).map((src, i) => ({
+    id: `gallery-${i}`,
+    title: imageTitles[i] ?? `Delivered project ${i + 1}`,
+    kind: "image" as const,
+    src,
+  }));
 
-  return items.slice(0, 8);
+  return [...videoItems, ...imageItems];
 }
 
 export type HeroShowcaseSlide = {
@@ -107,59 +118,59 @@ export type HeroShowcaseSlide = {
 
 export const heroShowcaseSlides: HeroShowcaseSlide[] = [
   {
-    id: "office-cabin",
+    id: "portable-office-cabin",
     title: "Portable Office Cabin",
     lines: [
-      "Factory-built corrugated steel with secure windows & doors.",
-      "Ready for site offices, manager cabins & workstations.",
-      "Delivered pan-India from our Greater Noida facility.",
+      "Mild steel prefab office — white & blue color-coated finish.",
+      "Rectangular layout for construction & commercial site offices.",
+      "From ₹2,30,000 · manufactured in Greater Noida, pan-India delivery.",
     ],
-    image: "/assets/gallery/product-28.jpg",
-    href: "/products?category=office",
+    image: "/assets/2025/10/Portable-Office-Cabin-1.jpg",
+    href: "/product/portable-office-cabin-2",
   },
   {
-    id: "interior-finish",
-    title: "Finished Interior — Site Ready",
+    id: "prefabricated-manager-cabin",
+    title: "Prefabricated Manager Cabin",
     lines: [
-      "Clean modular panels, lighting, fans & electrical fittings.",
-      "Wood-grain flooring with partition options available.",
-      "Move-in ready within days of delivery.",
+      "20×10×8.6 ft manager office — MDF ceiling & aluminum windows.",
+      "MS exterior walls, glass wool insulation, fully portable build.",
+      "From ₹2,10,000 · customized prefab, ready for site deployment.",
     ],
-    image: "/assets/gallery/product-36.jpg",
-    href: "/products?category=office",
+    image: "/assets/2025/10/Prefabricated-Manager-Cabin-3.jpg",
+    href: "/product/prefabricated-manager-cabin",
   },
   {
-    id: "truck-delivery",
-    title: "On-Truck Site Delivery",
+    id: "portable-workstation-cabin",
+    title: "Portable Workstation Cabin",
     lines: [
-      "Heavy-duty flatbed transport to your project location.",
-      "Crane-assisted placement at construction & industrial sites.",
-      "Trusted by contractors across North India.",
+      "Mild steel workstation cabin — customized, color-coated prefab unit.",
+      "Dispatched on flatbed trailer directly to your project location.",
+      "From ₹1,90,000 · trusted by contractors across North India.",
     ],
-    image: "/assets/gallery/product-30.jpg",
-    href: "/projects",
+    image: "/assets/2025/10/Portable-Workstation-Cabin.jpg",
+    href: "/product/portable-workstation-cabin",
   },
   {
-    id: "guard-cabin",
-    title: "Security Guard Cabin",
+    id: "mild-steel-guard-cabin",
+    title: "Mild Steel Guard Cabin",
     lines: [
-      "Compact, weather-resistant unit with secure door & window.",
-      "Custom colour bands — orange, white & yellow options.",
-      "Ideal for gates, warehouses & factory entrances.",
+      "MS sheet guard room — 6×6×8 ft square prefab security unit.",
+      "Ideal for factory gates, warehouses & construction site entrances.",
+      "From ₹65,000 · new units only, made in India.",
     ],
-    image: "/assets/gallery/product-39.jpg",
-    href: "/products?category=guard",
+    image: "/assets/2025/10/Mild-Steel-Guard-Cabin.jpg",
+    href: "/product/mild-steel-guard-cabin",
   },
   {
-    id: "large-deployment",
-    title: "Large-Scale Deployment",
+    id: "white-steel-portable-cabin",
+    title: "White Steel Portable Cabin",
     lines: [
-      "Multi-unit portable structures for major infrastructure projects.",
-      "Double-door glass fronts with professional exterior finish.",
-      "7–15 day committed delivery timeline.",
+      "Large 30×10×8.6 ft office with 50mm glass wool insulation.",
+      "White color-coated MS build for multi-unit site deployments.",
+      "From ₹3,50,000 · 7–15 day delivery across India.",
     ],
-    image: "/assets/gallery/product-32.jpg",
-    href: "/projects",
+    image: "/assets/2025/10/White-Steel-Portable-Cabin.jpg",
+    href: "/product/white-steel-portable-cabin",
   },
 ];
 

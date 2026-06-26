@@ -67,8 +67,8 @@ export function ProjectsPageClient() {
         </MotionReveal>
       </PageHero>
 
-      <div className="sticky top-[var(--header-total-offset)] z-30 border-b border-border-light bg-white/95 backdrop-blur-md">
-        <Container className="py-4">
+      <div className="border-b border-gray-100 bg-white">
+        <Container className="py-5">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <div className="relative min-w-0 flex-1">
               <svg
@@ -147,17 +147,11 @@ export function ProjectsPageClient() {
               )}
             </div>
           </div>
-
-          <p className="mt-3 text-center text-xs text-text-muted sm:text-left">
-            {filtered.length} project{filtered.length !== 1 ? "s" : ""} found
-            {category !== "all" && ` in ${activeLabel}`}
-            {search.trim() && ` matching "${search.trim()}"`}
-          </p>
         </Container>
       </div>
 
       {filtered.length > 0 ? (
-        <ProjectGallery items={filtered} hideHeader compact showFilters={false} />
+        <ProjectGallery items={filtered} hideHeader compact showFilters={false} hideCategoryBadge />
       ) : (
         <section className="section-editorial section-white">
           <Container>

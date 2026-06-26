@@ -44,9 +44,8 @@ export function WhyChooseUs() {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <MotionReveal>
             <EditorialHeader
-              label="Why Aronix"
-              title="Factory-direct portable infrastructure"
-              subtitle={whyChooseUs.title}
+              label="Why choose us"
+              title={whyChooseUs.title}
               description={whyChooseUs.intro}
               dark
               prominentLabel

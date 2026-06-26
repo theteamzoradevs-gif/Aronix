@@ -4,6 +4,7 @@ import { SiteImage } from "@/components/ui/SiteImage";
 import { Container } from "@/components/ui/Container";
 import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { MotionReveal } from "@/components/motion/MotionReveal";
+import { cn } from "@/lib/utils";
 
 export function BlogSection() {
   const featured = blogs.slice(0, 3);
@@ -21,18 +22,18 @@ export function BlogSection() {
               compact
               prominentLabel
             />
-            <Link href="/blogs" className="btn-primary shrink-0 self-start text-sm md:self-auto">
-              View all posts
+            <Link href="/blogs" className="btn-primary hidden shrink-0 self-start text-sm md:inline-flex md:self-auto">
+              View all blogs
             </Link>
           </div>
         </MotionReveal>
 
         <div className="mt-8 grid gap-5 md:grid-cols-3 md:gap-6">
-          {featured.map((blog) => (
+          {featured.map((blog, index) => (
             <Link
               key={blog.id}
               href={`/${blog.slug}`}
-              className="group card-premium overflow-hidden"
+              className={cn("group card-premium overflow-hidden", index > 0 && "hidden md:block")}
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-surface">
                 <SiteImage
@@ -58,6 +59,12 @@ export function BlogSection() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-6 text-center md:hidden">
+          <Link href="/blogs" className="btn-primary inline-flex text-sm">
+            View all blogs
+          </Link>
         </div>
       </Container>
     </section>

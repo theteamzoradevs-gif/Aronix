@@ -96,10 +96,10 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="h-full space-y-4 rounded-3xl border border-border-light bg-white p-6 shadow-[var(--shadow-soft)] md:p-8"
+      className="h-full space-y-3.5 rounded-2xl border border-border-light bg-white p-4 shadow-[var(--shadow-soft)] md:space-y-4 md:rounded-3xl md:p-8"
       noValidate
     >
-      <h3 className="font-display text-lg font-semibold text-ink md:text-xl">Send us a message</h3>
+      <h3 className="font-display text-base font-semibold text-ink md:text-xl">Send us a message</h3>
 
         <input
           type="text"
@@ -160,7 +160,7 @@ export function ContactForm() {
                 autoComplete="name"
                 aria-invalid={Boolean(touched.name && errors.name)}
                 className={fieldInputClass(
-                  "popup-form-input",
+                  "popup-form-input text-base md:text-sm",
                   touched.name,
                   errors.name,
                   isFieldValid("name", values.name),
@@ -185,7 +185,7 @@ export function ContactForm() {
                 onBlur={() => handleBlur("email")}
                 aria-invalid={Boolean(touched.email && errors.email)}
                 className={fieldInputClass(
-                  "popup-form-input",
+                  "popup-form-input text-base md:text-sm",
                   touched.email,
                   errors.email,
                   isFieldValid("email", values.email),
@@ -213,7 +213,7 @@ export function ContactForm() {
                 autoComplete="tel"
                 aria-invalid={Boolean(touched.phone && errors.phone)}
                 className={fieldInputClass(
-                  "popup-form-input",
+                  "popup-form-input text-base md:text-sm",
                   touched.phone,
                   errors.phone,
                   isFieldValid("phone", values.phone),
@@ -232,13 +232,13 @@ export function ContactForm() {
               <textarea
                 id="contact-message"
                 placeholder="Your Message"
-                rows={5}
+                rows={4}
                 value={values.message}
                 onChange={(e) => handleChange("message", e.target.value)}
                 onBlur={() => handleBlur("message")}
                 aria-invalid={Boolean(touched.message && errors.message)}
                 className={fieldInputClass(
-                  "popup-form-input",
+                  "popup-form-input text-base md:text-sm",
                   touched.message,
                   errors.message,
                   isFieldValid("message", values.message)
@@ -266,7 +266,7 @@ export function ContactForm() {
                   })
                 )
               }
-              className="btn-accent w-full cursor-pointer md:w-auto disabled:cursor-not-allowed disabled:opacity-70"
+              className="btn-accent w-full cursor-pointer py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-70 md:w-auto md:py-2.5"
             >
               {submitting ? (
                 <span className="inline-flex items-center gap-2">

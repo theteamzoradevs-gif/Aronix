@@ -6,6 +6,9 @@ import { SiteImage } from "@/components/ui/SiteImage";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 
 export function HomeAboutSection() {
+  const paragraphs = site.aboutText.split(/(?<=\.)\s+/).filter(Boolean);
+  const preview = paragraphs.slice(0, 2).join(" ");
+
   return (
     <section className="section-editorial section-white border-t border-border-light">
       <Container>
@@ -14,41 +17,18 @@ export function HomeAboutSection() {
             <div>
               <EditorialHeader
                 label="About us"
-                title="Built in Greater Noida. Delivered site-ready."
-                subtitle="Portable cabins, containers, and prefab structures — manufactured under one roof since 2023."
+                title="About Aronix Infra"
                 align="left"
                 compact
                 prominentLabel
               />
 
               <p className="mt-5 text-body leading-relaxed text-text-muted">
-                We started Aronix Infra with a straightforward idea: construction and industrial sites
-                need reliable space, fast — without the back-and-forth of multiple vendors. Our factory in
-                Greater Noida handles everything from MS porta cabins and guard rooms to used shipping
-                containers and FRP toilets.
+                {preview}
               </p>
-              <p className="mt-4 text-body leading-relaxed text-text-muted">
-                Every unit goes through factory QC before dispatch. Whether it&apos;s a 10×8 site office or a
-                bulk container order for a highway project, our team stays on the same page from quote to
-                handover.
-              </p>
-
-              <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-                {site.impactStats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-xl border border-border-light bg-cream/60 px-4 py-3 text-center lg:text-left"
-                  >
-                    <p className="font-display text-2xl font-bold text-primary">{stat.value}</p>
-                    <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wide text-text-muted">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
 
               <Link href="/about-us" className="btn-primary mt-8 inline-flex text-sm">
-                Learn more about us
+                Read more
               </Link>
             </div>
           </MotionReveal>

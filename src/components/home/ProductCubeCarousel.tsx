@@ -3,9 +3,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 import type { Product } from "@/types";
 import { ProductCard } from "@/components/products/ProductCard";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 type CarouselItem = {
   product: Product;
@@ -90,32 +96,25 @@ export function ProductCubeCarousel({
   const goNext = () => setFaceIndex((i) => (i + 1) % faces.length);
   const hasMultipleFaces = faces.length > 1;
 
-  if (!hasMultipleFaces) {
-    return (
-      <div className="mt-6 md:mt-8">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5 [&>*]:h-full">
-          {items.slice(0, 3).map(({ product, image }) => (
-            <ProductCard
-              key={product.slug}
-              product={product}
-              imageOverride={image}
-              showPrice
-              compact
-            />
-          ))}
-        </div>
-        <ViewAllCta href={viewAllHref} />
-      </div>
-    );
-  }
-
-  return (
-    <div className="mt-6 md:mt-8">
+  const desktopCarousel = !hasMultipleFaces ? (
+    <div className="grid grid-cols-3 gap-5 [&>*]:h-full">
+      {items.slice(0, 3).map(({ product, image }) => (
+        <ProductCard
+          key={product.slug}
+          product={product}
+          imageOverride={image}
+          showPrice
+          compact
+        />
+      ))}
+    </div>
+  ) : (
+    <>
       <div className="overflow-hidden px-0.5">
         <AnimatePresence mode="wait">
           <motion.div
             key={faceIndex}
-            className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5 [&>*]:h-full"
+            className="grid grid-cols-3 gap-5 [&>*]:h-full"
             initial={reduced ? {} : { opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={reduced ? {} : { opacity: 0, x: -40 }}
@@ -133,8 +132,39 @@ export function ProductCubeCarousel({
           </motion.div>
         </AnimatePresence>
       </div>
-
       <ViewAllCta href={viewAllHref} showArrows onPrev={goPrev} onNext={goNext} />
-    </div>
+    </>
+  );
+
+  return (
+    <>
+      <div className="mt-6 md:hidden">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={16}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          className="product-mobile-carousel !pb-10"
+        >
+          {items.map(({ product, image }) => (
+            <SwiperSlide key={product.slug}>
+              <ProductCard
+                product={product}
+                imageOverride={image}
+                showPrice
+                compact
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <ViewAllCta href={viewAllHref} />
+      </div>
+
+      <div className="mt-6 hidden md:mt-8 md:block">
+        {desktopCarousel}
+        {!hasMultipleFaces ? <ViewAllCta href={viewAllHref} /> : null}
+      </div>
+    </>
   );
 }
