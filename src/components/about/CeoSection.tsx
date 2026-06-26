@@ -26,7 +26,7 @@ export function CeoSection() {
           <MotionReveal direction="right">
             <div className="lg:pl-2">
               <EditorialHeader
-                label="Meet our founder"
+                label="Meet our CEO"
                 title={site.ceo.name}
                 subtitle={site.ceo.role ?? "Founder & Director, Aronix Infra"}
               />

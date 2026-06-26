@@ -13,6 +13,7 @@ export interface Product {
   title: string;
   price: number | null;
   image: string | null;
+  images?: string[];
   specs: ProductSpec[];
   description: string;
   link: string;

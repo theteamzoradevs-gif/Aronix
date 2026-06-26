@@ -1,17 +1,17 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
 import { IndiaMARTBadge } from "@/components/ui/IndiaMARTBadge";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
-import { navItems } from "./TopBar";
+import { formatPhoneDisplay, navItems } from "./TopBar";
 
 const productLinks = [
   { href: "/products", label: "All Products" },
   { href: "/products?category=container", label: "Shipping Containers" },
   { href: "/products?category=office", label: "Portable Cabins" },
   { href: "/products?category=guard", label: "Guard Cabins" },
-  { href: "/projects", label: "Projects" },
 ];
 
 const topCertifications = [
@@ -21,143 +21,132 @@ const topCertifications = [
   "Pan-India Delivery",
 ];
 
+const socialLinks = [
+  { href: site.social.facebook, label: "Facebook", icon: FacebookIcon },
+  { href: site.social.instagram, label: "Instagram", icon: InstagramIcon },
+  { href: site.social.linkedin, label: "LinkedIn", icon: LinkedInIcon },
+  { href: site.social.twitter, label: "X (Twitter)", icon: TwitterIcon },
+] as const;
+
 export function Footer() {
   return (
     <footer className="bg-dark text-white">
       <div className="border-b border-white/10 bg-[#141428]">
-        <Container className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between md:py-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[11px] font-medium text-white/80 md:justify-start md:text-xs">
-            {topCertifications.map((item, i) => (
-              <span key={item} className="flex items-center gap-3">
-                {i > 0 && <span className="text-white/25">|</span>}
-                <span className="flex items-center gap-1.5">
-                  <CheckIcon />
-                  {item}
-                </span>
+        <Container className="flex flex-col gap-3 py-3 sm:py-4 md:flex-row md:items-center md:justify-between md:gap-4 md:py-5">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:gap-x-6 md:flex md:flex-wrap md:items-center md:gap-x-4 md:gap-y-2">
+            {topCertifications.map((item) => (
+              <span
+                key={item}
+                className="flex min-w-0 items-start gap-1.5 text-[11px] font-medium leading-snug text-white/80 sm:text-xs"
+              >
+                <CheckIcon />
+                <span>{item}</span>
               </span>
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 md:ml-auto md:justify-end">
+          <div className="flex flex-nowrap items-center justify-center gap-1.5 overflow-x-auto max-md:py-0.5 sm:gap-2 md:ml-auto md:justify-end">
             <a
               href={`tel:${site.phone}`}
-              className="text-sm font-semibold text-accent transition-colors hover:text-accent/90"
+              className="shrink-0 rounded-lg px-1.5 py-1.5 text-xs font-semibold text-accent transition-colors hover:text-accent/90 sm:px-2 sm:text-sm"
             >
-              {site.phone}
+              {formatPhoneDisplay(site.phone)}
             </a>
             <a
               href={`https://wa.me/${site.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex cursor-pointer items-center justify-center text-[#25D366] transition-transform hover:scale-110"
+              className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full text-[#25D366] transition-transform hover:scale-110 sm:h-10 sm:w-10"
               aria-label="WhatsApp"
             >
-              <WhatsAppIcon className="h-6 w-6" />
+              <WhatsAppIcon className="h-5 w-5 sm:h-6 sm:w-6" />
             </a>
-            <span className="h-4 w-px bg-white/20" aria-hidden />
-            <a
-              href={site.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="text-white/60 transition-colors hover:text-white"
-            >
-              <FacebookIcon />
-            </a>
-            <a
-              href={site.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-white/60 transition-colors hover:text-white"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href={site.social.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="X (Twitter)"
-              className="text-white/60 transition-colors hover:text-white"
-            >
-              <TwitterIcon />
-            </a>
+            <span className="mx-0.5 h-4 w-px shrink-0 bg-white/20" aria-hidden />
+            {socialLinks.map(({ href, label, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/5 hover:text-white sm:h-10 sm:w-10"
+              >
+                <Icon />
+              </a>
+            ))}
           </div>
         </Container>
       </div>
 
-      <Container className="py-8 md:py-10">
-        <div className="flex flex-col gap-8 pb-8 lg:flex-row lg:items-start lg:gap-8">
-          <div className="flex w-full max-w-[220px] shrink-0 flex-col items-center gap-4 lg:items-start">
-            <Link href="/" className="relative block h-24 w-full max-w-[200px] md:h-28">
+      <Container className="py-8 sm:py-10">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
+          <div className="flex w-full items-center justify-center gap-4 border-b border-white/10 pb-8 sm:gap-5 lg:max-w-[300px] lg:shrink-0 lg:justify-start lg:border-b-0 lg:pb-0">
+            <Link
+              href="/"
+              className="relative block h-[48px] w-[118px] shrink-0 sm:h-[56px] sm:w-[138px]"
+            >
               <Image
                 src={site.logo}
                 alt="Aronix Infra"
                 fill
                 className="object-contain object-left"
-                sizes="200px"
+                sizes="(max-width: 640px) 118px, 138px"
                 unoptimized
               />
             </Link>
-            <div className="w-full max-w-[200px] [&_a]:block">
-              <IndiaMARTBadge size="xl" className="!h-20 !w-full max-w-[200px] !object-contain !object-left md:!h-24" />
+
+            <span className="h-10 w-px shrink-0 bg-white/15 sm:h-12" aria-hidden />
+
+            <div className="flex shrink-0 items-center">
+              <IndiaMARTBadge
+                size="lg"
+                className="!h-[42px] !w-auto max-w-[120px] object-contain object-left sm:!h-[50px] sm:max-w-[140px]"
+              />
             </div>
           </div>
 
-          <div className="grid min-w-0 flex-1 grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-4 lg:gap-5">
-            <div>
-              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/60">
-                Company
-              </h3>
-              <ul className="space-y-2 text-sm text-gray-300">
+          <div className="grid min-w-0 flex-1 grid-cols-2 gap-x-6 gap-y-8 sm:gap-x-8 lg:grid-cols-4 lg:gap-5">
+            <FooterColumn title="Company">
+              <ul className="space-y-2.5 text-sm text-gray-300">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="transition-colors hover:text-white">
+                    <Link href={item.href} className="inline-block py-0.5 transition-colors hover:text-white">
                       {item.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </FooterColumn>
 
-            <div>
-              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/60">
-                Products
-              </h3>
-              <ul className="space-y-2 text-sm text-gray-300">
+            <FooterColumn title="Products">
+              <ul className="space-y-2.5 text-sm text-gray-300">
                 {productLinks.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="transition-colors hover:text-white">
+                    <Link href={item.href} className="inline-block py-0.5 transition-colors hover:text-white">
                       {item.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </FooterColumn>
 
-            <div>
-              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/60">
-                Certification
-              </h3>
+            <FooterColumn title="Certification" className="col-span-2 lg:col-span-1">
               <p className="text-sm font-medium text-white">{site.certification.title}</p>
               <p className="mt-1 text-sm leading-relaxed text-gray-300">{site.certification.subtitle}</p>
-              <div className="mt-3 space-y-1.5 text-sm text-gray-300">
+              <div className="mt-3 space-y-1.5 text-sm leading-relaxed text-gray-300">
                 <p>GST: {site.gst}</p>
                 <p>MSME Approved</p>
                 <p>Employees: {site.footerMeta.employees}</p>
+                <p>GST Registration Date: {site.footerMeta.gstRegistrationDate}</p>
               </div>
-            </div>
+            </FooterColumn>
 
-            <div>
-              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-white/60">
-                Contact
-              </h3>
-              <ul className="space-y-2.5 text-sm text-gray-300">
+            <FooterColumn title="Contact" className="col-span-2 lg:col-span-1">
+              <ul className="space-y-4 text-sm leading-relaxed text-gray-300">
                 {site.addresses.map((addr) => (
-                  <li key={addr.label}>
-                    <strong className="text-white">{addr.label}</strong>
-                    <br />
-                    {addr.text}
+                  <li key={addr.label} className="break-words">
+                    <strong className="block text-white">{addr.label}</strong>
+                    <span className="mt-1 block">{addr.text}</span>
                   </li>
                 ))}
               </ul>
@@ -165,25 +154,44 @@ export function Footer() {
                 href={site.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-block text-sm font-medium text-accent hover:underline"
+                className="mt-4 inline-flex min-h-10 items-center text-sm font-medium text-accent hover:underline"
               >
-                Get Directions
+                Get Direction
               </a>
-            </div>
+            </FooterColumn>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-5 text-center text-sm text-gray-400 lg:text-left">
-          <p>Copyright © Aronix Infra. All rights reserved.</p>
+        <div className="mt-8 border-t border-white/10 pt-5 text-center text-xs text-gray-400 sm:text-sm lg:text-left">
+          <p>Copyright © Aronixinfra all rights reserved.</p>
         </div>
       </Container>
     </footer>
   );
 }
 
+function FooterColumn({
+  title,
+  children,
+  className = "",
+}: {
+  title: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={className}>
+      <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-white/60 sm:text-xs">
+        {title}
+      </h3>
+      {children}
+    </div>
+  );
+}
+
 function CheckIcon() {
   return (
-    <svg className="h-3.5 w-3.5 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
     </svg>
   );
@@ -209,6 +217,14 @@ function TwitterIcon() {
   return (
     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
   );
 }

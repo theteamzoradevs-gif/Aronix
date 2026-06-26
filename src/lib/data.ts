@@ -25,6 +25,12 @@ export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }
 
+export function getProductImages(product: Product): string[] {
+  if (product.images?.length) return product.images;
+  if (product.image) return [product.image];
+  return [];
+}
+
 export function getBlogBySlug(slug: string): Blog | undefined {
   return blogs.find((b) => b.slug === slug);
 }

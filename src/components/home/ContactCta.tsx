@@ -11,7 +11,7 @@ export function ContactCta() {
     <section className="relative min-h-[360px] overflow-hidden md:min-h-[400px]">
       <div className="absolute inset-0">
         <SiteImage
-          src={site.heroImages[1]}
+          src={site.heroImages[3]}
           alt="Aronix Infra team at work"
           fill
           sizes="100vw"

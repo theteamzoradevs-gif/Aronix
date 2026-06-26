@@ -29,6 +29,7 @@ interface ProjectGalleryProps {
   hideHeader?: boolean;
   compact?: boolean;
   masonry?: boolean;
+  hideCategoryBadge?: boolean;
 }
 
 export function ProjectGallery({
@@ -38,6 +39,7 @@ export function ProjectGallery({
   hideHeader = false,
   compact = false,
   masonry = false,
+  hideCategoryBadge = false,
 }: ProjectGalleryProps) {
   const [active, setActive] = useState<ProjectCategory>("all");
 
@@ -50,7 +52,9 @@ export function ProjectGallery({
     <section
       className={cn(
         "section-white",
-        compact ? "section-editorial border-t border-border-light pt-0" : "section-editorial"
+        compact
+          ? "border-t border-gray-100 py-10 md:py-10"
+          : "section-editorial"
       )}
     >
       <Container>
@@ -97,7 +101,7 @@ export function ProjectGallery({
           </div>
         )}
 
-        <StaggerChildren className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerChildren className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {displayed.map((project) => (
             <StaggerItem key={project.id} className="h-full">
               <article className="card-premium group flex h-full flex-col overflow-hidden">
@@ -119,9 +123,11 @@ export function ProjectGallery({
                       {project.location}
                     </p>
                   </div>
-                  <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary backdrop-blur-sm group-hover:opacity-0">
-                    {projectCategoryLabels[project.category]}
-                  </span>
+                  {!hideCategoryBadge && (
+                    <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary backdrop-blur-sm group-hover:opacity-0">
+                      {projectCategoryLabels[project.category]}
+                    </span>
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-4">
                   <h3 className="line-clamp-2 font-display font-semibold text-ink">{project.title}</h3>

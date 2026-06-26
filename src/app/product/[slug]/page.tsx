@@ -2,19 +2,19 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
-import { SiteImage } from "@/components/ui/SiteImage";
 import { ProductCard } from "@/components/products/ProductCard";
 import { ContactCta } from "@/components/home/ContactCta";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import {
   products,
   getProductBySlug,
+  getProductImages,
   productCategoryLabels,
   site,
 } from "@/lib/data";
 import { formatPrice } from "@/lib/utils";
-import { resolveDisplayImage } from "@/lib/gallery";
 import { QuoteButton } from "@/components/products/QuoteButton";
+import { ProductImageGallery } from "@/components/products/ProductImageGallery";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export function generateStaticParams() {
@@ -47,6 +47,7 @@ export default async function ProductPage({
   const categoryLabel = product.category
     ? productCategoryLabels[product.category]
     : null;
+  const galleryImages = getProductImages(product);
 
   return (
     <>
@@ -73,17 +74,15 @@ export default async function ProductPage({
         </MotionReveal>
       </PageHero>
 
-      <section className="section-white section-editorial pt-0">
+      <section className="section-white section-editorial pt-8 md:pt-12">
         <Container>
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <MotionReveal direction="left">
-              <div className="overflow-hidden rounded-3xl bg-surface shadow-[var(--shadow-card)]">
-                <SiteImage
-                  src={resolveDisplayImage(product.image, product.slug)}
-                  alt={product.title}
-                  className="aspect-square w-full object-cover"
-                />
-              </div>
+              <ProductImageGallery
+                title={product.title}
+                slug={product.slug}
+                images={galleryImages}
+              />
             </MotionReveal>
 
             <MotionReveal direction="right">

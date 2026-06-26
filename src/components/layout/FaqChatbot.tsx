@@ -50,7 +50,7 @@ export function FaqChatbot() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="pointer-events-auto fixed bottom-20 right-4 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-white text-primary shadow-[0_4px_18px_rgba(15,23,42,0.15)] ring-1 ring-primary/10 transition-all hover:scale-105 hover:bg-cream hover:shadow-[0_6px_22px_rgba(15,23,42,0.18)] md:bottom-6 md:right-6"
+        className="pointer-events-auto fixed bottom-20 right-4 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-accent text-ink shadow-[0_4px_20px_rgba(244,193,0,0.45)] ring-2 ring-white/20 transition-all hover:scale-105 hover:bg-accent/90 hover:shadow-[0_6px_24px_rgba(244,193,0,0.55)] md:bottom-6 md:right-6"
         aria-label={open ? "Close chat" : "Open FAQ chat"}
       >
         {open ? (

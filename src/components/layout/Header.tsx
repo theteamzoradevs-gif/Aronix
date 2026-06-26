@@ -58,51 +58,49 @@ export function Header() {
         <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-3.5">
           <BrandLogo />
 
-          <div className="hidden items-center gap-6 xl:flex xl:gap-8">
-            <nav className="flex items-center gap-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "relative text-[14px] font-medium text-white/75 transition-colors hover:text-white",
-                    isActive(item.href) && "text-white"
-                  )}
-                >
-                  {item.label}
-                  {isActive(item.href) && (
-                    <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-accent" />
-                  )}
-                </Link>
-              ))}
-            </nav>
-
-            <div className="shrink-0 border-l border-white/15 pl-6">
-              <IndiaMARTBadge size="lg" />
-            </div>
-          </div>
+          <nav className="hidden items-center gap-8 xl:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "relative text-[14px] font-medium text-white/75 transition-colors hover:text-white",
+                  isActive(item.href) && "text-white"
+                )}
+              >
+                {item.label}
+                {isActive(item.href) && (
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-accent" />
+                )}
+              </Link>
+            ))}
+          </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
-            <div className="hidden flex-col items-end lg:flex">
-              <a
-                href={`tel:${site.phone}`}
-                className="flex items-center gap-2 text-[14px] font-semibold text-white transition-colors hover:text-accent"
-              >
-                <PhoneIcon />
-                <span>{formatPhoneDisplay(site.phone)}</span>
-              </a>
-              <span className="mt-0.5 text-[11px] font-medium text-white/65">
-                100% response rate
-              </span>
-            </div>
+            <div className="hidden items-center gap-6 lg:flex">
+              <IndiaMARTBadge size="lg" />
 
-            <button
-              type="button"
-              onClick={open}
-              className="hidden cursor-pointer rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:bg-accent/90 md:inline-flex"
-            >
-              Get Quote
-            </button>
+              <div className="flex flex-col items-end">
+                <a
+                  href={`tel:${site.phone}`}
+                  className="flex items-center gap-2 text-[14px] font-semibold text-white transition-colors hover:text-accent"
+                >
+                  <PhoneIcon />
+                  <span>{formatPhoneDisplay(site.phone)}</span>
+                </a>
+                <span className="mt-1 rounded-full bg-accent/15 px-2 py-0.5 text-[11px] font-semibold tracking-wide text-accent">
+                  100% response rate
+                </span>
+              </div>
+
+              <button
+                type="button"
+                onClick={open}
+                className="cursor-pointer rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:bg-accent/90"
+              >
+                Get Quote
+              </button>
+            </div>
 
             <button
               type="button"
@@ -134,3 +132,4 @@ function PhoneIcon() {
     </svg>
   );
 }
+

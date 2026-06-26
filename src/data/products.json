@@ -47,9 +47,17 @@
         "value": "Made in India"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Portable Cabins , FRP Portable Security Cabinand such more products",
+    "description": "Iron house/office unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/portable-glass-cabin/",
-    "category": "custom"
+    "category": "office",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T115749.089.png",
+      "/assets/2025/10/Portable-Glass-Cabin-5.jpg",
+      "/assets/2025/10/Portable-Glass-Cabin-4.jpg",
+      "/assets/2025/10/Portable-Glass-Cabin-3.jpg",
+      "/assets/2025/10/Portable-Glass-Cabin-2.jpg",
+      "/assets/2025/10/Portable-Glass-Cabin-1.jpg"
+    ]
   },
   {
     "id": 610,
@@ -77,7 +85,12 @@
     ],
     "description": "A modular portable cabin is a compact, movable structure designed for various uses, such as temporary or permanent housing, office space, storage, or even recreational purposes.",
     "link": "https://aronixinfra.com/product/modular-portable-cabin/",
-    "category": "custom"
+    "category": "custom",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T115320.232.png",
+      "/assets/2025/10/Modular-Portable-Cabin-1.png",
+      "/assets/2025/10/Modular-Portable-Cabin.jpg"
+    ]
   },
   {
     "id": 605,
@@ -107,9 +120,15 @@
         "value": "Made in India"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Portable Cabins , FRP Portable Security Cabinand such more products",
+    "description": "Size: 4 x 4 x 8.6 Feet. Supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/mild-steel-portable-toilet-container/",
-    "category": "toilet"
+    "category": "toilet",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T114928.702.png",
+      "/assets/2025/10/Mild-Steel-Portable-Toilet-Container-2.jpg",
+      "/assets/2025/10/Mild-Steel-Portable-Toilet-Container-1.jpg",
+      "/assets/2025/10/Mild-Steel-Portable-Toilet-Container.jpg"
+    ]
   },
   {
     "id": 600,
@@ -139,9 +158,15 @@
         "value": "Second Hand Only"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Portable Cabins , FRP Portable Security Cabinand such more products",
+    "description": "Material: Stainless Steel. Supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/second-hand-container/",
-    "category": "container"
+    "category": "container",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T114425.141.png",
+      "/assets/2025/10/Second-Hand-Container-2.jpg",
+      "/assets/2025/10/Second-Hand-Container-1.jpg",
+      "/assets/2025/10/Second-Hand-Container.jpg"
+    ]
   },
   {
     "id": 584,
@@ -179,88 +204,175 @@
         "value": "New and Second Hand"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Portable Cabins , FRP Portable Security Cabinand such more products",
+    "description": "Material: Stainless Steel. Supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/used-shipping-containers/",
-    "category": "container"
+    "category": "container",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T113233.303.png",
+      "/assets/2025/10/Used-Shipping-Containers-2.png",
+      "/assets/2025/10/Used-Shipping-Containers-1.jpg",
+      "/assets/2025/10/Used-Shipping-Containers.jpg"
+    ]
   },
   {
     "id": 580,
     "slug": "cement-fiber-guard-cabin8x6x8-6",
     "title": "Cement Fiber Guard Cabin8x6x8.6",
     "price": 95000,
-    "image": "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T010355.883.png",
     "specs": [
       {
-        "label": "Material",
-        "value": "Cement Fiber"
+        "label": "Built Type",
+        "value": "Prefab"
       },
       {
-        "label": "Size",
-        "value": "8x6x8.6"
+        "label": "Color",
+        "value": "white"
+      },
+      {
+        "label": "Place Of Origin",
+        "value": "Pan India"
       },
       {
         "label": "Country of Origin",
         "value": "Made in India"
+      },
+      {
+        "label": "Service Provider",
+        "value": "Aronix Infra"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Portable Cabins and such more products",
+    "description": "Built Type: Prefab. Supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/cement-fiber-guard-cabin8x6x8-6/",
-    "category": "guard"
+    "category": "guard",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T010355.883.png",
+      "/assets/2025/10/Cement-Fiber-Guard-Cabin8x6x8.6-4.jpg",
+      "/assets/2025/10/Cement-Fiber-Guard-Cabin8x6x8.6-3.jpg",
+      "/assets/2025/10/Cement-Fiber-Guard-Cabin8x6x8.6-2.jpg",
+      "/assets/2025/10/Cement-Fiber-Guard-Cabin8x6x8.6-1.jpg",
+      "/assets/2025/10/Cement-Fiber-Guard-Cabin8x6x8.6.jpg"
+    ]
   },
   {
     "id": 576,
     "slug": "mild-steel-guard-cabin",
     "title": "Mild Steel Guard Cabin",
     "price": 65000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T010031.706.png",
     "specs": [
       {
         "label": "Material",
-        "value": "Mild Steel"
+        "value": "MS Sheet"
       },
       {
         "label": "Usage/Application",
-        "value": "Security Guard"
+        "value": "Guard Room"
+      },
+      {
+        "label": "Shape",
+        "value": "Square"
+      },
+      {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Size",
+        "value": "6x6x8"
+      },
+      {
+        "label": "I Deal In",
+        "value": "New Only"
       },
       {
         "label": "Country of Origin",
         "value": "Made in India"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Portable Cabins and such more products",
+    "description": "MS Sheet guard room unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/mild-steel-guard-cabin/",
-    "category": "guard"
+    "category": "guard",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T010031.706.png",
+      "/assets/2025/10/Mild-Steel-Guard-Cabin-3.jpg",
+      "/assets/2025/10/Mild-Steel-Guard-Cabin-2.jpg",
+      "/assets/2025/10/Mild-Steel-Guard-Cabin-1.jpg",
+      "/assets/2025/10/Mild-Steel-Guard-Cabin.jpg"
+    ]
   },
   {
     "id": 572,
     "slug": "brown-portable-security-cabin",
     "title": "Brown Portable Security Cabin",
     "price": 55000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T174216.396.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T004830.569.png",
     "specs": [
       {
         "label": "Material",
-        "value": "Steel"
+        "value": "MS Sheet"
+      },
+      {
+        "label": "Shape",
+        "value": "Square"
+      },
+      {
+        "label": "Usage/Application",
+        "value": "Guard Room"
+      },
+      {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Size",
+        "value": "6x6x8"
+      },
+      {
+        "label": "Surface Treatment",
+        "value": "Color Coated"
       },
       {
         "label": "Color",
         "value": "Brown"
       },
       {
+        "label": "Window Type",
+        "value": "aluminum"
+      },
+      {
+        "label": "Glass Wool Insulation",
+        "value": "50mm"
+      },
+      {
+        "label": "Is It Folded",
+        "value": "Non Folded"
+      },
+      {
+        "label": "I Deal In",
+        "value": "New Only"
+      },
+      {
         "label": "Country of Origin",
         "value": "Made in India"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Portable Cabins and such more products",
+    "description": "MS Sheet guard room unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/brown-portable-security-cabin/",
-    "category": "guard"
+    "category": "guard",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T004830.569.png",
+      "/assets/2025/10/Brown-Portable-Security-Cabin-2.jpg",
+      "/assets/2025/10/Brown-Portable-Security-Cabin-1.jpg",
+      "/assets/2025/10/Brown-Portable-Security-Cabin.jpg"
+    ]
   },
   {
     "id": 568,
     "slug": "portable-security-cabins",
     "title": "Portable Security Cabins",
     "price": 55000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T174359.888.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T004533.103.png",
     "specs": [
       {
         "label": "Material",
@@ -275,16 +387,19 @@
         "value": "Made in India"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Portable Cabins and such more products",
+    "description": "Manufactured and supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/portable-security-cabins/",
-    "category": "guard"
+    "category": "guard",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T004533.103.png"
+    ]
   },
   {
     "id": 564,
     "slug": "ms-portable-security-guard-cabin",
     "title": "Ms Portable Security Guard Cabin",
     "price": 50999,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T115749.089.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T004132.070.png",
     "specs": [
       {
         "label": "Material",
@@ -299,17 +414,26 @@
         "value": "Made in India"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Portable Cabins and such more products",
+    "description": "Manufactured and supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/ms-portable-security-guard-cabin/",
-    "category": "guard"
+    "category": "guard",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T004132.070.png",
+      "/assets/2025/10/Untitled-design-2025-10-09T004132.070-1.png",
+      "/assets/2025/10/Ms-Portable-Security-Guard-Cabin-1.jpg"
+    ]
   },
   {
     "id": 560,
     "slug": "40-ft-used-shipping-container",
     "title": "40 Ft Used Shipping Container",
     "price": 195000,
-    "image": "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T003752.606.png",
     "specs": [
+      {
+        "label": "Storage Capacity",
+        "value": "30-40 ton"
+      },
       {
         "label": "Container Length",
         "value": "40 feet"
@@ -319,188 +443,465 @@
         "value": "Stainless Steel"
       },
       {
+        "label": "Container Type",
+        "value": "Dry Container"
+      },
+      {
+        "label": "Storage Capacity(T)",
+        "value": "30 ton"
+      },
+      {
+        "label": "Panel Thickness",
+        "value": "1.6 MM"
+      },
+      {
         "label": "I Deal In",
         "value": "Second Hand Only"
       }
     ],
-    "description": "We \"Aronix Infra, is the foremost Trader Retailer of Used Shipping Containers and such more products",
+    "description": "Storage Capacity: 30-40 ton. Supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/40-ft-used-shipping-container/",
-    "category": "container"
+    "category": "container",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T003752.606.png",
+      "/assets/2025/10/40-Ft-Used-Shipping-Container-4.jpg",
+      "/assets/2025/10/40-Ft-Used-Shipping-Container-3.jpg",
+      "/assets/2025/10/40-Ft-Used-Shipping-Container-2.jpg",
+      "/assets/2025/10/40-Ft-Used-Shipping-Container-1.jpg",
+      "/assets/2025/10/40-Ft-Used-Shipping-Container.jpg"
+    ]
   },
   {
     "id": 556,
     "slug": "puf-cabin",
     "title": "Puf Cabin",
     "price": 220000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T114928.702.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T002437.284.png",
     "specs": [
       {
-        "label": "Material",
-        "value": "PUF Panel"
-      },
-      {
-        "label": "Usage/Application",
-        "value": "Office/Accommodation"
-      },
-      {
-        "label": "Country of Origin",
-        "value": "Made in India"
-      }
-    ],
-    "description": "PUF cabin provides excellent insulation and durability for site offices and accommodation.",
-    "link": "https://aronixinfra.com/product/puf-cabin/",
-    "category": "custom"
-  },
-  {
-    "id": 552,
-    "slug": "portable-workstation-cabin",
-    "title": "Portable Workstation Cabin",
-    "price": 190000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T114425.141.png",
-    "specs": [
-      {
-        "label": "Material",
-        "value": "Steel"
-      },
-      {
-        "label": "Usage/Application",
-        "value": "Workstation"
-      },
-      {
-        "label": "Country of Origin",
-        "value": "Made in India"
-      }
-    ],
-    "description": "Portable workstation cabin for industrial and construction site requirements.",
-    "link": "https://aronixinfra.com/product/portable-workstation-cabin/",
-    "category": "office"
-  },
-  {
-    "id": 548,
-    "slug": "white-steel-portable-cabin",
-    "title": "White Steel Portable Cabin",
-    "price": 350000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T113233.303.png",
-    "specs": [
-      {
-        "label": "Material",
-        "value": "Steel"
-      },
-      {
-        "label": "Color",
-        "value": "White"
-      },
-      {
-        "label": "Country of Origin",
-        "value": "Made in India"
-      }
-    ],
-    "description": "White steel portable cabin for office and commercial use.",
-    "link": "https://aronixinfra.com/product/white-steel-portable-cabin/",
-    "category": "office"
-  },
-  {
-    "id": 544,
-    "slug": "portable-office-cabin-2",
-    "title": "Portable Office Cabin",
-    "price": 230000,
-    "image": "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg",
-    "specs": [
-      {
-        "label": "Material",
-        "value": "Steel"
+        "label": "Built Type",
+        "value": "Panel Build"
       },
       {
         "label": "Usage/Application",
         "value": "Office"
       },
       {
+        "label": "Color",
+        "value": "White"
+      },
+      {
+        "label": "Is It Customized",
+        "value": "Yes"
+      },
+      {
         "label": "Country of Origin",
         "value": "Made in India"
       }
     ],
-    "description": "Portable office cabin for site and commercial requirements.",
+    "description": "Built Type: Panel Build. Supplied by Aronix Infra, Greater Noida.",
+    "link": "https://aronixinfra.com/product/puf-cabin/",
+    "category": "office",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T002437.284.png",
+      "/assets/2025/10/Puf-Cabin-2.jpg",
+      "/assets/2025/10/Puf-Cabin-1.jpg",
+      "/assets/2025/10/Puf-Cabin.jpg"
+    ]
+  },
+  {
+    "id": 552,
+    "slug": "portable-workstation-cabin",
+    "title": "Portable Workstation Cabin",
+    "price": 190000,
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T001926.543.png",
+    "specs": [
+      {
+        "label": "Material",
+        "value": "Mild Steel"
+      },
+      {
+        "label": "Usage/Application",
+        "value": "Workstation"
+      },
+      {
+        "label": "Design Type",
+        "value": "Customized"
+      },
+      {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Shape",
+        "value": "Square"
+      },
+      {
+        "label": "Color",
+        "value": "As Per Required"
+      },
+      {
+        "label": "Surface Treatment",
+        "value": "Color Coated"
+      },
+      {
+        "label": "Is It Folded",
+        "value": "Non Folded"
+      },
+      {
+        "label": "I Deal In",
+        "value": "New Only"
+      },
+      {
+        "label": "Country of Origin",
+        "value": "Made in India"
+      }
+    ],
+    "description": "Mild Steel workstation unit manufactured and delivered by Aronix Infra from Greater Noida.",
+    "link": "https://aronixinfra.com/product/portable-workstation-cabin/",
+    "category": "office",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T001926.543.png",
+      "/assets/2025/10/Portable-Workstation-Cabin-2.jpg",
+      "/assets/2025/10/Portable-Workstation-Cabin-1.jpg",
+      "/assets/2025/10/Portable-Workstation-Cabin.jpg"
+    ]
+  },
+  {
+    "id": 548,
+    "slug": "white-steel-portable-cabin",
+    "title": "White Steel Portable Cabin",
+    "price": 350000,
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T001000.144.png",
+    "specs": [
+      {
+        "label": "Material",
+        "value": "Mild Steel"
+      },
+      {
+        "label": "Usage/Application",
+        "value": "Office"
+      },
+      {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Size",
+        "value": "30x10x8.6"
+      },
+      {
+        "label": "Shape",
+        "value": "Square"
+      },
+      {
+        "label": "Color",
+        "value": "White"
+      },
+      {
+        "label": "Surface Treatment",
+        "value": "Color Coated"
+      },
+      {
+        "label": "Capacity",
+        "value": "1800-2000 ton"
+      },
+      {
+        "label": "Insulation Type",
+        "value": "glass wool"
+      },
+      {
+        "label": "Glass Wool Insulation",
+        "value": "50mm"
+      },
+      {
+        "label": "Is It Folded",
+        "value": "Non Folded"
+      },
+      {
+        "label": "I Deal In",
+        "value": "New and Second Hand"
+      },
+      {
+        "label": "Country of Origin",
+        "value": "Made in India"
+      }
+    ],
+    "description": "Mild Steel office unit manufactured and delivered by Aronix Infra from Greater Noida.",
+    "link": "https://aronixinfra.com/product/white-steel-portable-cabin/",
+    "category": "office",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T001000.144.png",
+      "/assets/2025/10/White-Steel-Portable-Cabin-1.jpg",
+      "/assets/2025/10/White-Steel-Portable-Cabin.jpg"
+    ]
+  },
+  {
+    "id": 544,
+    "slug": "portable-office-cabin-2",
+    "title": "Portable Office Cabin",
+    "price": 230000,
+    "image": "/assets/2025/10/Untitled-design-2025-10-09T000016.507.png",
+    "specs": [
+      {
+        "label": "Material",
+        "value": "Mild Steel"
+      },
+      {
+        "label": "Usage/Application",
+        "value": "Office"
+      },
+      {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Shape",
+        "value": "Rectangular"
+      },
+      {
+        "label": "Color",
+        "value": "White And Blue"
+      },
+      {
+        "label": "Surface Treatment",
+        "value": "Color Coated"
+      },
+      {
+        "label": "Country of Origin",
+        "value": "Made in India"
+      }
+    ],
+    "description": "Mild Steel office unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/portable-office-cabin-2/",
-    "category": "office"
+    "category": "office",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-09T000016.507.png",
+      "/assets/2025/10/Portable-Office-Cabin-3.jpg",
+      "/assets/2025/10/Portable-Office-Cabin-2.png",
+      "/assets/2025/10/Portable-Office-Cabin-1.jpg"
+    ]
   },
   {
     "id": 540,
     "slug": "prefabricated-manager-cabin",
     "title": "Prefabricated Manager Cabin",
     "price": 210000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T155059.833.png",
     "specs": [
       {
         "label": "Material",
-        "value": "Steel"
+        "value": "Mild Steel"
       },
       {
         "label": "Usage/Application",
-        "value": "Manager Office"
+        "value": "Office"
+      },
+      {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Color",
+        "value": "White"
+      },
+      {
+        "label": "Size",
+        "value": "20x10x8.6"
+      },
+      {
+        "label": "Shape",
+        "value": "square"
+      },
+      {
+        "label": "Surface Treatment",
+        "value": "Color Coated"
+      },
+      {
+        "label": "Weight",
+        "value": "1800-2000 ton"
+      },
+      {
+        "label": "Ceiling Type",
+        "value": "MDF"
+      },
+      {
+        "label": "Window Type",
+        "value": "aluminum"
+      },
+      {
+        "label": "Inner Sheet",
+        "value": "mdf"
+      },
+      {
+        "label": "Exterior Wall",
+        "value": "ms"
+      },
+      {
+        "label": "Legs Height",
+        "value": "6 inch"
+      },
+      {
+        "label": "Wall Height",
+        "value": "8.6ft"
+      },
+      {
+        "label": "Width",
+        "value": "10ft"
+      },
+      {
+        "label": "Insulation",
+        "value": "glass wool"
+      },
+      {
+        "label": "Is It Folded",
+        "value": "Non Folded"
+      },
+      {
+        "label": "Is It Customized",
+        "value": "Yes"
+      },
+      {
+        "label": "Is It Portable",
+        "value": "Yes"
+      },
+      {
+        "label": "Length",
+        "value": "20ft"
+      },
+      {
+        "label": "I Deal In",
+        "value": "New and Second Hand"
       },
       {
         "label": "Country of Origin",
         "value": "Made in India"
       }
     ],
-    "description": "Prefabricated manager cabin with premium finish.",
+    "description": "Mild Steel office unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/prefabricated-manager-cabin/",
-    "category": "office"
+    "category": "office",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-08T155059.833.png",
+      "/assets/2025/10/Prefabricated-Manager-Cabin-3.jpg"
+    ]
   },
   {
     "id": 536,
     "slug": "ms-portable-bunk-house-cabin-2",
     "title": "Ms Portable Bunk House Cabin",
     "price": 405000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T174216.396.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png",
     "specs": [
+      {
+        "label": "Usage/Application",
+        "value": "House"
+      },
+      {
+        "label": "Shape",
+        "value": "Square"
+      },
       {
         "label": "Material",
         "value": "Mild Steel"
       },
       {
-        "label": "Usage/Application",
-        "value": "Bunk House"
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Color",
+        "value": "As Per Required"
+      },
+      {
+        "label": "Size",
+        "value": "40/30/20ft"
+      },
+      {
+        "label": "Place Of Origin",
+        "value": "Pan India"
+      },
+      {
+        "label": "Is It Portable",
+        "value": "Portable"
+      },
+      {
+        "label": "Glass Wool Insulation",
+        "value": "50mm"
       },
       {
         "label": "Country of Origin",
         "value": "Made in India"
       }
     ],
-    "description": "MS portable bunk house cabin for labor accommodation.",
+    "description": "Mild Steel house unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/ms-portable-bunk-house-cabin-2/",
-    "category": "bunk"
+    "category": "bunk",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png",
+      "/assets/2025/10/Ms-Portable-Bunk-House-Cabin-1.jpg",
+      "/assets/2025/10/Ms-Portable-Bunk-House-Cabin.jpg"
+    ]
   },
   {
     "id": 532,
     "slug": "mild-steel-portable-guard-cabin-2",
     "title": "Mild Steel Portable Guard Cabin",
     "price": 75000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T174359.888.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T160249.500.png",
     "specs": [
       {
         "label": "Material",
-        "value": "Mild Steel"
+        "value": "Steel"
+      },
+      {
+        "label": "Shape",
+        "value": "Square"
       },
       {
         "label": "Usage/Application",
         "value": "Guard Room"
       },
       {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Size",
+        "value": "8x8x8"
+      },
+      {
+        "label": "Color",
+        "value": "as per requirement"
+      },
+      {
+        "label": "Is It Folded",
+        "value": "Non Folded"
+      },
+      {
+        "label": "I Deal In",
+        "value": "New Only"
+      },
+      {
         "label": "Country of Origin",
         "value": "Made in India"
       }
     ],
-    "description": "Mild steel portable guard cabin for security purposes.",
+    "description": "Steel guard room unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/mild-steel-portable-guard-cabin-2/",
-    "category": "guard"
+    "category": "guard",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-08T160249.500.png",
+      "/assets/2025/10/Mild-Steel-Portable-Guard-Cabin-3.jpg",
+      "/assets/2025/10/Mild-Steel-Portable-Guard-Cabin-2.png"
+    ]
   },
   {
     "id": 528,
     "slug": "ms-portable-shop-cabin",
     "title": "Ms Portable Shop Cabin",
     "price": 100000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T115749.089.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T160938.093.png",
     "specs": [
       {
         "label": "Material",
@@ -508,47 +909,77 @@
       },
       {
         "label": "Usage/Application",
-        "value": "Shop"
+        "value": "shop"
+      },
+      {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Shape",
+        "value": "Square"
       },
       {
         "label": "Country of Origin",
         "value": "Made in India"
       }
     ],
-    "description": "MS portable shop cabin for retail and commercial use.",
+    "description": "Mild Steel shop unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/ms-portable-shop-cabin/",
-    "category": "office"
+    "category": "office",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-08T160938.093.png",
+      "/assets/2025/10/Ms-Portable-Shop-Cabin-1.jpg",
+      "/assets/2025/10/Ms-Portable-Shop-Cabin-2.jpg",
+      "/assets/2025/10/Ms-Portable-Shop-Cabin.jpg"
+    ]
   },
   {
     "id": 524,
     "slug": "ms-bunk-house-cabin-2",
     "title": "Ms Bunk House Cabin",
     "price": 370000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T115320.232.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T161059.254.png",
     "specs": [
       {
         "label": "Material",
         "value": "Mild Steel"
       },
       {
-        "label": "Usage/Application",
-        "value": "Bunk House"
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Place Of Origin",
+        "value": "Pan India"
+      },
+      {
+        "label": "Size",
+        "value": "30x10x9"
+      },
+      {
+        "label": "Color",
+        "value": "As Per Required"
       },
       {
         "label": "Country of Origin",
         "value": "Made in India"
       }
     ],
-    "description": "MS bunk house cabin for site accommodation.",
+    "description": "Material: Mild Steel. Supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/ms-bunk-house-cabin-2/",
-    "category": "bunk"
+    "category": "bunk",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-08T161059.254.png",
+      "/assets/2025/10/Ms-Bunk-House-Cabin-4.jpg"
+    ]
   },
   {
     "id": 520,
     "slug": "shipping-container-office",
     "title": "Shipping Container Office",
     "price": 210000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T114928.702.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T161255.694.png",
     "specs": [
       {
         "label": "Material",
@@ -563,16 +994,22 @@
         "value": "Made in India"
       }
     ],
-    "description": "Shipping container converted into functional office space.",
+    "description": "Manufactured and supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/shipping-container-office/",
-    "category": "office"
+    "category": "container",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-08T161255.694.png",
+      "/assets/2025/10/IMG-20240427-WA0080.jpg",
+      "/assets/2025/10/IMG-20240427-WA0084.jpg",
+      "/assets/2025/10/IMG-20240427-WA0053.jpg"
+    ]
   },
   {
     "id": 516,
     "slug": "steel-portable-cabin",
     "title": "Steel Portable Cabin",
     "price": 189999,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T114425.141.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T161715.047.png",
     "specs": [
       {
         "label": "Material",
@@ -587,33 +1024,93 @@
         "value": "Made in India"
       }
     ],
-    "description": "Steel portable cabin for diverse site requirements.",
+    "description": "Manufactured and supplied by Aronix Infra, Greater Noida.",
     "link": "https://aronixinfra.com/product/steel-portable-cabin/",
-    "category": "office"
+    "category": "custom",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-08T161715.047.png"
+    ]
   },
   {
     "id": 512,
     "slug": "portable-plain-office-cabin",
     "title": "Portable Plain Office Cabin",
     "price": 195000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-09T113233.303.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T161908.793.png",
     "specs": [
       {
         "label": "Material",
-        "value": "Steel"
+        "value": "Mild Steel"
       },
       {
         "label": "Usage/Application",
         "value": "Office"
       },
       {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Place Of Origin",
+        "value": "Pan India"
+      },
+      {
+        "label": "Shape",
+        "value": "Square"
+      },
+      {
+        "label": "Size",
+        "value": "20x10x8.6"
+      },
+      {
+        "label": "Color",
+        "value": "White"
+      },
+      {
+        "label": "Surface Treatment",
+        "value": "Color Coated"
+      },
+      {
+        "label": "Floor Type",
+        "value": "cement board"
+      },
+      {
+        "label": "Door Size",
+        "value": "6&#215;3"
+      },
+      {
+        "label": "Window Type",
+        "value": "aluminum"
+      },
+      {
+        "label": "Glass Wool Insulation",
+        "value": "50mm"
+      },
+      {
+        "label": "Is It Folded",
+        "value": "Non Folded"
+      },
+      {
+        "label": "I Deal In",
+        "value": "New and Second Hand"
+      },
+      {
         "label": "Country of Origin",
         "value": "Made in India"
+      },
+      {
+        "label": "Type",
+        "value": "Portable"
       }
     ],
-    "description": "Portable plain office cabin for construction sites.",
+    "description": "Mild Steel office unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/portable-plain-office-cabin/",
-    "category": "office"
+    "category": "office",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-08T161908.793.png",
+      "/assets/2025/10/IMG-20240427-WA0013-1.jpg",
+      "/assets/2025/10/Eco-Portable-Office-Cabin.jpg"
+    ]
   },
   {
     "id": 508,
@@ -624,27 +1121,46 @@
     "specs": [
       {
         "label": "Material",
-        "value": "Steel"
+        "value": "Mild Steel"
       },
       {
         "label": "Usage/Application",
         "value": "Office"
       },
       {
+        "label": "Built Type",
+        "value": "Prefab"
+      },
+      {
+        "label": "Shape",
+        "value": "Rectangular"
+      },
+      {
+        "label": "Color",
+        "value": "White And Blue"
+      },
+      {
+        "label": "Surface Treatment",
+        "value": "Color Coated"
+      },
+      {
         "label": "Country of Origin",
         "value": "Made in India"
       }
     ],
-    "description": "Portable office cabin with modern amenities.",
+    "description": "Mild Steel office unit manufactured and delivered by Aronix Infra from Greater Noida.",
     "link": "https://aronixinfra.com/product/portable-office-cabin/",
-    "category": "office"
+    "category": "office",
+    "images": [
+      "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg"
+    ]
   },
   {
     "id": 504,
     "slug": "used-shipping-containers-copy",
     "title": "Portable Site Office Cabin",
     "price": 205000,
-    "image": "/assets/2025/10/Untitled-design-2025-10-08T155217.885.png",
+    "image": "/assets/2025/10/Untitled-design-2025-10-08T162042.457.png",
     "specs": [
       {
         "label": "Material",
@@ -659,8 +1175,15 @@
         "value": "Made in India"
       }
     ],
-    "description": "Portable site office cabin for construction projects.",
+    "description": "Second Hand Container Specification Material – Mild Steel Length – 40 Foot (ft) Capacity – 30 Ton Coating – Color Coated Use – Industrial",
     "link": "https://aronixinfra.com/product/used-shipping-containers-copy/",
-    "category": "container"
+    "category": "office",
+    "images": [
+      "/assets/2025/10/Untitled-design-2025-10-08T162042.457.png",
+      "/assets/2025/10/WhatsApp-Image-2025-10-06-at-15.11.27_57649020.jpg",
+      "/assets/2025/10/WhatsApp-Image-2025-10-06-at-15.11.27_a71d15e9.jpg",
+      "/assets/2025/10/WhatsApp-Image-2025-10-06-at-15.11.27_d041ef2c.jpg",
+      "/assets/2025/10/WhatsApp-Image-2025-10-06-at-15.11.28_a686d4bf.jpg"
+    ]
   }
 ]

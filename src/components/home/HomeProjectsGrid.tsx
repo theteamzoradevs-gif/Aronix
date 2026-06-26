@@ -6,9 +6,11 @@ import { Container } from "@/components/ui/Container";
 import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { MotionReveal } from "@/components/motion/MotionReveal";
+import { cn } from "@/lib/utils";
 import { buildHomeProjectGridItems } from "@/lib/gallery";
 
 const gridItems = buildHomeProjectGridItems(site.productVideos);
+const MOBILE_ROW_COUNT = 2;
 
 export function HomeProjectsGrid() {
   return (
@@ -25,12 +27,15 @@ export function HomeProjectsGrid() {
           />
         </MotionReveal>
 
-        <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-          {gridItems.map((item) => (
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4">
+          {gridItems.map((item, index) => (
             <Link
               key={item.id}
               href="/projects"
-              className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border-light bg-ink shadow-[var(--shadow-soft)]"
+              className={cn(
+                "group relative cursor-pointer overflow-hidden rounded-2xl border border-border-light bg-ink shadow-[var(--shadow-soft)]",
+                index >= MOBILE_ROW_COUNT && "hidden md:block"
+              )}
             >
               <div className="relative aspect-[3/4] w-full">
                 {item.kind === "video" ? (
