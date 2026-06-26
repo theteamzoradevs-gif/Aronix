@@ -8,7 +8,6 @@ import { QuoteModal } from "@/components/layout/QuoteModal";
 import { FaqChatbot } from "@/components/layout/FaqChatbot";
 import { StickyQuoteBar } from "@/components/layout/StickyQuoteBar";
 import { LeadPopup } from "@/components/layout/LeadPopup";
-import { IndiaMARTTrustFloat } from "@/components/layout/IndiaMARTTrustFloat";
 import { QuoteModalProvider } from "@/context/QuoteModalContext";
 import "@/styles/globals.css";
 
@@ -47,7 +46,6 @@ export default function RootLayout({
           <FaqChatbot />
           <QuoteModal />
           <LeadPopup />
-          <IndiaMARTTrustFloat />
         </QuoteModalProvider>
       </body>
     </html>
