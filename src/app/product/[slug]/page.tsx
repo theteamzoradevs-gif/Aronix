@@ -124,8 +124,7 @@ export default async function ProductPage({
                   </div>
                 )}
 
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <QuoteButton variant="primary" />
+                <div className="mt-8 flex flex-wrap items-center gap-3">
                   <a
                     href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in ${product.title}. Please share a quote.`)}`}
                     target="_blank"
@@ -135,6 +134,7 @@ export default async function ProductPage({
                   >
                     <WhatsAppIcon />
                   </a>
+                  <QuoteButton variant="primary">Get a Quote</QuoteButton>
                   <Link href="/contact-us" className="btn-accent">
                     Contact us
                   </Link>

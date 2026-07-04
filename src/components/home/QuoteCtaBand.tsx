@@ -15,7 +15,7 @@ export function QuoteCtaBand() {
           <p className="mt-2 text-[15px] leading-relaxed text-white/70">{urgentCta.description}</p>
         </div>
         <QuoteButton variant="white" className="shrink-0">
-          Get a quote
+          Get a Quote
         </QuoteButton>
       </Container>
     </section>

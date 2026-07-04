@@ -47,11 +47,11 @@ export default async function BlogPostPage({
         </MotionReveal>
       </PageHero>
 
-      <section className="section-white section-editorial pt-0">
+      <section className="section-white section-editorial pt-6 md:pt-8">
         <Container>
           <article className="mx-auto max-w-3xl">
             <MotionReveal>
-              <div className="overflow-hidden rounded-3xl shadow-[var(--shadow-card)]">
+              <div className="mt-2 overflow-hidden rounded-3xl shadow-[var(--shadow-card)] md:mt-4">
                 <SiteImage
                   src={blog.image}
                   alt={blog.title}

@@ -64,8 +64,9 @@ export function LeadForm({
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const isHero = variant === "hero";
-  const inputClass = isHero ? "hero-form-input" : "popup-form-input";
-  const submitLabel = isHero ? "Get free quote" : "Get quote";
+  const isModal = variant === "modal";
+  const inputClass = isHero ? "hero-form-input" : isModal ? "modal-form-input" : "popup-form-input";
+  const submitLabel = "Get a Quote";
 
   const validateField = useCallback((field: LeadField, nextValues: FormValues) => {
     const payload: LeadFormPayload = {
@@ -74,7 +75,7 @@ export function LeadForm({
       phone: nextValues.phone,
       message: nextValues.message,
     };
-    const fieldErrors = validateLeadForm(payload);
+    const fieldErrors = validateLeadForm(payload, { requireMessage: false });
     setErrors((prev) => ({ ...prev, [field]: fieldErrors[field] }));
   }, []);
 
@@ -117,7 +118,7 @@ export function LeadForm({
       website: values.website,
     });
 
-    const fieldErrors = validateLeadForm(payload);
+    const fieldErrors = validateLeadForm(payload, { requireMessage: false });
     setErrors(fieldErrors);
     if (!isFormSubmittable(payload)) return;
 
@@ -176,7 +177,7 @@ export function LeadForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className={cn("space-y-3", className)} noValidate>
+    <form onSubmit={handleSubmit} className={cn(isModal ? "space-y-2.5" : "space-y-3", className)} noValidate>
       <input
         type="text"
         name="website"
@@ -191,6 +192,8 @@ export function LeadForm({
       <ValidatedField
         id={`${variant}-name`}
         label="Name"
+        required
+        compact={isModal}
         error={errors.name}
         touched={touched.name}
         valid={isFieldValid("name", values.name)}
@@ -198,7 +201,7 @@ export function LeadForm({
         <input
           id={`${variant}-name`}
           type="text"
-          placeholder="Your Name"
+          placeholder="Name*"
           value={values.name}
           onChange={(e) => handleChange("name", e.target.value)}
           onBlur={() => handleBlur("name")}
@@ -223,6 +226,8 @@ export function LeadForm({
       <ValidatedField
         id={`${variant}-email`}
         label="Email"
+        required
+        compact={isModal}
         error={errors.email}
         touched={touched.email}
         valid={isFieldValid("email", values.email)}
@@ -230,7 +235,7 @@ export function LeadForm({
         <input
           id={`${variant}-email`}
           type="email"
-          placeholder="Your Email"
+          placeholder="Email*"
           value={values.email}
           onChange={(e) => handleChange("email", e.target.value)}
           onBlur={() => handleBlur("email")}
@@ -248,6 +253,8 @@ export function LeadForm({
       <ValidatedField
         id={`${variant}-phone`}
         label="Phone Number"
+        required
+        compact={isModal}
         error={errors.phone}
         touched={touched.phone}
         valid={isFieldValid("phone", values.phone)}
@@ -257,7 +264,7 @@ export function LeadForm({
           type="tel"
           inputMode="numeric"
           pattern="[6-9][0-9]{9}"
-          placeholder="Phone Number"
+          placeholder="Phone Number*"
           value={values.phone}
           onChange={(e) => handlePhoneChange(e.target.value)}
           onBlur={() => handleBlur("phone")}
@@ -277,7 +284,7 @@ export function LeadForm({
         <select
           value={values.product}
           onChange={(e) => setValues((prev) => ({ ...prev, product: e.target.value }))}
-          className={cn(inputClass, "cursor-pointer")}
+          className={cn(inputClass, "cursor-pointer", isModal && "text-sm")}
         >
           <option value="">Select product (optional)</option>
           {products.map((product) => (
@@ -291,14 +298,15 @@ export function LeadForm({
       <ValidatedField
         id={`${variant}-message`}
         label="Message"
+        compact={isModal}
         error={errors.message}
         touched={touched.message}
         valid={isFieldValid("message", values.message)}
       >
         <textarea
           id={`${variant}-message`}
-          placeholder="Your Message"
-          rows={isHero ? 3 : 4}
+          placeholder="Your Message (optional)"
+          rows={isModal ? 3 : isHero ? 3 : 4}
           value={values.message}
           onChange={(e) => handleChange("message", e.target.value)}
           onBlur={() => handleBlur("message")}
@@ -325,9 +333,10 @@ export function LeadForm({
           email: values.email,
           phone: values.phone,
           message: values.message,
-        }))}
+        }), { requireMessage: false })}
         className={cn(
-          "w-full cursor-pointer rounded-full px-6 py-3 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-70",
+          "w-full cursor-pointer rounded-full font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-70",
+          isModal ? "mt-1 px-5 py-2.5 text-sm" : "px-6 py-3 text-sm",
           isHero
             ? "bg-accent text-ink hover:bg-accent/90"
             : "btn-accent !w-full"

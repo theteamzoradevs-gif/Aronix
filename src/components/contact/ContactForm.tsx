@@ -37,12 +37,15 @@ export function ContactForm() {
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validateField = useCallback((field: LeadField, nextValues: FormValues) => {
-    const fieldErrors = validateLeadForm({
-      name: nextValues.name,
-      email: nextValues.email,
-      phone: nextValues.phone,
-      message: nextValues.message,
-    });
+    const fieldErrors = validateLeadForm(
+      {
+        name: nextValues.name,
+        email: nextValues.email,
+        phone: nextValues.phone,
+        message: nextValues.message,
+      },
+      { requireMessage: false }
+    );
     setErrors((prev) => ({ ...prev, [field]: fieldErrors[field] }));
   }, []);
 
@@ -74,9 +77,9 @@ export function ContactForm() {
       source: "contact",
     });
 
-    const fieldErrors = validateLeadForm(payload);
+    const fieldErrors = validateLeadForm(payload, { requireMessage: false });
     setErrors(fieldErrors);
-    if (!isFormSubmittable(payload)) return;
+    if (!isFormSubmittable(payload, { requireMessage: false })) return;
 
     setSubmitting(true);
     setSubmitError(null);
@@ -142,6 +145,7 @@ export function ContactForm() {
             <ValidatedField
               id="contact-name"
               label="Name"
+              required
               error={errors.name}
               touched={touched.name}
               valid={isFieldValid("name", values.name)}
@@ -149,7 +153,7 @@ export function ContactForm() {
               <input
                 id="contact-name"
                 type="text"
-                placeholder="Your Name"
+                placeholder="Name*"
                 value={values.name}
                 onChange={(e) => handleChange("name", e.target.value)}
                 onBlur={() => handleBlur("name")}
@@ -172,6 +176,7 @@ export function ContactForm() {
             <ValidatedField
               id="contact-email"
               label="Email"
+              required
               error={errors.email}
               touched={touched.email}
               valid={isFieldValid("email", values.email)}
@@ -179,7 +184,7 @@ export function ContactForm() {
               <input
                 id="contact-email"
                 type="email"
-                placeholder="Your Email"
+                placeholder="Email*"
                 value={values.email}
                 onChange={(e) => handleChange("email", e.target.value)}
                 onBlur={() => handleBlur("email")}
@@ -197,6 +202,7 @@ export function ContactForm() {
             <ValidatedField
               id="contact-phone"
               label="Phone Number"
+              required
               error={errors.phone}
               touched={touched.phone}
               valid={isFieldValid("phone", values.phone)}
@@ -206,7 +212,7 @@ export function ContactForm() {
                 type="tel"
                 inputMode="numeric"
                 pattern="[6-9][0-9]{9}"
-                placeholder="Phone Number"
+                placeholder="Phone Number*"
                 value={values.phone}
                 onChange={(e) => handlePhoneChange(e.target.value)}
                 onBlur={() => handleBlur("phone")}
@@ -231,7 +237,7 @@ export function ContactForm() {
             >
               <textarea
                 id="contact-message"
-                placeholder="Your Message"
+                placeholder="Your Message (optional)"
                 rows={4}
                 value={values.message}
                 onChange={(e) => handleChange("message", e.target.value)}
@@ -263,7 +269,8 @@ export function ContactForm() {
                     phone: values.phone,
                     message: values.message,
                     source: "contact",
-                  })
+                  }),
+                  { requireMessage: false }
                 )
               }
               className="btn-accent w-full cursor-pointer py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-70 md:w-auto md:py-2.5"

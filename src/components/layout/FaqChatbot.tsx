@@ -133,7 +133,7 @@ export function FaqChatbot() {
               }}
               className="flex-1 cursor-pointer rounded-lg bg-primary py-2 text-xs font-semibold text-white"
             >
-              Get Quote
+              Get a Quote
             </button>
             <a
               href={`https://wa.me/${site.whatsapp}`}

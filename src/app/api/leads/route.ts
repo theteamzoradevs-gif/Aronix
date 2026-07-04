@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     }
 
     const sanitized = sanitizeLeadPayload(body);
-    const errors = validateLeadForm(sanitized);
+    const errors = validateLeadForm(sanitized, { requireMessage: false });
 
     if (Object.keys(errors).length > 0) {
       return NextResponse.json(

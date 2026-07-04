@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { site } from "@/lib/data";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { formatPhoneDisplay, navItems } from "./TopBar";
+import { SocialIcons } from "./SocialIcons";
 
 export function MobileMenu({
   open,
@@ -56,12 +57,19 @@ export function MobileMenu({
         </nav>
 
         <div className="mt-8 space-y-4 border-t border-white/10 pt-6">
+          <SocialIcons className="justify-start" iconClassName="h-5 w-5" />
           <a
             href={`tel:${site.phone}`}
             className="flex items-center gap-2 text-sm text-white/80 hover:text-white"
           >
             <PhoneIcon />
             {formatPhoneDisplay(site.phone)}
+          </a>
+          <a
+            href={`tel:${site.phone}`}
+            className="inline-flex w-full items-center justify-center rounded-full border border-white/25 bg-white/10 py-3 text-sm font-semibold text-white hover:bg-white/20"
+          >
+            Call Now
           </a>
           <button
             type="button"
@@ -71,7 +79,7 @@ export function MobileMenu({
             }}
             className="inline-flex w-full items-center justify-center rounded-full bg-accent py-3 text-sm font-semibold text-text hover:bg-accent/90"
           >
-            Get Quote
+            Get a Quote
           </button>
         </div>
       </div>

@@ -94,6 +94,7 @@ export interface SiteConfig {
   mapUrl: string;
   directionsUrl: string;
   logo: string;
+  aboutImage?: string;
   social: { facebook: string; instagram: string; linkedin: string; twitter: string };
   certification: { title: string; subtitle: string };
   indiamartUrl?: string;
