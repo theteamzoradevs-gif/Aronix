@@ -2,6 +2,7 @@ import { site } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { QuoteButton } from "@/components/products/QuoteButton";
+import { CallNowButton } from "@/components/ui/CallNowButton";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 
 export function ContactCta() {
@@ -32,14 +33,9 @@ export function ContactCta() {
           <p className="mt-2 max-w-xl text-description text-white/60">
             {contactCta.description}
           </p>
-          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
             <QuoteButton variant="hero">Get a Quote</QuoteButton>
-            <a
-              href={`tel:${site.phone}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Call Now
-            </a>
+            <CallNowButton />
           </div>
         </MotionReveal>
       </Container>
