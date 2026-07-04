@@ -79,7 +79,7 @@ export function HeroProductShowcase() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="flex items-center justify-center gap-1.5 border-t border-white/10 py-2">
+          <div className="flex items-center justify-center gap-1.5 border-t border-white/10 px-2 py-2.5">
             {items.map((item, i) => (
               <button
                 key={item.id}

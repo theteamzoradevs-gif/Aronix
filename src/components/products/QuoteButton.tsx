@@ -16,7 +16,7 @@ type VoltBtnVariant = "hero" | "white" | "dark" | "outline" | "primary";
 
 export function QuoteButton({
   className,
-  children = "Get a quote",
+  children = "Get a Quote",
   variant = "outline",
   href,
 }: {

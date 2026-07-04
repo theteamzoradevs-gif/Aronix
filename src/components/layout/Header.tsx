@@ -10,6 +10,7 @@ import { useQuoteModal } from "@/context/QuoteModalContext";
 import { formatPhoneDisplay, navItems } from "./TopBar";
 import { MobileMenu } from "./MobileMenu";
 import { IndiaMARTBadge } from "@/components/ui/IndiaMARTBadge";
+import { HeaderSocialIcons } from "./HeaderSocialIcons";
 
 function BrandLogo() {
   return (
@@ -56,39 +57,41 @@ export function Header() {
     <>
       <header className={cn("fixed left-0 right-0 top-[var(--trust-bar-height)] z-50 transition-all duration-300", navClass)}>
         <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-3.5">
-          <BrandLogo />
+          <div className="flex min-w-0 flex-1 items-center gap-3 lg:gap-4">
+            <BrandLogo />
 
-          <nav className="hidden items-center gap-8 xl:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "relative text-[14px] font-medium text-white/75 transition-colors hover:text-white",
-                  isActive(item.href) && "text-white"
-                )}
-              >
-                {item.label}
-                {isActive(item.href) && (
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-accent" />
-                )}
-              </Link>
-            ))}
-          </nav>
+            <nav className="hidden items-center gap-5 xl:flex xl:gap-6">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "relative shrink-0 text-[14px] font-medium text-white/75 transition-colors hover:text-white",
+                    isActive(item.href) && "text-white"
+                  )}
+                >
+                  {item.label}
+                  {isActive(item.href) && (
+                    <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-accent" />
+                  )}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-          <div className="flex items-center gap-2 md:gap-3">
-            <div className="hidden items-center gap-6 lg:flex">
+          <div className="flex shrink-0 items-center gap-2 md:gap-3">
+            <div className="hidden items-center gap-4 lg:flex lg:gap-5">
               <IndiaMARTBadge size="lg" />
 
-              <div className="flex flex-col items-end">
+              <div className="flex flex-col items-start gap-1">
                 <a
                   href={`tel:${site.phone}`}
-                  className="flex items-center gap-2 text-[14px] font-semibold text-white transition-colors hover:text-accent"
+                  className="inline-flex items-center gap-2 text-[14px] font-semibold leading-none text-white transition-colors hover:text-accent whitespace-nowrap"
                 >
                   <PhoneIcon />
                   <span>{formatPhoneDisplay(site.phone)}</span>
                 </a>
-                <span className="mt-1 rounded-full bg-accent/15 px-2 py-0.5 text-[11px] font-semibold tracking-wide text-accent">
+                <span className="w-fit rounded-full bg-accent/15 px-2.5 py-0.5 text-[11px] font-semibold leading-none tracking-wide text-accent whitespace-nowrap">
                   100% response rate
                 </span>
               </div>
@@ -98,8 +101,10 @@ export function Header() {
                 onClick={open}
                 className="cursor-pointer rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-ink transition-colors hover:bg-accent/90"
               >
-                Get Quote
+                Get a Quote
               </button>
+
+              <HeaderSocialIcons />
             </div>
 
             <button

@@ -73,12 +73,13 @@ export function LeadPopup() {
                 )}
               </div>
 
-              <div className="p-6">
+              <div className="px-6 py-6">
                 <LeadForm
                   variant="popup"
                   source="lead-popup"
                   showProductSelect
                   onSuccess={handleSuccess}
+                  className="py-2"
                 />
                 {!submitted && (
                   <button

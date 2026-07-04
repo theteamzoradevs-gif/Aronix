@@ -80,27 +80,27 @@ export function Footer() {
 
       <Container className="py-8 sm:py-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
-          <div className="flex w-full items-center justify-center gap-4 border-b border-white/10 pb-8 sm:gap-5 lg:max-w-[300px] lg:shrink-0 lg:justify-start lg:border-b-0 lg:pb-0">
+          <div className="mx-auto grid w-full max-w-[340px] grid-cols-[1fr_auto_1fr] items-center gap-6 border-b border-white/10 pb-8 sm:max-w-[380px] sm:gap-8 lg:mx-0 lg:max-w-[320px] lg:shrink-0 lg:border-b-0 lg:pb-0">
             <Link
               href="/"
-              className="relative block h-[48px] w-[118px] shrink-0 sm:h-[56px] sm:w-[138px]"
+              className="relative mx-auto block h-[48px] w-full max-w-[140px] justify-self-end sm:h-[56px] sm:max-w-[160px]"
             >
               <Image
                 src={site.logo}
                 alt="Aronix Infra"
                 fill
-                className="object-contain object-left"
-                sizes="(max-width: 640px) 118px, 138px"
+                className="object-contain object-right"
+                sizes="(max-width: 640px) 140px, 160px"
                 unoptimized
               />
             </Link>
 
             <span className="h-10 w-px shrink-0 bg-white/15 sm:h-12" aria-hidden />
 
-            <div className="flex shrink-0 items-center">
+            <div className="flex items-center justify-self-start">
               <IndiaMARTBadge
                 size="lg"
-                className="!h-[42px] !w-auto max-w-[120px] object-contain object-left sm:!h-[50px] sm:max-w-[140px]"
+                className="!h-[42px] !w-auto max-w-[130px] object-contain object-left sm:!h-[50px] sm:max-w-[150px]"
               />
             </div>
           </div>

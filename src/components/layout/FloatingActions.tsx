@@ -21,7 +21,7 @@ export function FloatingActions() {
         onClick={open}
         className="pointer-events-auto fixed bottom-6 right-4 hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-ink shadow-lg transition-colors hover:bg-accent/90 md:inline-flex"
       >
-        Get Quote
+        Get a Quote
       </button>
 
       <a

@@ -18,6 +18,8 @@ interface ValidatedFieldProps {
   error?: string;
   touched?: boolean;
   valid?: boolean;
+  required?: boolean;
+  compact?: boolean;
   className?: string;
   children: React.ReactNode;
 }
@@ -28,6 +30,8 @@ export function ValidatedField({
   error,
   touched,
   valid,
+  required = false,
+  compact = false,
   className,
   children,
 }: ValidatedFieldProps) {
@@ -35,9 +39,10 @@ export function ValidatedField({
   const showValid = Boolean(touched && valid && !error);
 
   return (
-    <div className={cn("space-y-1.5", className)}>
-      <label htmlFor={id} className="sr-only">
+    <div className={cn(compact ? "space-y-1" : "space-y-1.5", className)}>
+      <label htmlFor={id} className={cn("block font-medium text-text", compact ? "text-xs" : "text-sm")}>
         {label}
+        {required && <span className="text-red-500"> *</span>}
       </label>
       <div className="relative">
         {children}

@@ -26,32 +26,32 @@ export function QuoteModal() {
       />
 
       <div className="relative w-full max-w-md overflow-hidden rounded-xl bg-white shadow-2xl">
-        <div className="bg-dark px-6 py-5 md:px-8">
+        <div className="bg-dark px-5 pb-5 pt-4 md:px-7 md:pb-6">
           <button
             type="button"
             onClick={close}
-            className="absolute right-4 top-4 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white/20 text-lg text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+            className="absolute right-3 top-3 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-white/20 text-lg text-white/80 transition-colors hover:bg-white/10 hover:text-white"
             aria-label="Close"
           >
             ×
           </button>
-          <SectionBadge variant="dark" className="mb-3">
-            Get a quote
+          <SectionBadge variant="dark" className="mb-2.5">
+            Get a Quote
           </SectionBadge>
-          <h2 className="pr-10 text-xl font-bold text-white md:text-2xl">
+          <h2 className="pr-10 text-lg font-bold text-white md:text-xl">
             Tell us what you need
           </h2>
-          <p className="mt-2 text-sm text-white/70">
+          <p className="mt-1.5 text-xs text-white/70 md:text-sm">
             Fill the form and our team will call you back within 24 hours.
           </p>
         </div>
 
-        <div className="px-6 py-5 md:px-8 md:py-6">
+        <div className="px-5 py-5 md:px-7 md:py-6">
           {!submitted && (
-            <div className="mb-5 flex flex-wrap gap-3">
+            <div className="mb-4 flex flex-wrap gap-2">
             <a
               href={`tel:${site.phone}`}
-              className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-[#faf8f5] px-4 py-2 text-sm font-semibold text-text transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-border bg-[#faf8f5] px-3 py-1.5 text-xs font-semibold text-text transition-colors hover:border-primary hover:text-primary"
             >
               <PhoneIcon />
               Call now
@@ -60,10 +60,10 @@ export function QuoteModal() {
               href={`https://wa.me/${site.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex cursor-pointer items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 p-2.5 text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20"
+              className="inline-flex cursor-pointer items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 p-2 text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20"
               aria-label="WhatsApp"
             >
-              <WhatsAppIcon />
+              <WhatsAppIcon className="h-4 w-4" />
             </a>
             </div>
           )}

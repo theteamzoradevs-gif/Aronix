@@ -39,6 +39,7 @@ export function resolveImageSrc(src: string | null | undefined, width = 800): st
     (VALID_LOCAL.has(filename) ||
       src.startsWith("/assets/team/") ||
       src.startsWith("/assets/gallery/") ||
+      src.startsWith("/assets/about/") ||
       src.startsWith("/assets/brand/") ||
       filename === "logo.png")
   ) {
@@ -52,6 +53,7 @@ export function resolveImageFallback(src: string | null | undefined, width = 800
   if (
     src?.startsWith("/assets/team/") ||
     src?.startsWith("/assets/gallery/") ||
+    src?.startsWith("/assets/about/") ||
     src?.startsWith("/assets/brand/")
   ) {
     return src;

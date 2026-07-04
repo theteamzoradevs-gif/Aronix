@@ -74,8 +74,11 @@ export function filterFieldInput(field: LeadField, value: string): string {
   }
 }
 
-export function isFormSubmittable(data: LeadFormPayload): boolean {
-  return Object.keys(validateLeadForm(data)).length === 0;
+export function isFormSubmittable(
+  data: LeadFormPayload,
+  options: { requireMessage?: boolean } = {}
+): boolean {
+  return Object.keys(validateLeadForm(data, { requireMessage: false, ...options })).length === 0;
 }
 
 export function sanitizeLeadPayload(data: LeadFormPayload): LeadFormPayload {
@@ -131,7 +134,7 @@ export function validateCompany(value: string): string | null {
 
 export function validateLeadForm(
   data: LeadFormPayload,
-  options: { requireMessage?: boolean } = { requireMessage: true }
+  options: { requireMessage?: boolean } = { requireMessage: false }
 ): Partial<Record<LeadField, string>> {
   const errors: Partial<Record<LeadField, string>> = {};
 
@@ -144,7 +147,10 @@ export function validateLeadForm(
   const phoneError = validatePhone(data.phone);
   if (phoneError) errors.phone = phoneError;
 
-  if (options.requireMessage !== false) {
+  if (options.requireMessage === true) {
+    const messageError = validateMessage(data.message);
+    if (messageError) errors.message = messageError;
+  } else if (sanitizeInput(data.message)) {
     const messageError = validateMessage(data.message);
     if (messageError) errors.message = messageError;
   }
@@ -165,8 +171,11 @@ export function isFieldValid(field: LeadField, value: string): boolean {
       return validateEmail(value) === null;
     case "phone":
       return validatePhone(value) === null;
-    case "message":
+    case "message": {
+      const trimmed = sanitizeInput(value);
+      if (!trimmed) return true;
       return validateMessage(value) === null;
+    }
     case "company":
       return validateCompany(value) === null;
     default:

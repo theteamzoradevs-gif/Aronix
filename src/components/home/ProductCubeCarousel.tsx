@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 import type { Product } from "@/types";
 import { ProductCard } from "@/components/products/ProductCard";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { cn } from "@/lib/utils";
 
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 type CarouselItem = {
@@ -26,12 +27,24 @@ function chunkItems(items: CarouselItem[], size: number): CarouselItem[][] {
   return faces;
 }
 
-function NavButton({ direction, onClick }: { direction: "prev" | "next"; onClick: () => void }) {
+function NavButton({
+  direction,
+  onClick,
+  disabled,
+}: {
+  direction: "prev" | "next";
+  onClick: () => void;
+  disabled?: boolean;
+}) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-border-light/80 bg-white text-primary shadow-[0_2px_8px_rgba(15,23,42,0.08)] transition-all hover:border-primary/20 hover:shadow-[0_4px_12px_rgba(15,23,42,0.12)]"
+      disabled={disabled}
+      className={cn(
+        "flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-border-light/80 bg-white text-primary shadow-[0_2px_8px_rgba(15,23,42,0.08)] transition-all hover:border-primary/20 hover:shadow-[0_4px_12px_rgba(15,23,42,0.12)]",
+        disabled && "cursor-not-allowed opacity-35 pointer-events-none"
+      )}
       aria-label={direction === "prev" ? "Previous products" : "Next products"}
     >
       <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
@@ -51,22 +64,30 @@ function ViewAllCta({
   onPrev,
   onNext,
   showArrows,
+  prevDisabled,
+  nextDisabled,
 }: {
   href: string;
   onPrev?: () => void;
   onNext?: () => void;
   showArrows?: boolean;
+  prevDisabled?: boolean;
+  nextDisabled?: boolean;
 }) {
   return (
     <div className="mt-8 flex items-center justify-center gap-4">
-      {showArrows && onPrev ? <NavButton direction="prev" onClick={onPrev} /> : null}
+      {showArrows && onPrev ? (
+        <NavButton direction="prev" onClick={onPrev} disabled={prevDisabled} />
+      ) : null}
       <Link
         href={href}
         className="inline-flex min-w-[220px] cursor-pointer items-center justify-center rounded-full bg-primary px-10 py-3.5 text-sm font-semibold tracking-wide text-white shadow-[0_4px_14px_rgba(30,58,95,0.25)] transition-colors hover:bg-[#16304f]"
       >
         View all products
       </Link>
-      {showArrows && onNext ? <NavButton direction="next" onClick={onNext} /> : null}
+      {showArrows && onNext ? (
+        <NavButton direction="next" onClick={onNext} disabled={nextDisabled} />
+      ) : null}
     </div>
   );
 }
@@ -81,6 +102,14 @@ export function ProductCubeCarousel({
   const reduced = useReducedMotion();
   const faces = chunkItems(items, 3);
   const [faceIndex, setFaceIndex] = useState(0);
+  const mobileSwiperRef = useRef<SwiperType | null>(null);
+  const [mobileAtStart, setMobileAtStart] = useState(true);
+  const [mobileAtEnd, setMobileAtEnd] = useState(false);
+
+  const syncMobileNav = (swiper: SwiperType) => {
+    setMobileAtStart(swiper.isBeginning);
+    setMobileAtEnd(swiper.isEnd);
+  };
 
   useEffect(() => {
     if (faces.length <= 1) return;
@@ -94,7 +123,10 @@ export function ProductCubeCarousel({
 
   const goPrev = () => setFaceIndex((i) => (i - 1 + faces.length) % faces.length);
   const goNext = () => setFaceIndex((i) => (i + 1) % faces.length);
+  const goMobilePrev = () => mobileSwiperRef.current?.slidePrev();
+  const goMobileNext = () => mobileSwiperRef.current?.slideNext();
   const hasMultipleFaces = faces.length > 1;
+  const hasMultipleMobileSlides = items.length > 1;
 
   const desktopCarousel = !hasMultipleFaces ? (
     <div className="grid grid-cols-3 gap-5 [&>*]:h-full">
@@ -140,12 +172,19 @@ export function ProductCubeCarousel({
     <>
       <div className="mt-6 md:hidden">
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Pagination]}
           spaceBetween={16}
           slidesPerView={1}
-          navigation
           pagination={{ clickable: true }}
           className="product-mobile-carousel !pb-10"
+          onSwiper={(swiper) => {
+            mobileSwiperRef.current = swiper;
+            syncMobileNav(swiper);
+          }}
+          onSlideChange={syncMobileNav}
+          onReachBeginning={() => setMobileAtStart(true)}
+          onReachEnd={() => setMobileAtEnd(true)}
+          onFromEdge={(swiper) => syncMobileNav(swiper)}
         >
           {items.map(({ product, image }) => (
             <SwiperSlide key={product.slug}>
@@ -158,7 +197,14 @@ export function ProductCubeCarousel({
             </SwiperSlide>
           ))}
         </Swiper>
-        <ViewAllCta href={viewAllHref} />
+        <ViewAllCta
+          href={viewAllHref}
+          showArrows={hasMultipleMobileSlides}
+          onPrev={goMobilePrev}
+          onNext={goMobileNext}
+          prevDisabled={mobileAtStart}
+          nextDisabled={mobileAtEnd}
+        />
       </div>
 
       <div className="mt-6 hidden md:mt-8 md:block">

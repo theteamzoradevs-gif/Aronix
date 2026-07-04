@@ -63,7 +63,7 @@ export function HowItWorks() {
             <h3 className="mt-4 text-xl font-bold md:text-2xl">{step.headline}</h3>
             <p className="mt-4 flex-1 text-[15px] leading-relaxed text-white/75">{step.desc}</p>
             <div className="mt-8">
-              <QuoteButton variant="white">Request a quote</QuoteButton>
+              <QuoteButton variant="white">Get a Quote</QuoteButton>
             </div>
           </div>
 

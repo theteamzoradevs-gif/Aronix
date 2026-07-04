@@ -33,12 +33,12 @@ export function ContactCta() {
             {contactCta.description}
           </p>
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <QuoteButton variant="hero">Get free quote</QuoteButton>
+            <QuoteButton variant="hero">Get a Quote</QuoteButton>
             <a
               href={`tel:${site.phone}`}
               className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Call {site.phone.slice(0, 5)} {site.phone.slice(5)}
+              Call Now
             </a>
           </div>
         </MotionReveal>

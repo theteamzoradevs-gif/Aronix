@@ -42,9 +42,9 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/25" />
       </motion.div>
 
-      <Container className="relative z-10 flex flex-1 flex-col justify-center pt-[calc(var(--header-total-offset)+0.5rem)] pb-3 md:pb-4">
+      <Container className="relative z-10 flex flex-1 flex-col justify-center pt-[calc(var(--header-total-offset)+0.75rem)] pb-8 md:pb-4">
         <div className="grid items-center gap-5 lg:grid-cols-2 lg:gap-7">
-          <div>
+          <div className="pt-4 lg:pt-0">
             <motion.p className="text-label text-accent" {...fadeUp(0.05)}>
               Greater Noida · Pan-India delivery
             </motion.p>
@@ -100,7 +100,7 @@ export function HeroSection() {
           </div>
 
           <motion.div
-            className="relative mt-2 lg:mt-0"
+            className="relative mt-2 mb-6 lg:mt-0 lg:mb-0"
             initial={reduced ? {} : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.15 }}
