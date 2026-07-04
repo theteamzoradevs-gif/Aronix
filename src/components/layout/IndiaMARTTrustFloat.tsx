@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { site } from "@/lib/data";
+import { IndiaMARTTrustSeal } from "@/components/ui/IndiaMARTBadge";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-
-const LOGO_SRC = "/assets/brand/indiamart-trust-seal.png";
 const SHOW_DELAY_MS = 3000;
 const VISIBLE_DURATION_MS = 7000;
 
@@ -30,13 +28,7 @@ export function IndiaMARTTrustFloat() {
   }, [reduced]);
 
   const content = (
-    <Image
-      src={LOGO_SRC}
-      alt="IndiaMART Trust Seal"
-      width={320}
-      height={140}
-      className="h-[7.5rem] w-auto drop-shadow-[0_10px_32px_rgba(0,0,0,0.4)] sm:h-[8.5rem] md:h-[10rem]"
-    />
+    <IndiaMARTTrustSeal className="h-[7.5rem] drop-shadow-[0_10px_32px_rgba(0,0,0,0.4)] sm:h-[8.5rem] md:h-[10rem]" />
   );
 
   return (
