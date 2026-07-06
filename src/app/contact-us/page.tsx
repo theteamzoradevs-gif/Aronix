@@ -33,7 +33,9 @@ export default function ContactPage() {
 
       <section className="section-white border-b border-border-light py-6 md:py-10">
         <Container>
-          <div className="mb-5 flex gap-2.5 md:hidden">
+          <div className="mb-5 md:hidden">
+            <p className="mb-3 text-sm font-semibold text-text">Quick contact</p>
+          <div className="flex gap-2.5">
             <a
               href={`tel:${site.phone}`}
               className="btn-accent inline-flex flex-1 items-center justify-center gap-2 py-3 text-sm font-semibold"
@@ -50,6 +52,7 @@ export default function ContactPage() {
               <WhatsAppIcon className="h-5 w-5" />
               WhatsApp
             </a>
+          </div>
           </div>
 
           <div className="grid items-stretch gap-5 md:gap-8 lg:grid-cols-2 lg:gap-10">

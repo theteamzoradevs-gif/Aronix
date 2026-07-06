@@ -44,28 +44,45 @@ export function Footer() {
 
       <Container className="py-8 sm:py-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
-          <div className="mx-auto grid w-full max-w-[340px] grid-cols-[1fr_auto_1fr] items-center gap-6 border-b border-white/10 pb-8 sm:max-w-[380px] sm:gap-8 lg:mx-0 lg:max-w-[320px] lg:shrink-0 lg:border-b-0 lg:pb-0">
-            <Link
-              href="/"
-              className="relative mx-auto block h-[48px] w-full max-w-[140px] justify-self-end sm:h-[56px] sm:max-w-[160px]"
-            >
-              <Image
-                src={site.logo}
-                alt="Aronix Infra"
-                fill
-                className="object-contain object-right"
-                sizes="(max-width: 640px) 140px, 160px"
-                unoptimized
-              />
-            </Link>
+          {/* Mobile: logo left, indiamart right — Desktop: logo on top, indiamart below */}
+          <div className="mx-auto w-full max-w-[340px] border-b border-white/10 pb-8 sm:max-w-[380px] lg:mx-0 lg:max-w-[200px] lg:shrink-0 lg:border-b-0 lg:pb-0">
+            {/* Mobile layout: side-by-side */}
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-6 sm:gap-8 lg:hidden">
+              <Link
+                href="/"
+                className="relative mx-auto block h-[48px] w-full max-w-[140px] justify-self-end sm:h-[56px] sm:max-w-[160px]"
+              >
+                <Image
+                  src={site.logo}
+                  alt="Aronix Infra"
+                  fill
+                  className="object-contain object-right"
+                  sizes="140px"
+                  unoptimized
+                />
+              </Link>
+              <span className="h-10 w-px shrink-0 bg-white/15 sm:h-12" aria-hidden />
+              <div className="flex items-center justify-self-start">
+                <IndiaMARTBadge
+                  size="lg"
+                  className="!h-[42px] !w-auto max-w-[130px] object-contain object-left sm:!h-[50px] sm:max-w-[150px]"
+                />
+              </div>
+            </div>
 
-            <span className="h-10 w-px shrink-0 bg-white/15 sm:h-12" aria-hidden />
-
-            <div className="flex items-center justify-self-start">
-              <IndiaMARTBadge
-                size="lg"
-                className="!h-[42px] !w-auto max-w-[130px] object-contain object-left sm:!h-[50px] sm:max-w-[150px]"
-              />
+            {/* Desktop layout: stacked */}
+            <div className="hidden flex-col gap-2 lg:flex lg:pt-4 ml-5">
+              <Link href="/" className="block">
+                <Image
+                  src={site.logo}
+                  alt="Aronix Infra"
+                  width={200}
+                  height={64}
+                  className="h-16 ml-14 w-[200px] object-contain object-left"
+                  unoptimized
+                />
+              </Link>
+              <IndiaMARTBadge size="xl" className="!h-auto !w-[200px] mt-1" />
             </div>
           </div>
 

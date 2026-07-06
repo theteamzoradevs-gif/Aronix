@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { site } from "@/lib/data";
-import { IndiaMARTTrustSeal } from "@/components/ui/IndiaMARTBadge";
+import { IndiaMARTBadge } from "@/components/ui/IndiaMARTBadge";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 const SHOW_DELAY_MS = 3000;
 const VISIBLE_DURATION_MS = 7000;
@@ -27,10 +27,6 @@ export function IndiaMARTTrustFloat() {
     };
   }, [reduced]);
 
-  const content = (
-    <IndiaMARTTrustSeal className="h-[7.5rem] drop-shadow-[0_10px_32px_rgba(0,0,0,0.4)] sm:h-[8.5rem] md:h-[10rem]" />
-  );
-
   return (
     <AnimatePresence>
       {visible && (
@@ -43,18 +39,10 @@ export function IndiaMARTTrustFloat() {
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="fixed right-4 top-1/2 z-[55] -translate-y-1/2 md:right-6"
         >
-          {site.indiamartUrl ? (
-            <a
-              href={site.indiamartUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block cursor-pointer transition-opacity hover:opacity-90"
-            >
-              {content}
-            </a>
-          ) : (
-            content
-          )}
+          <IndiaMARTBadge
+            size="2xl"
+            className="drop-shadow-[0_10px_32px_rgba(0,0,0,0.4)]"
+          />
         </motion.div>
       )}
     </AnimatePresence>

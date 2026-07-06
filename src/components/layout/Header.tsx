@@ -13,8 +13,17 @@ import { IndiaMARTBadge } from "@/components/ui/IndiaMARTBadge";
 import { HeaderSocialIcons } from "./HeaderSocialIcons";
 
 function BrandLogo() {
+  const pathname = usePathname();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
-    <Link href="/" className="relative block h-14 w-40 shrink-0 md:h-16 md:w-48">
+    <Link href="/" onClick={handleClick} className="relative block h-14 w-40 shrink-0 md:h-16 md:w-48">
       <Image
         src={site.logo}
         alt="Aronix Infra"

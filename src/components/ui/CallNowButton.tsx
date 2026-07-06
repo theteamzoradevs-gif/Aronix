@@ -14,14 +14,19 @@ export function CallNowButton({
     <a
       href={`tel:${site.phone}`}
       className={cn(
-        "inline-flex cursor-pointer items-center rounded-full border border-border/80 bg-[#faf8f5] font-semibold text-text transition-colors hover:border-primary/50 hover:bg-white hover:text-primary",
+        "group inline-flex cursor-pointer items-center rounded-full border border-border/80 bg-[#faf8f5] font-semibold text-text transition-colors hover:border-primary/50 hover:bg-white hover:text-primary",
         size === "sm" && "gap-1.5 px-3 py-1.5 text-xs",
-        size === "md" && "gap-2.5 py-2 pl-5 pr-5 text-[14px] shadow-lg",
+        size === "md" && "gap-3 py-2 pl-5 pr-2 text-[14px] shadow-lg",
         className
       )}
     >
-      <PhoneIcon />
       Call now
+      {size === "md" && (
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+          <PhoneIcon />
+        </span>
+      )}
+      {size === "sm" && <PhoneIcon />}
     </a>
   );
 }

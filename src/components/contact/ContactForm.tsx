@@ -153,7 +153,7 @@ export function ContactForm() {
               <input
                 id="contact-name"
                 type="text"
-                placeholder="Name*"
+                placeholder="Enter Name"
                 value={values.name}
                 onChange={(e) => handleChange("name", e.target.value)}
                 onBlur={() => handleBlur("name")}
@@ -184,7 +184,7 @@ export function ContactForm() {
               <input
                 id="contact-email"
                 type="email"
-                placeholder="Email*"
+                placeholder="Enter Email"
                 value={values.email}
                 onChange={(e) => handleChange("email", e.target.value)}
                 onBlur={() => handleBlur("email")}
@@ -212,7 +212,7 @@ export function ContactForm() {
                 type="tel"
                 inputMode="numeric"
                 pattern="[6-9][0-9]{9}"
-                placeholder="Phone Number*"
+                placeholder="Enter Phone Number"
                 value={values.phone}
                 onChange={(e) => handlePhoneChange(e.target.value)}
                 onBlur={() => handleBlur("phone")}
@@ -237,7 +237,7 @@ export function ContactForm() {
             >
               <textarea
                 id="contact-message"
-                placeholder="Your Message (optional)"
+                placeholder="Enter Message"
                 rows={4}
                 value={values.message}
                 onChange={(e) => handleChange("message", e.target.value)}

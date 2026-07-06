@@ -21,9 +21,12 @@ export function HomeAboutSection() {
                 align="left"
                 compact
                 prominentLabel
+                className="text-center lg:text-left"
+                labelClassName="text-center lg:text-left"
+                titleClassName="text-center lg:text-left"
               />
 
-              <p className="mt-5 text-body leading-relaxed text-text-muted">
+              <p className="mt-5 text-body leading-relaxed text-text-muted text-center lg:text-left">
                 {preview}
               </p>
 
