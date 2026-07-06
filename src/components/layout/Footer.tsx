@@ -71,14 +71,14 @@ export function Footer() {
             </div>
 
             {/* Desktop layout: stacked */}
-            <div className="hidden flex-col gap-2 lg:flex lg:pt-4">
+            <div className="hidden flex-col gap-2 lg:flex lg:pt-4 ml-5">
               <Link href="/" className="block">
                 <Image
                   src={site.logo}
                   alt="Aronix Infra"
                   width={200}
                   height={64}
-                  className="h-16 w-[200px] object-contain object-left"
+                  className="h-16 ml-14 w-[200px] object-contain object-left"
                   unoptimized
                 />
               </Link>
