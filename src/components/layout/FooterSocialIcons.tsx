@@ -6,6 +6,7 @@ import {
   FacebookSocialIconLink,
   WhatsAppSocialIconLink,
   brandSocialLinks,
+  isImageSocialLink,
 } from "@/components/ui/BrandSocialIcons";
 import { formatPhoneDisplay } from "./TopBar";
 
@@ -21,15 +22,15 @@ export function FooterSocialIcons() {
       <WhatsAppSocialIconLink href={`https://wa.me/${site.whatsapp}`} />
       <span className="mx-0.5 h-4 w-px shrink-0 bg-white/20" aria-hidden />
       {brandSocialLinks.map((item) =>
-        item.key === "facebook" ? (
-          <FacebookSocialIconLink key={item.key} href={site.social.facebook} />
-        ) : (
+        isImageSocialLink(item) ? (
           <BrandSocialIconLink
             key={item.key}
             href={site.social[item.key]}
             label={item.label}
             src={item.src}
           />
+        ) : (
+          <FacebookSocialIconLink key={item.key} href={site.social.facebook} />
         )
       )}
     </div>

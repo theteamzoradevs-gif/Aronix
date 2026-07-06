@@ -10,15 +10,27 @@ const socialIconAssets = {
   twitter: "/assets/brand/social/x.png",
 } as const;
 
+type BrandSocialLink =
+  | { key: "facebook"; label: "Facebook" }
+  | { key: "instagram"; label: "Instagram"; src: string }
+  | { key: "linkedin"; label: "LinkedIn"; src: string }
+  | { key: "twitter"; label: "X (Twitter)"; src: string };
+
 /** Shared 32px circle size for every social icon across the site. */
 export const SOCIAL_ICON_CLASS = "size-8 min-h-8 min-w-8 max-h-8 max-w-8 shrink-0";
 
-export const brandSocialLinks = [
-  { key: "facebook" as const, label: "Facebook" },
-  { key: "instagram" as const, label: "Instagram", src: socialIconAssets.instagram },
-  { key: "linkedin" as const, label: "LinkedIn", src: socialIconAssets.linkedin },
-  { key: "twitter" as const, label: "X (Twitter)", src: socialIconAssets.twitter },
+export const brandSocialLinks: BrandSocialLink[] = [
+  { key: "facebook", label: "Facebook" },
+  { key: "instagram", label: "Instagram", src: socialIconAssets.instagram },
+  { key: "linkedin", label: "LinkedIn", src: socialIconAssets.linkedin },
+  { key: "twitter", label: "X (Twitter)", src: socialIconAssets.twitter },
 ];
+
+export function isImageSocialLink(
+  item: BrandSocialLink
+): item is Extract<BrandSocialLink, { src: string }> {
+  return item.key !== "facebook";
+}
 
 function SocialIconShell({
   href,

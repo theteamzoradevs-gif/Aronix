@@ -4,6 +4,7 @@ import {
   BrandSocialIconLink,
   FacebookSocialIconLink,
   brandSocialLinks,
+  isImageSocialLink,
 } from "@/components/ui/BrandSocialIcons";
 
 export function SocialIcons({
@@ -14,15 +15,15 @@ export function SocialIcons({
   return (
     <div className={cn("flex flex-wrap items-center gap-2.5", className)}>
       {brandSocialLinks.map((item) =>
-        item.key === "facebook" ? (
-          <FacebookSocialIconLink key={item.key} href={site.social.facebook} />
-        ) : (
+        isImageSocialLink(item) ? (
           <BrandSocialIconLink
             key={item.key}
             href={site.social[item.key]}
             label={item.label}
             src={item.src}
           />
+        ) : (
+          <FacebookSocialIconLink key={item.key} href={site.social.facebook} />
         )
       )}
     </div>
