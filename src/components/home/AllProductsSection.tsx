@@ -5,6 +5,9 @@ import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { ProductCard } from "@/components/products/ProductCard";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { resolveDisplayImage } from "@/lib/gallery";
+import { cn } from "@/lib/utils";
+
+const MOBILE_VISIBLE_COUNT = 2;
 
 export function AllProductsSection({ products }: { products: Product[] }) {
   const items = products.slice(0, 6);
@@ -26,20 +29,24 @@ export function AllProductsSection({ products }: { products: Product[] }) {
         </MotionReveal>
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {items.map((product) => (
-            <ProductCard
+          {items.map((product, index) => (
+            <div
               key={product.slug}
-              product={product}
-              imageOverride={resolveDisplayImage(product.image, product.slug)}
-              showPrice
-              compact
-            />
+              className={cn(index >= MOBILE_VISIBLE_COUNT && "hidden sm:block")}
+            >
+              <ProductCard
+                product={product}
+                imageOverride={resolveDisplayImage(product.image, product.slug)}
+                showPrice
+                compact
+              />
+            </div>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <Link href="/products" className="btn-primary inline-flex text-sm">
-            View more
+        <div className="mt-6 text-center sm:mt-10">
+          <Link href="/products" className="btn-primary text-sm">
+            View all products
           </Link>
         </div>
       </Container>

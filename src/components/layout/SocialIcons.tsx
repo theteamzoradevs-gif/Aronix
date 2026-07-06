@@ -4,23 +4,18 @@ import { BrandSocialIconLink, brandSocialLinks } from "@/components/ui/BrandSoci
 
 export function SocialIcons({
   className,
-  iconClassName = "h-5 w-5",
-  linkClassName,
 }: {
   className?: string;
-  iconClassName?: string;
-  linkClassName?: string;
 }) {
   return (
     <div className={cn("flex flex-wrap items-center gap-2.5", className)}>
-      {brandSocialLinks.map(({ key, label, icon }) => (
+      {brandSocialLinks.map(({ key, label, src, imageClassName }) => (
         <BrandSocialIconLink
           key={key}
           href={site.social[key]}
           label={label}
-          icon={icon}
-          iconClassName={iconClassName}
-          className={cn("h-9 w-9", linkClassName)}
+          src={src}
+          imageClassName={imageClassName}
         />
       ))}
     </div>

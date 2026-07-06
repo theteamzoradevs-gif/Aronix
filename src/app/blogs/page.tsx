@@ -12,8 +12,6 @@ export const metadata = {
   title: "Blogs - aronixinfra.com",
 };
 
-const categories = ["Prefab", "Containers", "Site Solutions"];
-
 export default function BlogsPage() {
   return (
     <>
@@ -34,7 +32,7 @@ export default function BlogsPage() {
       <section className="section-editorial section-white">
         <Container>
           <StaggerChildren className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-            {blogs.map((blog, i) => (
+            {blogs.map((blog) => (
               <StaggerItem key={blog.id}>
                 <article className="group flex h-full flex-col">
                   <Link
@@ -48,9 +46,6 @@ export default function BlogsPage() {
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute left-4 top-4 rounded-full border border-white/30 bg-white/90 px-3 py-1 text-[11px] font-semibold text-ink">
-                      {categories[i % categories.length]}
-                    </span>
                   </Link>
                   <time className="text-body-sm text-text-muted">{blog.date}</time>
                   <h3 className="mt-2 font-display text-lg font-semibold text-ink">

@@ -28,36 +28,40 @@ export function MobileMenu({
   return (
     <div className="fixed inset-0 z-[60] xl:hidden">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} aria-hidden />
-      <div className="absolute right-0 top-0 flex h-full w-full max-w-[320px] flex-col border-l border-white/10 bg-black/85 p-6 shadow-2xl backdrop-blur-2xl">
-        <button
-          type="button"
-          onClick={onClose}
-          className="mb-8 ml-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white"
-          aria-label="Close menu"
-        >
-          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+      <div className="absolute right-0 top-0 flex h-[100dvh] w-full max-w-[320px] flex-col border-l border-white/10 bg-black/85 shadow-2xl backdrop-blur-2xl">
+        <div className="flex shrink-0 justify-end px-5 pb-2 pt-5">
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white"
+            aria-label="Close menu"
+          >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
 
-        <nav className="flex flex-col gap-1">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={onClose}
-              className={cn(
-                "rounded-xl px-4 py-3.5 text-base font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white",
-                isActive(item.href) && "bg-white/10 text-white"
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="min-h-0 flex-1 overflow-y-auto px-5 py-2">
+          <div className="flex flex-col gap-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={onClose}
+                className={cn(
+                  "rounded-xl px-4 py-3 text-base font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white",
+                  isActive(item.href) && "bg-white/10 text-white"
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </nav>
 
-        <div className="mt-8 space-y-4 border-t border-white/10 pt-6">
-          <SocialIcons className="justify-start" iconClassName="h-5 w-5" />
+        <div className="shrink-0 space-y-3 border-t border-white/10 px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-4">
+          <SocialIcons className="justify-start" />
           <a
             href={`tel:${site.phone}`}
             className="flex items-center gap-2 text-sm text-white/80 hover:text-white"
