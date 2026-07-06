@@ -201,7 +201,7 @@ export function LeadForm({
         <input
           id={`${variant}-name`}
           type="text"
-          placeholder="Name*"
+          placeholder="Enter Name"
           value={values.name}
           onChange={(e) => handleChange("name", e.target.value)}
           onBlur={() => handleBlur("name")}
@@ -235,7 +235,7 @@ export function LeadForm({
         <input
           id={`${variant}-email`}
           type="email"
-          placeholder="Email*"
+          placeholder="Enter Email"
           value={values.email}
           onChange={(e) => handleChange("email", e.target.value)}
           onBlur={() => handleBlur("email")}
@@ -264,7 +264,7 @@ export function LeadForm({
           type="tel"
           inputMode="numeric"
           pattern="[6-9][0-9]{9}"
-          placeholder="Phone Number*"
+          placeholder="Enter Phone Number"
           value={values.phone}
           onChange={(e) => handlePhoneChange(e.target.value)}
           onBlur={() => handleBlur("phone")}
@@ -281,18 +281,23 @@ export function LeadForm({
       </ValidatedField>
 
       {showProductSelect && (
-        <select
-          value={values.product}
-          onChange={(e) => setValues((prev) => ({ ...prev, product: e.target.value }))}
-          className={cn(inputClass, "cursor-pointer", isModal && "text-sm")}
-        >
-          <option value="">Select product (optional)</option>
-          {products.map((product) => (
-            <option key={product.slug} value={product.slug}>
-              {product.title}
-            </option>
-          ))}
-        </select>
+        <div className={cn("space-y-1", isModal ? "space-y-1" : "space-y-1.5")}>
+          <label className={cn("block font-medium text-text", isModal ? "text-xs" : "text-sm")}>
+            Select Product
+          </label>
+          <select
+            value={values.product}
+            onChange={(e) => setValues((prev) => ({ ...prev, product: e.target.value }))}
+            className={cn(inputClass, "cursor-pointer", isModal && "text-sm")}
+          >
+            <option value="">Select product</option>
+            {products.map((product) => (
+              <option key={product.slug} value={product.slug}>
+                {product.title}
+              </option>
+            ))}
+          </select>
+        </div>
       )}
 
       <ValidatedField
@@ -305,7 +310,7 @@ export function LeadForm({
       >
         <textarea
           id={`${variant}-message`}
-          placeholder="Your Message (optional)"
+          placeholder="Enter Message"
           rows={isModal ? 3 : isHero ? 3 : 4}
           value={values.message}
           onChange={(e) => handleChange("message", e.target.value)}

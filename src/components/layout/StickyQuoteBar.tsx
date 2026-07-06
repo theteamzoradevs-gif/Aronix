@@ -29,7 +29,7 @@ export function StickyQuoteBar() {
           onClick={open}
           className="flex-1 cursor-pointer rounded-full bg-accent py-3 text-sm font-semibold text-ink"
         >
-          Get a Quote
+          Get free quote
         </button>
         <a
           href={`tel:${site.phone}`}

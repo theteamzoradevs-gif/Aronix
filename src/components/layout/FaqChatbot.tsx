@@ -22,7 +22,7 @@ function matchIntent(input: string): string | null {
 }
 
 export function FaqChatbot() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [messages, setMessages] = useState<ChatMessage[]>([
     { role: "bot", text: site.chatbotGreeting },
   ]);

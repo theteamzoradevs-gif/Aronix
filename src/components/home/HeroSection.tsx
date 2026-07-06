@@ -100,7 +100,7 @@ export function HeroSection() {
           </div>
 
           <motion.div
-            className="relative mt-2 mb-6 lg:mt-0 lg:mb-0"
+            className="relative mt-2 -mb-2 lg:mt-0 lg:mb-0"
             initial={reduced ? {} : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.15 }}
