@@ -23,7 +23,7 @@ const topCertifications = [
 
 export function Footer() {
   return (
-    <footer className="bg-dark text-white">
+    <footer className="bg-dark pb-[calc(5.75rem+env(safe-area-inset-bottom,0px))] text-white md:pb-0">
       <div className="border-b border-white/10 bg-[#141428]">
         <Container className="flex flex-col gap-3 py-3 sm:py-4 md:flex-row md:items-center md:justify-between md:gap-4 md:py-5">
           <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:gap-x-6 md:flex md:flex-wrap md:items-center md:gap-x-4 md:gap-y-2">
@@ -148,7 +148,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/10 pt-5 text-center text-xs text-gray-400 sm:text-sm lg:text-left">
+        <div className="mt-8 border-t border-white/10 pt-5 text-center text-xs text-gray-300 sm:text-sm lg:text-left">
           <p>© 2026 Aronixinfra. All rights reserved</p>
         </div>
       </Container>

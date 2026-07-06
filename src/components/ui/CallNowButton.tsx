@@ -1,14 +1,17 @@
 import { site } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { CTA_PILL_PAIR_CLASS, CTA_PILL_ICON_CLASS, CTA_PILL_TEXT_CLASS } from "@/components/ui/cta-pill-styles";
 
 type CallNowButtonSize = "sm" | "md";
 
 export function CallNowButton({
   className,
   size = "md",
+  paired = false,
 }: {
   className?: string;
   size?: CallNowButtonSize;
+  paired?: boolean;
 }) {
   return (
     <a
@@ -18,16 +21,27 @@ export function CallNowButton({
         size === "sm" &&
           "gap-1.5 rounded-full border border-border/80 bg-[#faf8f5] px-3 py-1.5 text-xs hover:border-primary/50 hover:bg-white hover:text-primary",
         size === "md" &&
-          "gap-3 rounded-full bg-white py-2 pl-2 pr-5 text-[14px] shadow-lg hover:bg-white/95",
+          !paired &&
+          "gap-2.5 rounded-full bg-white py-2 pl-5 pr-2 text-[14px] shadow-lg hover:bg-white/95",
+        size === "md" &&
+          paired &&
+          cn(CTA_PILL_PAIR_CLASS, "bg-white text-[16px] shadow-lg hover:bg-white/95"),
         className
       )}
     >
+      <span className={cn(size === "md" && paired && CTA_PILL_TEXT_CLASS)}>
+        Call now
+      </span>
       {size === "md" && (
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+        <span
+          className={cn(
+            CTA_PILL_ICON_CLASS,
+            "bg-primary/10 text-primary transition-colors group-hover:bg-primary/20"
+          )}
+        >
           <PhoneIcon />
         </span>
       )}
-      Call now
       {size === "sm" && <PhoneIcon />}
     </a>
   );
