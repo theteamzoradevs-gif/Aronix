@@ -45,44 +45,49 @@ export function Footer() {
       <Container className="py-8 sm:py-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
           {/* Mobile: logo left, indiamart right — Desktop: logo on top, indiamart below */}
-          <div className="mx-auto w-full max-w-[340px] border-b border-white/10 pb-8 sm:max-w-[380px] lg:mx-0 lg:max-w-[200px] lg:shrink-0 lg:border-b-0 lg:pb-0">
+          <div className="mx-auto w-full max-w-[420px] border-b border-white/10 pb-8 sm:max-w-[460px] lg:mx-0 lg:max-w-[280px] lg:shrink-0 lg:border-b-0 lg:pb-0">
             {/* Mobile layout: side-by-side */}
-            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-6 sm:gap-8 lg:hidden">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 sm:gap-6 lg:hidden">
               <Link
                 href="/"
-                className="relative mx-auto block h-[48px] w-full max-w-[140px] justify-self-end sm:h-[56px] sm:max-w-[160px]"
+                className="relative flex h-[68px] w-full max-w-[190px] items-center justify-end justify-self-end sm:h-[76px] sm:max-w-[210px]"
               >
                 <Image
                   src={site.logo}
                   alt="Aronix Infra"
                   fill
                   className="object-contain object-right"
-                  sizes="140px"
+                  sizes="210px"
                   unoptimized
                 />
               </Link>
-              <span className="h-10 w-px shrink-0 bg-white/15 sm:h-12" aria-hidden />
-              <div className="flex items-center justify-self-start">
+              <span className="h-[68px] w-px shrink-0 self-center bg-white/15 sm:h-[76px]" aria-hidden />
+              <div className="-ml-2 flex h-[68px] w-full max-w-[190px] items-center justify-start justify-self-start sm:-ml-2.5 sm:h-[76px] sm:max-w-[210px]">
                 <IndiaMARTBadge
-                  size="lg"
-                  className="!h-[42px] !w-auto max-w-[130px] object-contain object-left sm:!h-[50px] sm:max-w-[150px]"
+                  size="2xl"
+                  className="!h-[68px] !w-auto max-w-[190px] object-contain object-left sm:!h-[76px] sm:max-w-[210px]"
+                  style={{ maxHeight: 76 }}
                 />
               </div>
             </div>
 
-            {/* Desktop layout: stacked */}
-            <div className="hidden flex-col gap-2 lg:flex lg:pt-4 ml-5">
-              <Link href="/" className="block">
+            {/* Desktop layout: stacked, left-aligned */}
+            <div className="hidden flex-col items-start gap-5 lg:flex lg:pt-2">
+              <Link href="/" className="block ml-8">
                 <Image
                   src={site.logo}
                   alt="Aronix Infra"
                   width={200}
                   height={64}
-                  className="h-16 ml-14 w-[200px] object-contain object-left"
+                  className="h-16 w-[200px] object-contain object-left"
                   unoptimized
                 />
               </Link>
-              <IndiaMARTBadge size="xl" className="!h-auto !w-[200px] mt-1" />
+              <IndiaMARTBadge
+                size="2xl"
+                className="!h-auto !w-[280px] object-contain object-left"
+                style={{ maxHeight: 120 }}
+              />
             </div>
           </div>
 
@@ -144,7 +149,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-white/10 pt-5 text-center text-xs text-gray-400 sm:text-sm lg:text-left">
-          <p>Copyright © Aronixinfra all rights reserved.</p>
+          <p>© 2026 Aronixinfra. All rights reserved</p>
         </div>
       </Container>
     </footer>

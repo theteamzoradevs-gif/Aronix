@@ -7,6 +7,7 @@ const LOGO_SRC = "/assets/brand/indiamart-trust-seal.png";
 type IndiaMARTBadgeProps = {
   size?: "sm" | "md" | "lg" | "xl" | "2xl";
   className?: string;
+  style?: React.CSSProperties;
 };
 
 const sizes = {
@@ -17,7 +18,7 @@ const sizes = {
   "2xl": { h: 100, w: 86 },
 };
 
-export function IndiaMARTBadge({ size = "md", className }: IndiaMARTBadgeProps) {
+export function IndiaMARTBadge({ size = "md", className, style }: IndiaMARTBadgeProps) {
   const dim = sizes[size];
 
   const img = (
@@ -27,7 +28,7 @@ export function IndiaMARTBadge({ size = "md", className }: IndiaMARTBadgeProps) 
       width={dim.w * 3}
       height={dim.h * 3}
       className={cn("h-auto w-auto object-contain", className)}
-      style={{ maxHeight: dim.h }}
+      style={{ maxHeight: dim.h, ...style }}
       unoptimized
     />
   );
