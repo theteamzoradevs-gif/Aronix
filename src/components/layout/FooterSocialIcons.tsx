@@ -1,7 +1,12 @@
 "use client";
 
 import { site } from "@/lib/data";
-import { WhatsAppSocialIconLink, BrandSocialIconLink, brandSocialLinks } from "@/components/ui/BrandSocialIcons";
+import {
+  BrandSocialIconLink,
+  FacebookSocialIconLink,
+  WhatsAppSocialIconLink,
+  brandSocialLinks,
+} from "@/components/ui/BrandSocialIcons";
 import { formatPhoneDisplay } from "./TopBar";
 
 export function FooterSocialIcons() {
@@ -15,15 +20,18 @@ export function FooterSocialIcons() {
       </a>
       <WhatsAppSocialIconLink href={`https://wa.me/${site.whatsapp}`} />
       <span className="mx-0.5 h-4 w-px shrink-0 bg-white/20" aria-hidden />
-      {brandSocialLinks.map(({ key, label, src, imageClassName }) => (
-        <BrandSocialIconLink
-          key={key}
-          href={site.social[key]}
-          label={label}
-          src={src}
-          imageClassName={imageClassName}
-        />
-      ))}
+      {brandSocialLinks.map((item) =>
+        item.key === "facebook" ? (
+          <FacebookSocialIconLink key={item.key} href={site.social.facebook} />
+        ) : (
+          <BrandSocialIconLink
+            key={item.key}
+            href={site.social[item.key]}
+            label={item.label}
+            src={item.src}
+          />
+        )
+      )}
     </div>
   );
 }

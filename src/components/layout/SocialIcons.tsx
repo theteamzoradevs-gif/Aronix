@@ -1,6 +1,10 @@
 import { site } from "@/lib/data";
 import { cn } from "@/lib/utils";
-import { BrandSocialIconLink, brandSocialLinks } from "@/components/ui/BrandSocialIcons";
+import {
+  BrandSocialIconLink,
+  FacebookSocialIconLink,
+  brandSocialLinks,
+} from "@/components/ui/BrandSocialIcons";
 
 export function SocialIcons({
   className,
@@ -9,15 +13,18 @@ export function SocialIcons({
 }) {
   return (
     <div className={cn("flex flex-wrap items-center gap-2.5", className)}>
-      {brandSocialLinks.map(({ key, label, src, imageClassName }) => (
-        <BrandSocialIconLink
-          key={key}
-          href={site.social[key]}
-          label={label}
-          src={src}
-          imageClassName={imageClassName}
-        />
-      ))}
+      {brandSocialLinks.map((item) =>
+        item.key === "facebook" ? (
+          <FacebookSocialIconLink key={item.key} href={site.social.facebook} />
+        ) : (
+          <BrandSocialIconLink
+            key={item.key}
+            href={site.social[item.key]}
+            label={item.label}
+            src={item.src}
+          />
+        )
+      )}
     </div>
   );
 }
