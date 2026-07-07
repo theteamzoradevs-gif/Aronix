@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { TrustTopBar } from "@/components/layout/TrustTopBar";
 import { Header } from "@/components/layout/Header";
@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   title: "Aronix Infra - Manufacturer of Shipping Containers and Porta Cabins",
   description:
     "Aronix Infra is a manufacturer and supplier of portable cabins, shipping containers, guard cabins, and prefabricated structures in Greater Noida, India.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

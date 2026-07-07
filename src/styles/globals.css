@@ -33,7 +33,9 @@
     --trust-bar-height: 36px;
     --header-height: 72px;
     --header-total-offset: calc(var(--trust-bar-height) + var(--header-height));
-    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   @media (min-width: 768px) {
@@ -44,11 +46,21 @@
   }
 
   body {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
     font-family: var(--font-inter);
     color: var(--color-text);
     background: #ffffff;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    overflow-x: clip;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -122,7 +134,7 @@
   }
 
   .hero-form-input {
-    @apply w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/45 outline-none transition-all focus:border-accent/60 focus:bg-white/15 focus:ring-2 focus:ring-accent/20;
+    @apply w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-base text-white placeholder:text-white/45 outline-none transition-all focus:border-accent/60 focus:bg-white/15 focus:ring-2 focus:ring-accent/20 md:text-sm;
   }
 
   .hero-form-input.form-input-error {
@@ -134,11 +146,11 @@
   }
 
   .popup-form-input {
-    @apply w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-text outline-none transition-all focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/15;
+    @apply w-full rounded-xl border border-border bg-surface px-4 py-3 text-base text-text outline-none transition-all focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/15 md:text-sm;
   }
 
   .modal-form-input {
-    @apply w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-text outline-none transition-all focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/15;
+    @apply w-full rounded-lg border border-border bg-surface px-3 py-2 text-base text-text outline-none transition-all focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/15 md:text-sm;
   }
 
   .form-input-error {

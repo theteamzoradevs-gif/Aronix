@@ -12,7 +12,7 @@ import {
   productCategoryLabels,
   site,
 } from "@/lib/data";
-import { formatPrice } from "@/lib/utils";
+import { cn, formatPrice } from "@/lib/utils";
 import { QuoteButton } from "@/components/products/QuoteButton";
 import { ProductImageGallery } from "@/components/products/ProductImageGallery";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
@@ -42,7 +42,7 @@ export default async function ProductPage({
 
   const related = products
     .filter((p) => p.category === product.category && p.slug !== product.slug)
-    .slice(0, 3);
+    .slice(0, 2);
 
   const categoryLabel = product.category
     ? productCategoryLabels[product.category]
@@ -53,7 +53,7 @@ export default async function ProductPage({
     <>
       <PageHero containerClassName="max-w-[1200px]">
         <MotionReveal>
-          <nav className="text-sm text-text-muted">
+          <nav className="flex flex-wrap items-center gap-y-1 text-sm text-text-muted break-words">
             <Link href="/products" className="transition-colors hover:text-primary">
               Products
             </Link>
@@ -69,15 +69,15 @@ export default async function ProductPage({
               </>
             )}
             <span className="mx-2">/</span>
-            <span className="text-ink">{product.title}</span>
+            <span className="min-w-0 text-ink">{product.title}</span>
           </nav>
         </MotionReveal>
       </PageHero>
 
-      <section className="section-white section-editorial pt-8 md:pt-12">
+      <section className="section-white section-editorial pt-6 md:pt-12">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <MotionReveal direction="left">
+          <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:gap-16">
+            <MotionReveal direction="up" className="min-w-0">
               <ProductImageGallery
                 title={product.title}
                 slug={product.slug}
@@ -85,57 +85,56 @@ export default async function ProductPage({
               />
             </MotionReveal>
 
-            <MotionReveal direction="right">
-              <div>
+            <MotionReveal direction="up" delay={0.1} className="min-w-0">
+              <div className="min-w-0 max-w-full">
                 {categoryLabel && (
-                  <p className="text-label text-primary">{categoryLabel}</p>
+                  <p className="text-[10px] text-label text-primary sm:text-[11px]">{categoryLabel}</p>
                 )}
-                <h1 className="mt-3 font-display text-section-title text-ink">
+                <h1 className="mt-2 break-words font-display text-xl font-bold leading-tight text-ink sm:mt-3 sm:text-2xl md:text-section-title">
                   {product.title}
                 </h1>
                 {product.price && (
-                  <p className="mt-4 text-2xl font-semibold text-ink">
+                  <p className="mt-3 text-lg font-semibold text-ink sm:mt-4 sm:text-2xl">
                     {formatPrice(product.price)}
                   </p>
                 )}
-                <p className="mt-6 text-subheading text-text-muted">
+                <p className="mt-4 break-words text-sm leading-relaxed text-text-muted sm:mt-6 sm:text-subheading">
                   {product.description}
                 </p>
 
                 {product.specs.length > 0 && (
-                  <div className="mt-8 overflow-hidden rounded-2xl border border-border-light bg-white shadow-[var(--shadow-soft)]">
-                    <table className="w-full border-collapse text-sm">
-                      <tbody>
-                        {product.specs.map((spec, i) => (
-                          <tr
-                            key={spec.label}
-                            className={i % 2 === 0 ? "bg-white" : "bg-cream/50"}
-                          >
-                            <td className="border-t border-border-light px-5 py-3.5 font-medium text-text-muted">
-                              {spec.label}
-                            </td>
-                            <td className="border-t border-border-light px-5 py-3.5 text-ink">
-                              {spec.value}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                  <div className="mt-6 divide-y divide-border-light overflow-hidden rounded-xl border border-border-light bg-white shadow-[var(--shadow-soft)] sm:mt-8 sm:rounded-2xl">
+                    {product.specs.map((spec, i) => (
+                      <div
+                        key={spec.label}
+                        className={cn(
+                          "px-3 py-3 sm:px-4 sm:py-3.5",
+                          i % 2 === 0 ? "bg-white" : "bg-cream/50"
+                        )}
+                      >
+                        <p className="text-xs font-medium text-text-muted sm:text-sm">{spec.label}</p>
+                        <p className="mt-1 break-words text-sm text-ink">{spec.value}</p>
+                      </div>
+                    ))}
                   </div>
                 )}
 
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <a
-                    href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in ${product.title}. Please share a quote.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20"
-                    aria-label="WhatsApp"
-                  >
-                    <WhatsAppIcon />
-                  </a>
-                  <QuoteButton variant="primary">Get a Quote</QuoteButton>
-                  <Link href="/contact-us" className="btn-accent">
+                <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <a
+                      href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in ${product.title}. Please share a quote.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20 sm:h-11 sm:w-11"
+                      aria-label="WhatsApp"
+                    >
+                      <WhatsAppIcon />
+                    </a>
+                    <QuoteButton variant="primary" className="min-w-0 flex-1 sm:flex-none">
+                      Get a Quote
+                    </QuoteButton>
+                  </div>
+                  <Link href="/contact-us" className="btn-accent w-full text-center sm:w-auto">
                     Contact us
                   </Link>
                 </div>
@@ -154,10 +153,16 @@ export default async function ProductPage({
                 You may also like
               </h2>
             </MotionReveal>
-            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+            <div className="mt-10 grid grid-cols-2 gap-4 md:gap-6">
               {related.map((p) => (
                 <ProductCard key={p.slug} product={p} showPrice />
               ))}
+            </div>
+
+            <div className="mt-8 text-center md:mt-10">
+              <Link href="/products" className="btn-primary text-sm">
+                View all products
+              </Link>
             </div>
           </Container>
         </section>

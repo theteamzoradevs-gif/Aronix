@@ -13,19 +13,15 @@ export function BlogSection() {
     <section className="section-editorial border-t border-border-light bg-cream">
       <Container>
         <MotionReveal>
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <EditorialHeader
-              label="Blog"
-              title="Industry tips & site insights"
-              subtitle="Practical guides on portable cabins, containers, and prefab solutions."
-              align="left"
-              compact
-              prominentLabel
-            />
-            <Link href="/blogs" className="btn-primary hidden shrink-0 self-start text-sm md:inline-flex md:self-auto">
-              View all blogs
-            </Link>
-          </div>
+          <EditorialHeader
+            label="Blog"
+            title="Industry tips & site insights"
+            subtitle="Practical guides on portable cabins, containers, and prefab solutions."
+            align="center"
+            className="mx-auto max-w-2xl"
+            compact
+            prominentLabel
+          />
         </MotionReveal>
 
         <div className="mt-8 grid gap-5 md:grid-cols-3 md:gap-6">
@@ -61,7 +57,7 @@ export function BlogSection() {
           ))}
         </div>
 
-        <div className="mt-6 text-center md:hidden">
+        <div className="mt-6 text-center">
           <Link href="/blogs" className="btn-primary inline-flex text-sm">
             View all blogs
           </Link>

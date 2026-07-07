@@ -31,12 +31,12 @@ export function MotionReveal({
   const offset = offsets[direction];
 
   if (reduced) {
-    return <div className={cn(className)}>{children}</div>;
+    return <div className={cn("min-w-0 w-full", className)}>{children}</div>;
   }
 
   return (
     <motion.div
-      className={cn(className)}
+      className={cn("min-w-0 w-full", className)}
       initial={{ opacity: 0, ...offset }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
