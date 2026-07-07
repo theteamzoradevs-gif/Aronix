@@ -7,7 +7,7 @@ import { MotionReveal } from "@/components/motion/MotionReveal";
 import { resolveDisplayImage } from "@/lib/gallery";
 import { cn } from "@/lib/utils";
 
-const MOBILE_VISIBLE_COUNT = 2;
+const MOBILE_VISIBLE_COUNT = 1;
 
 export function AllProductsSection({ products }: { products: Product[] }) {
   const items = products.slice(0, 6);

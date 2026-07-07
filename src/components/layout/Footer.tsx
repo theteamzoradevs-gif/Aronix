@@ -23,7 +23,7 @@ const topCertifications = [
 
 export function Footer() {
   return (
-    <footer className="bg-dark pb-[calc(5.75rem+env(safe-area-inset-bottom,0px))] text-white md:pb-0">
+    <footer className="bg-dark text-white">
       <div className="border-b border-white/10 bg-[#141428]">
         <Container className="flex flex-col gap-3 py-3 sm:py-4 md:flex-row md:items-center md:justify-between md:gap-4 md:py-5">
           <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:gap-x-6 md:flex md:flex-wrap md:items-center md:gap-x-4 md:gap-y-2">
@@ -42,7 +42,7 @@ export function Footer() {
         </Container>
       </div>
 
-      <Container className="py-8 sm:py-10">
+      <Container className="pt-8 sm:pt-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
           {/* Mobile: logo left, indiamart right — Desktop: logo on top, indiamart below */}
           <div className="mx-auto w-full max-w-[420px] border-b border-white/10 pb-8 sm:max-w-[460px] lg:mx-0 lg:max-w-[280px] lg:shrink-0 lg:border-b-0 lg:pb-0">
@@ -62,11 +62,11 @@ export function Footer() {
                 />
               </Link>
               <span className="h-[68px] w-px shrink-0 self-center bg-white/15 sm:h-[76px]" aria-hidden />
-              <div className="-ml-2 flex h-[68px] w-full max-w-[190px] items-center justify-start justify-self-start sm:-ml-2.5 sm:h-[76px] sm:max-w-[210px]">
+              <div className="-ml-2 flex h-[80px] w-full max-w-[215px] items-center justify-start justify-self-start sm:-ml-2.5 sm:h-[88px] sm:max-w-[235px]">
                 <IndiaMARTBadge
                   size="2xl"
-                  className="!h-[68px] !w-auto max-w-[190px] object-contain object-left sm:!h-[76px] sm:max-w-[210px]"
-                  style={{ maxHeight: 76 }}
+                  className="!h-[80px] !w-auto max-w-[215px] object-contain object-left sm:!h-[88px] sm:max-w-[235px]"
+                  style={{ maxHeight: 88 }}
                 />
               </div>
             </div>
@@ -148,7 +148,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/10 pt-5 text-center text-xs text-gray-300 sm:text-sm lg:text-left">
+        <div className="mt-8 border-t border-white/10 py-5 text-center text-xs text-gray-300 max-md:mb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] sm:text-sm lg:mb-0 lg:text-left">
           <p>© 2026 Aronixinfra. All rights reserved</p>
         </div>
       </Container>
