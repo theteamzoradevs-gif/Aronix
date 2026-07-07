@@ -19,7 +19,7 @@ export function HsnTable() {
 
           <div className="mt-10 overflow-hidden rounded-3xl border border-border-light bg-white shadow-[var(--shadow-card)] md:mt-12">
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[520px] border-collapse">
+              <table className="w-full min-w-[360px] border-collapse sm:min-w-[520px]">
                 <thead>
                   <tr className="bg-primary text-left text-white">
                     <th className="px-5 py-4 text-sm font-semibold md:px-6 md:py-5 md:text-[15px]">

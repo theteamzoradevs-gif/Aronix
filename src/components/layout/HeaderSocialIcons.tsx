@@ -8,7 +8,13 @@ export function HeaderSocialIcons() {
         .filter(isImageSocialLink)
         .filter((item) => item.key === "linkedin" || item.key === "instagram")
         .map(({ key, label, src }) => (
-          <BrandSocialIconLink key={key} href={site.social[key]} label={label} src={src} />
+          <BrandSocialIconLink
+            key={key}
+            href={site.social[key]}
+            label={label}
+            src={src}
+            imageClassName={key === "instagram" ? "scale-110" : undefined}
+          />
         ))}
     </div>
   );

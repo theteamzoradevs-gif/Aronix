@@ -67,11 +67,11 @@ export default async function BlogPostPage({
               className="blog-content mt-8"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
-            <div className="mt-10 flex flex-wrap gap-4 border-t border-border-light pt-8">
-              <Link href="/contact-us" className="btn-accent">
+            <div className="mt-10 grid grid-cols-2 gap-3 border-t border-border-light pt-8 sm:flex sm:flex-wrap sm:gap-4">
+              <Link href="/contact-us" className="btn-accent w-full justify-center">
                 Contact us
               </Link>
-              <Link href="/blogs" className="btn-primary">
+              <Link href="/blogs" className="btn-primary w-full justify-center">
                 More articles
               </Link>
             </div>

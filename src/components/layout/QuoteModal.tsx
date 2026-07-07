@@ -19,14 +19,14 @@ export function QuoteModal() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[70] flex items-start justify-center overflow-y-auto p-3 sm:items-center sm:p-4">
       <div
         className="absolute inset-0 cursor-pointer bg-black/60 backdrop-blur-sm"
         onClick={close}
         aria-hidden
       />
 
-      <div className="relative w-full max-w-md overflow-hidden rounded-xl bg-white shadow-2xl">
+      <div className="relative my-4 w-full max-w-md overflow-hidden rounded-xl bg-white shadow-2xl sm:my-0">
         <div className="bg-dark px-5 pb-5 pt-4 md:px-7 md:pb-6">
           <button
             type="button"

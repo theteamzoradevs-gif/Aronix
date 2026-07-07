@@ -81,7 +81,7 @@ function ViewAllCta({
       ) : null}
       <Link
         href={href}
-        className="inline-flex min-w-[220px] cursor-pointer items-center justify-center rounded-full bg-primary px-10 py-3.5 text-sm font-semibold tracking-wide text-white shadow-[0_4px_14px_rgba(30,58,95,0.25)] transition-colors hover:bg-[#16304f]"
+        className="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-primary px-6 py-3.5 text-sm font-semibold tracking-wide text-white shadow-[0_4px_14px_rgba(30,58,95,0.25)] transition-colors hover:bg-[#16304f] sm:w-auto sm:min-w-[220px] sm:px-10"
       >
         View all products
       </Link>

@@ -22,7 +22,7 @@ function matchIntent(input: string): string | null {
 }
 
 export function FaqChatbot() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     { role: "bot", text: site.chatbotGreeting },
   ]);
@@ -50,7 +50,7 @@ export function FaqChatbot() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="pointer-events-auto fixed bottom-20 right-4 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-accent text-ink shadow-[0_4px_20px_rgba(244,193,0,0.45)] ring-2 ring-white/20 transition-all hover:scale-105 hover:bg-accent/90 hover:shadow-[0_6px_24px_rgba(244,193,0,0.55)] md:bottom-6 md:right-6"
+        className="pointer-events-auto fixed bottom-[4.5rem] right-4 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-accent text-ink shadow-[0_4px_20px_rgba(244,193,0,0.45)] ring-2 ring-white/20 transition-all hover:scale-105 hover:bg-accent/90 hover:shadow-[0_6px_24px_rgba(244,193,0,0.55)] md:bottom-6 md:right-6"
         aria-label={open ? "Close chat" : "Open FAQ chat"}
       >
         {open ? (
@@ -70,13 +70,27 @@ export function FaqChatbot() {
       </button>
 
       {open && (
-        <div className="pointer-events-auto fixed bottom-[8.5rem] right-4 z-40 flex w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-xl border border-border bg-white shadow-2xl md:bottom-24 md:right-6">
-          <div className="bg-dark px-4 py-3">
+        <>
+          <div className="fixed inset-0 z-30 bg-black/35 md:hidden" onClick={() => setOpen(false)} aria-hidden />
+          <div className="pointer-events-auto fixed inset-x-3 bottom-[5.75rem] z-40 flex max-h-[68vh] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-2xl md:inset-x-auto md:bottom-24 md:right-6 md:w-[calc(100vw-2rem)] md:max-w-sm md:max-h-none">
+          <div className="flex items-start justify-between bg-dark px-4 py-3">
+            <div>
             <p className="text-sm font-semibold text-white">Aronix FAQ Assistant</p>
             <p className="text-xs text-white/70">Delivery, pricing, products & more</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="ml-3 rounded-full p-1 text-white/80 hover:bg-white/10 hover:text-white"
+              aria-label="Close chat panel"
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
 
-          <div className="flex max-h-64 flex-col gap-3 overflow-y-auto p-4">
+          <div className="flex max-h-52 flex-col gap-3 overflow-y-auto p-4 md:max-h-64">
             {messages.map((msg, i) => (
               <div
                 key={i}
@@ -92,7 +106,7 @@ export function FaqChatbot() {
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-1.5 border-t border-border px-3 py-2">
+          <div className="flex max-h-20 flex-wrap gap-1.5 overflow-y-auto border-t border-border px-3 py-2">
             {site.chatbotIntents.map((intent) => (
               <button
                 key={intent.id}
@@ -146,6 +160,7 @@ export function FaqChatbot() {
             </a>
           </div>
         </div>
+        </>
       )}
     </>
   );
