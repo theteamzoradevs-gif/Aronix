@@ -89,7 +89,7 @@ export function Header() {
           </div>
 
           <div className="flex shrink-0 items-center gap-2 md:gap-3">
-            <div className="hidden items-center gap-4 lg:flex lg:gap-5">
+            <div className="hidden items-center gap-4 xl:flex xl:gap-5">
               <IndiaMARTBadge size="lg" />
 
               <div className="flex flex-col items-start gap-1">
@@ -118,7 +118,15 @@ export function Header() {
 
             <button
               type="button"
-              className="flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-1.5 rounded-lg border border-white/20 bg-white/5 xl:hidden"
+              onClick={open}
+              className="hidden shrink-0 cursor-pointer rounded-full bg-accent px-4 py-2 text-[13px] font-semibold text-ink transition-colors hover:bg-accent/90 lg:inline-flex xl:hidden"
+            >
+              Get a Quote
+            </button>
+
+            <button
+              type="button"
+              className="flex h-10 w-10 shrink-0 cursor-pointer flex-col items-center justify-center gap-1.5 rounded-lg border border-white/20 bg-white/5 xl:hidden"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >

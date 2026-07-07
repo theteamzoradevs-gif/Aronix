@@ -50,7 +50,7 @@ export function Footer() {
             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 sm:gap-6 lg:hidden">
               <Link
                 href="/"
-                className="relative flex h-[68px] w-full max-w-[190px] items-center justify-end justify-self-end sm:h-[76px] sm:max-w-[210px]"
+                className="relative flex h-[68px] w-full min-w-0 max-w-[190px] items-center justify-end justify-self-end sm:h-[76px] sm:max-w-[210px]"
               >
                 <Image
                   src={site.logo}
@@ -62,10 +62,10 @@ export function Footer() {
                 />
               </Link>
               <span className="h-[68px] w-px shrink-0 self-center bg-white/15 sm:h-[76px]" aria-hidden />
-              <div className="-ml-2 flex h-[80px] w-full max-w-[215px] items-center justify-start justify-self-start sm:-ml-2.5 sm:h-[88px] sm:max-w-[235px]">
+              <div className="-ml-2 flex h-[80px] w-full min-w-0 max-w-[215px] items-center justify-start justify-self-start overflow-hidden sm:-ml-2.5 sm:h-[88px] sm:max-w-[235px]">
                 <IndiaMARTBadge
                   size="2xl"
-                  className="!h-[80px] !w-auto max-w-[215px] object-contain object-left sm:!h-[88px] sm:max-w-[235px]"
+                  className="!h-[80px] !w-auto max-w-full object-contain object-left sm:!h-[88px]"
                   style={{ maxHeight: 88 }}
                 />
               </div>

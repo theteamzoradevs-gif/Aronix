@@ -12,7 +12,12 @@ export function Main({
   const isHome = pathname === "/";
 
   return (
-    <main className={cn("overflow-x-hidden", !isHome && "pt-[var(--header-total-offset)]")}>
+    <main
+      className={cn(
+        "w-full min-w-0 max-w-full overflow-x-clip",
+        !isHome && "pt-[var(--header-total-offset)]"
+      )}
+    >
       {children}
     </main>
   );

@@ -61,7 +61,11 @@ export function ProductsPageClient() {
             subtitle="Portable offices, guard cabins, shipping containers, and custom prefab units."
             description="Factory-built in Greater Noida and delivered across India."
             align="center"
-            className="mx-auto max-w-3xl"
+            className="mx-auto max-w-3xl px-4"
+            labelClassName="text-3xl font-extrabold leading-tight tracking-[-0.02em] text-ink md:text-4xl"
+            titleClassName="mx-auto mt-4 max-w-2xl text-base font-semibold leading-relaxed tracking-normal text-text md:text-[20px]"
+            subtitleClassName="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed tracking-normal text-text-muted md:text-base"
+            descriptionClassName="mx-auto mt-4 max-w-xl text-sm font-semibold leading-relaxed tracking-normal text-primary md:text-[15px]"
             prominentLabel
           />
         </MotionReveal>

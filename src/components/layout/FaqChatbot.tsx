@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { site } from "@/lib/data";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
@@ -28,6 +28,19 @@ export function FaqChatbot() {
   ]);
   const [input, setInput] = useState("");
   const { openWithMessage } = useQuoteModal();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const KEY = "aronix-chatbot-autoopened";
+    if (localStorage.getItem(KEY)) return;
+
+    const timer = setTimeout(() => {
+      setOpen(true);
+      localStorage.setItem(KEY, "1");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const sendMessage = (text: string) => {
     if (!text.trim()) return;
@@ -72,7 +85,7 @@ export function FaqChatbot() {
       {open && (
         <>
           <div className="fixed inset-0 z-30 bg-black/35 md:hidden" onClick={() => setOpen(false)} aria-hidden />
-          <div className="pointer-events-auto fixed inset-x-3 bottom-[5.75rem] z-40 flex max-h-[68vh] flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-2xl md:inset-x-auto md:bottom-24 md:right-6 md:w-[calc(100vw-2rem)] md:max-w-sm md:max-h-none">
+          <div className="pointer-events-auto fixed inset-x-3 bottom-[8.75rem] z-40 mx-auto flex max-h-[70dvh] max-w-sm flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-2xl sm:inset-x-auto sm:right-4 sm:w-[calc(100vw-2rem)] md:bottom-24 md:right-6 md:max-h-none">
           <div className="flex items-start justify-between bg-dark px-4 py-3">
             <div>
             <p className="text-sm font-semibold text-white">Aronix FAQ Assistant</p>

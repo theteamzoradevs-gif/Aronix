@@ -294,7 +294,7 @@ export function LeadForm({
           <select
             value={values.product}
             onChange={(e) => setValues((prev) => ({ ...prev, product: e.target.value }))}
-            className={cn(inputClass, "cursor-pointer", isCompact && "text-sm")}
+            className={cn(inputClass, "cursor-pointer")}
           >
             <option value="">Select product</option>
             {products.map((product) => (
