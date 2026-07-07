@@ -22,22 +22,22 @@ export function ContactCta() {
       </div>
 
       <Container className="relative z-10 flex min-h-[360px] flex-col items-center justify-center px-4 py-12 text-center md:min-h-[400px] md:py-14">
-        <MotionReveal>
+        <MotionReveal className="flex w-full max-w-3xl flex-col items-center text-center">
           <p className="text-label text-accent">Free site consultation</p>
           <h2 className="mt-4 max-w-2xl font-display text-section-title text-white">
             {contactCta.title}
           </h2>
-          <p className="mt-5 max-w-xl text-subheading font-medium text-white/80">
+          <p className="mt-5 w-full max-w-xl text-center text-subheading font-medium text-white/80">
             Talk to our team — no obligation.
           </p>
-          <p className="mt-2 max-w-xl text-description text-white/60">
+          <p className="mt-2 w-full max-w-xl text-center text-description text-white/60">
             {contactCta.description}
           </p>
-          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
-            <QuoteButton variant="hero" paired>
+          <div className="mt-10 flex w-full max-w-[340px] flex-row items-center justify-center gap-2.5 sm:max-w-none sm:gap-4">
+            <QuoteButton variant="hero" paired className="w-[calc(50%-0.375rem)] max-w-[158px] sm:w-[158px]">
               Get a Quote
             </QuoteButton>
-            <CallNowButton paired />
+            <CallNowButton paired className="w-[calc(50%-0.375rem)] max-w-[158px] sm:w-[158px]" />
           </div>
         </MotionReveal>
       </Container>
