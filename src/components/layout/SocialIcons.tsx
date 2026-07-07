@@ -21,6 +21,7 @@ export function SocialIcons({
             href={site.social[item.key]}
             label={item.label}
             src={item.src}
+            imageClassName={item.key === "instagram" ? "scale-110" : undefined}
           />
         ) : (
           <FacebookSocialIconLink key={item.key} href={site.social.facebook} />

@@ -1,6 +1,6 @@
 /** Shared layout for Contact CTA button pair — equal width, text left, icon right. */
 export const CTA_PILL_PAIR_CLASS =
-  "box-border inline-flex w-[158px] items-center justify-between rounded-full py-2 pl-4 pr-2 text-[15px] font-semibold leading-none";
+  "box-border inline-flex w-full max-w-[158px] items-center justify-between rounded-full py-2 pl-4 pr-2 text-[15px] font-semibold leading-none sm:w-[158px]";
 
 export const CTA_PILL_TEXT_CLASS = "whitespace-nowrap text-left";
 

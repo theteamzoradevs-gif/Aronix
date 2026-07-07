@@ -87,11 +87,13 @@ export function BrandSocialIconLink({
   label,
   src,
   className,
+  imageClassName,
 }: {
   href: string;
   label: string;
   src: string;
   className?: string;
+  imageClassName?: string;
 }) {
   return (
     <SocialIconShell href={href} label={label} className={className}>
@@ -100,7 +102,7 @@ export function BrandSocialIconLink({
         alt=""
         width={32}
         height={32}
-        className="block size-full object-cover object-center"
+        className={cn("block size-full object-cover object-center", imageClassName)}
         unoptimized
       />
     </SocialIconShell>

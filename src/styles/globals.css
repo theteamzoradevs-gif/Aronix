@@ -33,6 +33,7 @@
     --trust-bar-height: 36px;
     --header-height: 72px;
     --header-total-offset: calc(var(--trust-bar-height) + var(--header-height));
+    overflow-x: hidden;
   }
 
   @media (min-width: 768px) {
@@ -47,6 +48,7 @@
     color: var(--color-text);
     background: #ffffff;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

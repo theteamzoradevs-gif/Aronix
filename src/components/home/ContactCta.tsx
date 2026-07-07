@@ -33,11 +33,11 @@ export function ContactCta() {
           <p className="mt-2 w-full max-w-xl text-center text-description text-white/60">
             {contactCta.description}
           </p>
-          <div className="mt-10 flex w-full max-w-[340px] flex-row items-center justify-center gap-2.5 sm:max-w-none sm:gap-4">
-            <QuoteButton variant="hero" paired className="w-[calc(50%-0.375rem)] max-w-[158px] sm:w-[158px]">
+          <div className="mt-10 flex w-full max-w-[360px] flex-wrap items-center justify-center gap-2.5 sm:max-w-none sm:flex-row sm:gap-4">
+            <QuoteButton variant="hero" paired className="min-w-0 flex-1 sm:flex-none">
               Get a Quote
             </QuoteButton>
-            <CallNowButton paired className="w-[calc(50%-0.375rem)] max-w-[158px] sm:w-[158px]" />
+            <CallNowButton paired className="min-w-0 flex-1 sm:flex-none" />
           </div>
         </MotionReveal>
       </Container>

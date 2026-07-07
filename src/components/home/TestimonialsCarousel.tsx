@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import { testimonials } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
@@ -100,11 +100,12 @@ export function TestimonialsCarousel() {
         </MotionReveal>
 
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           spaceBetween={24}
           slidesPerView={1}
           slidesPerGroup={1}
           pagination={{ clickable: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: true }}
           touchRatio={1}
           threshold={8}
           longSwipesRatio={0.35}

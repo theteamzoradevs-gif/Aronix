@@ -26,7 +26,9 @@ export default function AboutPage() {
             title="Manufacturer of portable cabins & shipping containers"
             subtitle="Factory-direct from Greater Noida with pan-India delivery."
             align="center"
-            className="mx-auto max-w-2xl"
+            className="mx-auto max-w-3xl px-2"
+            titleClassName="mx-auto max-w-[26ch] text-balance"
+            subtitleClassName="mx-auto max-w-[30ch] text-balance text-center"
             prominentLabel
           />
         </MotionReveal>
