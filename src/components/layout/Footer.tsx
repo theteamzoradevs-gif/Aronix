@@ -149,7 +149,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-white/10 py-5 text-center text-xs text-gray-300 max-md:mb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] sm:text-sm lg:mb-0 lg:text-left">
-          <p>© 2026 Aronixinfra. All rights reserved</p>
+          <p>© 2023 Aronixinfra. All rights reserved</p>
         </div>
       </Container>
     </footer>
