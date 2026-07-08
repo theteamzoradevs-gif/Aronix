@@ -30,15 +30,7 @@ export function FaqChatbot() {
   const { openWithMessage } = useQuoteModal();
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const KEY = "aronix-chatbot-autoopened";
-    if (localStorage.getItem(KEY)) return;
-
-    const timer = setTimeout(() => {
-      setOpen(true);
-      localStorage.setItem(KEY, "1");
-    }, 3000);
-
+    const timer = setTimeout(() => setOpen(true), 1500);
     return () => clearTimeout(timer);
   }, []);
 
