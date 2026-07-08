@@ -415,7 +415,8 @@
 }
 
 .testimonials-swiper-dark .swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.35) !important;
+  /* Keep inactive bullets visible on the light section background */
+  background: rgba(15, 23, 42, 0.24) !important;
 }
 
 .testimonials-swiper-dark .swiper-pagination-bullet-active {

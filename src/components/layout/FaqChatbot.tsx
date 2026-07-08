@@ -55,7 +55,7 @@ export function FaqChatbot() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="pointer-events-auto fixed bottom-[4.5rem] right-4 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-accent text-ink shadow-[0_4px_20px_rgba(244,193,0,0.45)] ring-2 ring-white/20 transition-all hover:scale-105 hover:bg-accent/90 hover:shadow-[0_6px_24px_rgba(244,193,0,0.55)] md:bottom-6 md:right-6"
+        className="pointer-events-auto fixed bottom-[3.5rem] right-4 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-accent text-ink shadow-[0_4px_20px_rgba(244,193,0,0.45)] ring-2 ring-white/20 transition-all hover:scale-105 hover:bg-accent/90 hover:shadow-[0_6px_24px_rgba(244,193,0,0.55)] md:bottom-6 md:right-6"
         aria-label={open ? "Close chat" : "Open FAQ chat"}
       >
         {open ? (
@@ -77,7 +77,7 @@ export function FaqChatbot() {
       {open && (
         <>
           <div className="fixed inset-0 z-30 bg-black/35 md:hidden" onClick={() => setOpen(false)} aria-hidden />
-          <div className="pointer-events-auto fixed inset-x-3 bottom-[8.75rem] z-40 mx-auto flex max-h-[70dvh] max-w-sm flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-2xl sm:inset-x-auto sm:right-4 sm:w-[calc(100vw-2rem)] md:bottom-24 md:right-6 md:max-h-none">
+          <div className="pointer-events-auto fixed inset-x-3 bottom-[7.75rem] z-40 mx-auto flex max-h-[70dvh] max-w-sm flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-2xl sm:inset-x-auto sm:right-4 sm:w-[calc(100vw-2rem)] md:bottom-24 md:right-6 md:max-h-none">
           <div className="flex items-start justify-between bg-dark px-4 py-3">
             <div>
             <p className="text-sm font-semibold text-white">Aronix FAQ Assistant</p>
