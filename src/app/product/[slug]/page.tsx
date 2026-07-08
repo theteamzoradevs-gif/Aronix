@@ -119,22 +119,26 @@ export default async function ProductPage({
                   </div>
                 )}
 
-                <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
-                  <div className="flex min-w-0 items-center gap-3">
-                    <a
-                      href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in ${product.title}. Please share a quote.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20 sm:h-11 sm:w-11"
-                      aria-label="WhatsApp"
-                    >
-                      <WhatsAppIcon />
-                    </a>
-                    <QuoteButton variant="primary" className="min-w-0 flex-1 sm:flex-none">
-                      Get a Quote
-                    </QuoteButton>
-                  </div>
-                  <Link href="/contact-us" className="btn-accent w-full text-center sm:w-auto">
+                <div className="mt-6 flex min-w-0 items-stretch gap-2 sm:mt-8 sm:gap-3">
+                  <a
+                    href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in ${product.title}. Please share a quote.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center self-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10 text-[#1a9e4a] transition-colors hover:bg-[#25D366]/20 sm:h-11 sm:w-11"
+                    aria-label="WhatsApp"
+                  >
+                    <WhatsAppIcon />
+                  </a>
+                  <QuoteButton
+                    variant="primary"
+                    className="min-w-0 flex-1 justify-center px-3 py-2.5 text-xs sm:px-6 sm:py-3 sm:text-sm"
+                  >
+                    Get a Quote
+                  </QuoteButton>
+                  <Link
+                    href="/contact-us"
+                    className="btn-accent min-w-0 flex-1 justify-center px-3 py-2.5 text-center text-xs sm:px-6 sm:py-3 sm:text-sm"
+                  >
                     Contact us
                   </Link>
                 </div>
@@ -148,10 +152,12 @@ export default async function ProductPage({
         <section className="section-band-light section-editorial border-t border-border-light">
           <Container>
             <MotionReveal>
-              <p className="text-label text-primary">Related products</p>
-              <h2 className="mt-3 font-display text-section-title text-ink">
-                You may also like
-              </h2>
+              <div className="md:text-center">
+                <p className="text-label text-primary">Related products</p>
+                <h2 className="mt-3 font-display text-section-title text-ink">
+                  You may also like
+                </h2>
+              </div>
             </MotionReveal>
             <div className="mt-10 grid grid-cols-2 gap-4 md:gap-6">
               {related.map((p) => (
