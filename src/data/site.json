@@ -252,7 +252,6 @@
       "useCase": "Construction sites, corporate site HQs",
       "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6011.jpg",
       "href": "/products?category=office",
-      "priceFrom": 110000,
       "specSummary": "MS steel frame, insulated panels, electrical ready"
     },
     {
@@ -262,7 +261,6 @@
       "useCase": "Industrial gates, parking, toll booths",
       "image": "https://aronixinfra.com/wp-content/uploads/2025/10/IMG_6013.jpg",
       "href": "/products?category=guard",
-      "priceFrom": 110000,
       "specSummary": "MS / cement fiber, powder-coated finish"
     },
     {
@@ -272,7 +270,6 @@
       "useCase": "Storage, container offices, site HQ",
       "image": "/assets/2025/10/20-ft-dry-shipping-container-1000x1000-1.jpg",
       "href": "/products?category=container",
-      "priceFrom": 235000,
       "specSummary": "20ft & 40ft, corrosion-resistant steel"
     },
     {
@@ -291,7 +288,6 @@
       "useCase": "Construction sites, events, industrial units",
       "image": "/assets/2025/10/Untitled-design-2025-10-09T114928.702.png",
       "href": "/products?category=toilet",
-      "priceFrom": 235000,
       "specSummary": "MS frame, hygienic interiors"
     },
     {
@@ -327,7 +323,7 @@
       "id": "pricing",
       "label": "Pricing",
       "keywords": ["price", "pricing", "cost", "rate", "how much", "quote", "₹", "rupee"],
-      "answer": "Prices vary by size and specifications. Modular cabins start from around ₹1,10,000; containers from ₹2,35,000. Share your requirements for a detailed, transparent quote — no hidden charges."
+      "answer": "Pricing depends on size and specifications. Share your requirements and we'll send a detailed, transparent quote — no hidden charges."
     },
     {
       "id": "custom",

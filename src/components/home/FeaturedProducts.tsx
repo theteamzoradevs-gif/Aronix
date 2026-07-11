@@ -18,7 +18,7 @@ export function FeaturedProducts({ products }: { products: Product[] }) {
           <EditorialHeader
             label="Popular products"
             title="Cabins and containers ready to order"
-            subtitle="Factory-built units with transparent starting prices."
+            subtitle="Factory-built units ready for your site."
             align="center"
             className="mx-auto max-w-xl"
             compact

@@ -37,7 +37,6 @@ export function AllProductsSection({ products }: { products: Product[] }) {
               <ProductCard
                 product={product}
                 imageOverride={resolveDisplayImage(product.image, product.slug)}
-                showPrice
                 compact
               />
             </div>

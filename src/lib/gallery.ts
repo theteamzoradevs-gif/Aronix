@@ -123,7 +123,7 @@ export const heroShowcaseSlides: HeroShowcaseSlide[] = [
     lines: [
       "Mild steel prefab office — white & blue color-coated finish.",
       "Rectangular layout for construction & commercial site offices.",
-      "From ₹2,30,000 · manufactured in Greater Noida, pan-India delivery.",
+      "Manufactured in Greater Noida, pan-India delivery.",
     ],
     image: "/assets/2025/10/Portable-Office-Cabin-1.jpg",
     href: "/product/portable-office-cabin-2",
@@ -134,7 +134,7 @@ export const heroShowcaseSlides: HeroShowcaseSlide[] = [
     lines: [
       "20×10×8.6 ft manager office — MDF ceiling & aluminum windows.",
       "MS exterior walls, glass wool insulation, fully portable build.",
-      "From ₹2,10,000 · customized prefab, ready for site deployment.",
+      "Customized prefab, ready for site deployment.",
     ],
     image: "/assets/2025/10/Prefabricated-Manager-Cabin-3.jpg",
     href: "/product/prefabricated-manager-cabin",
@@ -145,7 +145,7 @@ export const heroShowcaseSlides: HeroShowcaseSlide[] = [
     lines: [
       "Mild steel workstation cabin — customized, color-coated prefab unit.",
       "Dispatched on flatbed trailer directly to your project location.",
-      "From ₹1,90,000 · trusted by contractors across North India.",
+      "Trusted by contractors across North India.",
     ],
     image: "/assets/2025/10/Portable-Workstation-Cabin.jpg",
     href: "/product/portable-workstation-cabin",
@@ -156,7 +156,7 @@ export const heroShowcaseSlides: HeroShowcaseSlide[] = [
     lines: [
       "MS sheet guard room — 6×6×8 ft square prefab security unit.",
       "Ideal for factory gates, warehouses & construction site entrances.",
-      "From ₹65,000 · new units only, made in India.",
+      "New units only, made in India.",
     ],
     image: "/assets/2025/10/Mild-Steel-Guard-Cabin.jpg",
     href: "/product/mild-steel-guard-cabin",
@@ -167,7 +167,7 @@ export const heroShowcaseSlides: HeroShowcaseSlide[] = [
     lines: [
       "Large 30×10×8.6 ft office with 50mm glass wool insulation.",
       "White color-coated MS build for multi-unit site deployments.",
-      "From ₹3,50,000 · 7–15 day delivery across India.",
+      "7–15 day delivery across India.",
     ],
     image: "/assets/2025/10/White-Steel-Portable-Cabin.jpg",
     href: "/product/white-steel-portable-cabin",
