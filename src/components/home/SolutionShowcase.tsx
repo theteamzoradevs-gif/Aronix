@@ -4,7 +4,6 @@ import { Container } from "@/components/ui/Container";
 import { EditorialHeader } from "@/components/ui/EditorialHeader";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { MotionReveal } from "@/components/motion/MotionReveal";
-import { formatPrice } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
 const showcaseCategories = site.productCategories.slice(0, 4);
@@ -62,12 +61,6 @@ export function SolutionShowcase() {
                         <li className="flex items-start gap-3 text-description text-text">
                           <CheckIcon />
                           {cat.specSummary}
-                        </li>
-                      )}
-                      {cat.priceFrom && (
-                        <li className="flex items-start gap-3 text-description text-text">
-                          <CheckIcon />
-                          Starting from {formatPrice(cat.priceFrom)}
                         </li>
                       )}
                       <li className="flex items-start gap-3 text-description text-text">

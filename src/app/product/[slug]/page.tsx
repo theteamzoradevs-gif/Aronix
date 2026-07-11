@@ -12,7 +12,7 @@ import {
   productCategoryLabels,
   site,
 } from "@/lib/data";
-import { cn, formatPrice } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { QuoteButton } from "@/components/products/QuoteButton";
 import { ProductImageGallery } from "@/components/products/ProductImageGallery";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
@@ -93,11 +93,6 @@ export default async function ProductPage({
                 <h1 className="mt-2 break-words font-display text-xl font-bold leading-tight text-ink sm:mt-3 sm:text-2xl md:text-section-title">
                   {product.title}
                 </h1>
-                {product.price && (
-                  <p className="mt-3 text-lg font-semibold text-ink sm:mt-4 sm:text-2xl">
-                    {formatPrice(product.price)}
-                  </p>
-                )}
                 <p className="mt-4 break-words text-sm leading-relaxed text-text-muted sm:mt-6 sm:text-subheading">
                   {product.description}
                 </p>
@@ -161,7 +156,7 @@ export default async function ProductPage({
             </MotionReveal>
             <div className="mt-10 grid grid-cols-2 gap-4 md:gap-6">
               {related.map((p) => (
-                <ProductCard key={p.slug} product={p} showPrice />
+                <ProductCard key={p.slug} product={p} />
               ))}
             </div>
 

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import type { Product } from "@/types";
 import { SiteImage } from "@/components/ui/SiteImage";
-import { formatPrice } from "@/lib/utils";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { cn } from "@/lib/utils";
 import { resolveDisplayImage } from "@/lib/gallery";
@@ -11,7 +10,6 @@ import { site } from "@/lib/data";
 
 interface ProductCardProps {
   product: Product;
-  showPrice?: boolean;
   layout?: "grid" | "slider";
   compact?: boolean;
   imageOverride?: string;
@@ -19,7 +17,6 @@ interface ProductCardProps {
 
 export function ProductCard({
   product,
-  showPrice = false,
   layout = "grid",
   compact = false,
   imageOverride,
@@ -55,11 +52,6 @@ export function ProductCard({
           >
             {product.title}
           </Link>
-          {showPrice && product.price && (
-            <p className={cn("mt-1 text-text-muted", compact ? "text-xs" : "text-sm")}>
-              From <span className="font-semibold text-ink">{formatPrice(product.price)}</span>
-            </p>
-          )}
           <div className={cn("mt-auto flex items-center gap-2", compact ? "pt-2" : "pt-4")}>
             <a
               href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`Hi, I'm interested in ${product.title}`)}`}

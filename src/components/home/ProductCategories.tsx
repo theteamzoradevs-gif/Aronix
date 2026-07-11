@@ -7,7 +7,6 @@ import { SectionHeader } from "@/components/ui/SectionBadge";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { QuoteButton } from "@/components/products/QuoteButton";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { formatPrice } from "@/lib/utils";
 
 export function ProductCategories() {
   return (
@@ -36,11 +35,6 @@ export function ProductCategories() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                {cat.priceFrom && (
-                  <span className="absolute left-3 top-3 rounded-full bg-dark/85 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                    From {formatPrice(cat.priceFrom)}
-                  </span>
-                )}
               </Link>
               <div className="flex flex-1 flex-col p-4 sm:p-5">
                 <h3 className="text-lg font-bold text-text">{cat.title}</h3>

@@ -135,7 +135,6 @@ export function ProductCubeCarousel({
           key={product.slug}
           product={product}
           imageOverride={image}
-          showPrice
           compact
         />
       ))}
@@ -157,7 +156,6 @@ export function ProductCubeCarousel({
                 key={product.slug}
                 product={product}
                 imageOverride={image}
-                showPrice
                 compact
               />
             ))}
@@ -191,7 +189,6 @@ export function ProductCubeCarousel({
               <ProductCard
                 product={product}
                 imageOverride={image}
-                showPrice
                 compact
               />
             </SwiperSlide>

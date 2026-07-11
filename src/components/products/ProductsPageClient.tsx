@@ -157,7 +157,7 @@ export function ProductsPageClient() {
       <section className="section-editorial section-white">
         <Container>
           {filtered.length > 0 ? (
-            <ProductGrid products={filtered} showPrice />
+            <ProductGrid products={filtered} />
           ) : (
             <div className="rounded-2xl border border-dashed border-border-light bg-cream/40 px-6 py-16 text-center">
               <p className="font-display text-lg font-semibold text-ink">No products found</p>
