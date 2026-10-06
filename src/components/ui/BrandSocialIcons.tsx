@@ -103,7 +103,6 @@ export function BrandSocialIconLink({
         width={32}
         height={32}
         className={cn("block size-full object-cover object-center", imageClassName)}
-        unoptimized
       />
     </SocialIconShell>
   );

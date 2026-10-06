@@ -1,8 +1,10 @@
 "use client";
 
 import { site } from "@/lib/data";
+import { playableVideos } from "@/lib/gallery";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionBadge";
+import { LazyVideo } from "@/components/ui/LazyVideo";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 
 export function VideoSection() {
@@ -19,21 +21,15 @@ export function VideoSection() {
           />
         </MotionReveal>
         <div className="mt-10 grid grid-cols-2 gap-4 md:mt-12 md:grid-cols-4 md:gap-5">
-          {site.productVideos.map((src, i) => (
+          {playableVideos(site.productVideos).map((src, i) => (
             <div
               key={src}
               className="group relative overflow-hidden rounded-3xl border border-border-light bg-black shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-elevated)]"
             >
-              <video
+              <LazyVideo
                 src={src}
-                autoPlay
-                muted
-                loop
-                playsInline
-                disablePictureInPicture
-                controlsList="nodownload nofullscreen noremoteplayback"
+                label={`Product video ${i + 1}`}
                 className="aspect-[3/4] h-full w-full object-cover"
-                aria-label={`Product video ${i + 1}`}
               />
             </div>
           ))}

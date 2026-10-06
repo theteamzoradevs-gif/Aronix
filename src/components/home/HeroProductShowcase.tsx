@@ -41,7 +41,7 @@ export function HeroProductShowcase() {
               exit={reduced ? {} : { opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="relative aspect-[4/3] w-full max-h-[min(230px,32vh)] lg:max-h-[min(250px,36vh)]">
+              <div className="relative aspect-[4/3] w-full">
                 <SiteImage
                   src={current.image}
                   alt={current.title}
@@ -50,30 +50,17 @@ export function HeroProductShowcase() {
                   className="object-cover"
                   priority={active === 0}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
-                <h3 className="absolute bottom-0 left-0 right-0 px-4 pb-3 font-display text-base font-semibold leading-snug text-white md:text-[17px]">
-                  {current.title}
-                </h3>
               </div>
 
-              <div className="border-t border-white/10 bg-ink/75 px-4 py-3 md:px-4 md:py-3.5">
-                <ul className="space-y-1.5">
-                  {current.lines.map((line) => (
-                    <li
-                      key={line}
-                      className="flex gap-2 text-[11px] leading-relaxed text-white/75 md:text-xs"
-                    >
-                      <span className="mt-[5px] h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden />
-                      <span>{line}</span>
-                    </li>
-                  ))}
-                </ul>
-
+              <div className="flex items-center justify-between gap-3 border-t border-white/10 bg-ink/80 px-3.5 py-3">
+                <p className="min-w-0 text-[13px] leading-snug text-white/80">
+                  {current.description}
+                </p>
                 <Link
                   href={current.href}
-                  className="mt-3 inline-flex cursor-pointer items-center gap-1 rounded-full bg-accent px-4 py-1.5 text-xs font-semibold text-ink transition-colors hover:bg-accent/90"
+                  className="inline-flex shrink-0 cursor-pointer items-center rounded-full bg-accent px-3.5 py-1.5 text-xs font-semibold text-ink transition-colors hover:bg-accent/90"
                 >
-                  View details →
+                  View details
                 </Link>
               </div>
             </motion.div>

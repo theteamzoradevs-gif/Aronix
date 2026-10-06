@@ -1,11 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { site } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-
-import "swiper/css";
 
 const trustItems = [
   { label: "GST Registered", icon: GstIcon },
@@ -15,27 +12,27 @@ const trustItems = [
 ];
 
 export function TrustTopBar() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((current) => (current + 1) % trustItems.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
+
+  const mobileItem = trustItems[index];
+  const MobileIcon = mobileItem.icon;
+
   return (
     <div className="fixed left-0 right-0 top-0 z-[60] border-b border-white/10 bg-ink text-white">
       <Container className="flex h-[var(--trust-bar-height)] items-center gap-3">
         <div className="min-w-0 flex-1 overflow-hidden">
           <div className="md:hidden">
-            <Swiper
-              modules={[Autoplay]}
-              slidesPerView={1}
-              loop
-              autoplay={{ delay: 2800, disableOnInteraction: false }}
-              className="trust-top-swiper !overflow-hidden"
-            >
-              {trustItems.map((item) => (
-                <SwiperSlide key={item.label}>
-                  <span className="flex items-center justify-center gap-1.5 text-[11px] font-medium text-white">
-                    <item.icon />
-                    <span className="truncate">{item.label}</span>
-                  </span>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            <span className="flex items-center justify-center gap-1.5 text-[11px] font-medium text-white">
+              <MobileIcon />
+              <span className="truncate">{mobileItem.label}</span>
+            </span>
           </div>
 
           <div className="hidden min-w-0 items-center justify-start gap-4 md:flex md:gap-6">

@@ -1,14 +1,30 @@
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ClientsMarquee } from "@/components/home/ClientsMarquee";
 import { HomeProjectsGrid } from "@/components/home/HomeProjectsGrid";
-import { FeaturedProducts } from "@/components/home/FeaturedProducts";
-import { HomeAboutSection } from "@/components/home/HomeAboutSection";
-import { AllProductsSection } from "@/components/home/AllProductsSection";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
-import { TestimonialsCarousel } from "@/components/home/TestimonialsCarousel";
-import { PrefabComparison } from "@/components/home/PrefabComparison";
-import { BlogSection } from "@/components/home/BlogSection";
 import { site, getProductsBySlugs } from "@/lib/data";
+
+const FeaturedProducts = dynamic(() =>
+  import("@/components/home/FeaturedProducts").then((mod) => mod.FeaturedProducts)
+);
+const HomeAboutSection = dynamic(() =>
+  import("@/components/home/HomeAboutSection").then((mod) => mod.HomeAboutSection)
+);
+const AllProductsSection = dynamic(() =>
+  import("@/components/home/AllProductsSection").then((mod) => mod.AllProductsSection)
+);
+const WhyChooseUs = dynamic(() =>
+  import("@/components/home/WhyChooseUs").then((mod) => mod.WhyChooseUs)
+);
+const TestimonialsCarousel = dynamic(() =>
+  import("@/components/home/TestimonialsCarousel").then((mod) => mod.TestimonialsCarousel)
+);
+const PrefabComparison = dynamic(() =>
+  import("@/components/home/PrefabComparison").then((mod) => mod.PrefabComparison)
+);
+const BlogSection = dynamic(() =>
+  import("@/components/home/BlogSection").then((mod) => mod.BlogSection)
+);
 
 export default function HomePage() {
   const homeProducts = getProductsBySlugs(site.homeProductSlugs);
@@ -19,14 +35,16 @@ export default function HomePage() {
     <>
       <HeroSection />
       <ClientsMarquee />
-      <HomeProjectsGrid />
-      <FeaturedProducts products={featuredProducts} />
-      <HomeAboutSection />
-      <AllProductsSection products={allProductsPreview} />
-      <WhyChooseUs />
-      <TestimonialsCarousel />
-      <PrefabComparison />
-      <BlogSection />
+      <div className="cv-auto">
+        <HomeProjectsGrid />
+        <FeaturedProducts products={featuredProducts} />
+        <HomeAboutSection />
+        <AllProductsSection products={allProductsPreview} />
+        <WhyChooseUs />
+        <TestimonialsCarousel />
+        <PrefabComparison />
+        <BlogSection />
+      </div>
     </>
   );
 }

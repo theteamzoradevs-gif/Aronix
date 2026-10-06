@@ -4,6 +4,7 @@ import Link from "next/link";
 import { site } from "@/lib/data";
 import { Container } from "@/components/ui/Container";
 import { EditorialHeader } from "@/components/ui/EditorialHeader";
+import { LazyVideo } from "@/components/ui/LazyVideo";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { cn } from "@/lib/utils";
@@ -39,14 +40,10 @@ export function HomeProjectsGrid() {
             >
               <div className="relative aspect-[3/4] w-full">
                 {item.kind === "video" ? (
-                  <video
+                  <LazyVideo
                     src={item.src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                    label={item.title}
                     className="h-full w-full object-cover"
-                    aria-label={item.title}
                   />
                 ) : (
                   <SiteImage

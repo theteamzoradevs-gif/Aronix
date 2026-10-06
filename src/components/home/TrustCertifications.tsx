@@ -1,6 +1,7 @@
 "use client";
 
 import { site, clients } from "@/lib/data";
+import { hasRealImage } from "@/lib/images";
 import { Container } from "@/components/ui/Container";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -30,7 +31,8 @@ const badgeIcons = [
 const staggerClasses = ["stagger-1", "stagger-2", "stagger-3", "stagger-4", "stagger-5", "stagger-6"];
 
 export function TrustCertifications() {
-  const doubled = [...clients, ...clients];
+  const visibleClients = clients.filter((client) => hasRealImage(client.image));
+  const doubled = [...visibleClients, ...visibleClients];
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
 
   return (

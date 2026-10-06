@@ -1,7 +1,10 @@
-const REMOTE_UPLOADS = "aronixinfra.com/wp-content/uploads/2025/10";
+import { galleryImageForKey } from "@/lib/gallery";
 
-/** Locally cached files that downloaded successfully (>10KB) */
-const VALID_LOCAL = new Set([
+/**
+ * Files under public/assets/2025/10 that are real images.
+ * The other downloads in that folder are HTML error pages (~6KB), not photos.
+ */
+const REAL_UPLOADS = new Set([
   "20-ft-dry-shipping-container-1000x1000-1.jpg",
   "Untitled-design-2025-10-08T155217.885.png",
   "Untitled-design-2025-10-09T113233.303.png",
@@ -11,52 +14,57 @@ const VALID_LOCAL = new Set([
   "Untitled-design-2025-10-09T174216.396.png",
   "Untitled-design-2025-10-09T174257.865.png",
   "Untitled-design-2025-10-09T174359.888.png",
+  "sonalika.jpg",
+  "npcl.png",
+  "newholland.png",
+  "blinkit.png",
+  "eldeco.png",
 ]);
 
-const DEFAULT_IMAGE = `${REMOTE_UPLOADS}/Untitled-design-2025-10-09T113233.303.png`;
+const LOCAL_DIRS = ["/assets/gallery/", "/assets/team/", "/assets/about/", "/assets/brand/"];
 
-function proxyUrl(pathWithoutProtocol: string, width = 800): string {
-  return `https://wsrv.nl/?url=${encodeURIComponent(pathWithoutProtocol)}&w=${width}&q=85&output=webp`;
+function filenameOf(src: string): string {
+  return src.split("?")[0].split("/").pop() || "";
 }
 
-function toRemotePath(src: string): string {
-  if (src.startsWith("http://") || src.startsWith("https://")) {
-    return src.replace(/^https?:\/\//, "");
-  }
-  if (src.startsWith("/assets/")) {
-    return src.replace("/assets/", "aronixinfra.com/wp-content/uploads/");
-  }
-  return src;
+/** Map a WordPress upload URL or /assets path to a public file path. */
+export function toLocalAssetPath(src: string): string | null {
+  const clean = src.split("?")[0];
+  if (clean.startsWith("/assets/")) return clean;
+
+  const marker = "/wp-content/uploads/";
+  const idx = clean.indexOf(marker);
+  if (idx >= 0) return `/assets/${clean.slice(idx + marker.length)}`;
+
+  return null;
 }
 
-export function resolveImageSrc(src: string | null | undefined, width = 800): string {
-  if (!src) return proxyUrl(DEFAULT_IMAGE, width);
-
-  const filename = src.split("/").pop() || "";
-
-  if (
-    src.startsWith("/assets/") &&
-    (VALID_LOCAL.has(filename) ||
-      src.startsWith("/assets/team/") ||
-      src.startsWith("/assets/gallery/") ||
-      src.startsWith("/assets/about/") ||
-      src.startsWith("/assets/brand/") ||
-      filename === "logo.png")
-  ) {
-    return src;
-  }
-
-  return proxyUrl(toRemotePath(src), width);
+export function hasRealImage(src: string | null | undefined): boolean {
+  if (!src) return false;
+  const local = toLocalAssetPath(src);
+  if (!local) return false;
+  if (LOCAL_DIRS.some((prefix) => local.startsWith(prefix))) return true;
+  return REAL_UPLOADS.has(filenameOf(local));
 }
 
-export function resolveImageFallback(src: string | null | undefined, width = 800): string {
+/**
+ * Always return a file that exists in /public.
+ * Missing WordPress uploads used to be proxied through wsrv.nl, which 404s
+ * because those files are no longer on aronixinfra.com.
+ */
+export function resolveImageSrc(src: string | null | undefined, _width = 800): string {
+  if (hasRealImage(src)) return toLocalAssetPath(src!)!;
+  return galleryImageForKey(src || "aronix");
+}
+
+export function resolveImageFallback(src: string | null | undefined, _width = 800): string {
   if (
     src?.startsWith("/assets/team/") ||
     src?.startsWith("/assets/gallery/") ||
     src?.startsWith("/assets/about/") ||
     src?.startsWith("/assets/brand/")
   ) {
-    return src;
+    return src.split("?")[0];
   }
-  return proxyUrl(src ? toRemotePath(src) : DEFAULT_IMAGE, width);
+  return galleryImageForKey(`${src || "aronix"}-fallback`);
 }
