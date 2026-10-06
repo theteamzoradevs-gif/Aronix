@@ -1,9 +1,10 @@
 import { clients } from "@/lib/data";
+import { hasRealImage } from "@/lib/images";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { Container } from "@/components/ui/Container";
 
 export function ClientsSection() {
-  const featured = clients.slice(0, 7);
+  const featured = clients.filter((client) => hasRealImage(client.image)).slice(0, 7);
 
   return (
     <section className="bg-[#f5f5f7] py-14 md:py-20">

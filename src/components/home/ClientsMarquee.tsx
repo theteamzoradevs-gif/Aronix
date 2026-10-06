@@ -2,13 +2,15 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { clients } from "@/lib/data";
+import { hasRealImage } from "@/lib/images";
 import { SiteImage } from "@/components/ui/SiteImage";
 import { cn } from "@/lib/utils";
 
 export function ClientsMarquee() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
-  const doubled = [...clients, ...clients];
+  const visibleClients = clients.filter((client) => hasRealImage(client.image));
+  const doubled = [...visibleClients, ...visibleClients];
 
   const scrollBy = useCallback((direction: "left" | "right") => {
     const el = scrollRef.current;
@@ -80,14 +82,18 @@ export function ClientsMarquee() {
           onTouchEnd={() => setPaused(false)}
         >
           {doubled.map((client, i) => (
-            <SiteImage
+            <div
               key={`${client.id}-${i}`}
-              src={client.image}
-              alt={client.alt}
-              width={240}
-              height={96}
-              className="inline-block h-14 w-auto max-w-[180px] shrink-0 object-contain md:h-[72px] md:max-w-[220px] lg:h-20 lg:max-w-[260px]"
-            />
+              className="relative h-10 w-[108px] shrink-0 md:h-12 md:w-[132px]"
+            >
+              <SiteImage
+                src={client.image}
+                alt={client.alt}
+                fill
+                sizes="132px"
+                className="object-contain"
+              />
+            </div>
           ))}
         </div>
       </div>

@@ -1,15 +1,23 @@
 import type { Metadata, Viewport } from "next";
+import dynamic from "next/dynamic";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { TrustTopBar } from "@/components/layout/TrustTopBar";
 import { Header } from "@/components/layout/Header";
 import { Main } from "@/components/layout/Main";
 import { Footer } from "@/components/layout/Footer";
-import { QuoteModal } from "@/components/layout/QuoteModal";
-import { FaqChatbot } from "@/components/layout/FaqChatbot";
 import { StickyQuoteBar } from "@/components/layout/StickyQuoteBar";
-import { LeadPopup } from "@/components/layout/LeadPopup";
 import { QuoteModalProvider } from "@/context/QuoteModalContext";
 import "@/styles/globals.css";
+
+const QuoteModal = dynamic(() =>
+  import("@/components/layout/QuoteModal").then((mod) => mod.QuoteModal)
+);
+const FaqChatbot = dynamic(() =>
+  import("@/components/layout/FaqChatbot").then((mod) => mod.FaqChatbot)
+);
+const LeadPopup = dynamic(() =>
+  import("@/components/layout/LeadPopup").then((mod) => mod.LeadPopup)
+);
 
 const inter = Inter({
   subsets: ["latin"],

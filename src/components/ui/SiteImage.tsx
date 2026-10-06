@@ -14,6 +14,7 @@ type SiteImageProps = {
   priority?: boolean;
   sizes?: string;
   fill?: boolean;
+  quality?: number;
 };
 
 export function SiteImage({
@@ -23,11 +24,14 @@ export function SiteImage({
   width = 800,
   height,
   priority = false,
-  sizes = "(max-width: 768px) 100vw, 800px",
+  sizes,
   fill = false,
+  quality,
 }: SiteImageProps) {
   const [imgSrc, setImgSrc] = useState(() => resolveImageSrc(src, width));
   const computedHeight = height || Math.round(width * 0.75);
+  const resolvedSizes = sizes ?? (fill ? "(max-width: 768px) 100vw, 720px" : `${width}px`);
+  const resolvedQuality = quality ?? 60;
 
   const handleError = () => {
     const fallback = resolveImageFallback(src, width);
@@ -41,7 +45,9 @@ export function SiteImage({
         alt={alt}
         fill
         priority={priority}
-        sizes={sizes}
+        fetchPriority={priority ? "high" : undefined}
+        quality={resolvedQuality}
+        sizes={resolvedSizes}
         className={cn("object-cover", className)}
         onError={handleError}
       />
@@ -55,7 +61,9 @@ export function SiteImage({
       width={width}
       height={computedHeight}
       priority={priority}
-      sizes={sizes}
+      fetchPriority={priority ? "high" : undefined}
+      quality={resolvedQuality}
+      sizes={resolvedSizes}
       className={cn("max-w-full h-auto", className)}
       onError={handleError}
     />

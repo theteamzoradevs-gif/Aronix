@@ -85,8 +85,12 @@ const homeProjectVideoTitles = [
   "Project deployment footage",
 ];
 
+export function playableVideos(videos: string[]): string[] {
+  return videos.filter((src) => src.startsWith("/assets/videos/"));
+}
+
 export function buildHomeProjectGridItems(videos: string[]): HomeProjectGridItem[] {
-  const videoItems: HomeProjectGridItem[] = videos.map((src, i) => ({
+  const videoItems: HomeProjectGridItem[] = playableVideos(videos).map((src, i) => ({
     id: `video-${i}`,
     title: homeProjectVideoTitles[i] ?? `Project video ${i + 1}`,
     kind: "video" as const,
@@ -111,7 +115,7 @@ export function buildHomeProjectGridItems(videos: string[]): HomeProjectGridItem
 export type HeroShowcaseSlide = {
   id: string;
   title: string;
-  lines: [string, string, string];
+  description: string;
   image: string;
   href: string;
 };
@@ -120,55 +124,35 @@ export const heroShowcaseSlides: HeroShowcaseSlide[] = [
   {
     id: "portable-office-cabin",
     title: "Portable Office Cabin",
-    lines: [
-      "Mild steel prefab office — white & blue color-coated finish.",
-      "Rectangular layout for construction & commercial site offices.",
-      "Manufactured in Greater Noida, pan-India delivery.",
-    ],
+    description: "Portable office cabin for site teams.",
     image: "/assets/2025/10/Portable-Office-Cabin-1.jpg",
     href: "/product/portable-office-cabin-2",
   },
   {
     id: "prefabricated-manager-cabin",
     title: "Prefabricated Manager Cabin",
-    lines: [
-      "20×10×8.6 ft manager office — MDF ceiling & aluminum windows.",
-      "MS exterior walls, glass wool insulation, fully portable build.",
-      "Customized prefab, ready for site deployment.",
-    ],
+    description: "Manager cabin, ready for site deployment.",
     image: "/assets/2025/10/Prefabricated-Manager-Cabin-3.jpg",
     href: "/product/prefabricated-manager-cabin",
   },
   {
     id: "portable-workstation-cabin",
     title: "Portable Workstation Cabin",
-    lines: [
-      "Mild steel workstation cabin — customized, color-coated prefab unit.",
-      "Dispatched on flatbed trailer directly to your project location.",
-      "Trusted by contractors across North India.",
-    ],
+    description: "Workstation cabin, delivered to your site.",
     image: "/assets/2025/10/Portable-Workstation-Cabin.jpg",
     href: "/product/portable-workstation-cabin",
   },
   {
     id: "mild-steel-guard-cabin",
     title: "Mild Steel Guard Cabin",
-    lines: [
-      "MS sheet guard room — 6×6×8 ft square prefab security unit.",
-      "Ideal for factory gates, warehouses & construction site entrances.",
-      "New units only, made in India.",
-    ],
+    description: "Guard cabin for gates and warehouses.",
     image: "/assets/2025/10/Mild-Steel-Guard-Cabin.jpg",
     href: "/product/mild-steel-guard-cabin",
   },
   {
     id: "white-steel-portable-cabin",
     title: "White Steel Portable Cabin",
-    lines: [
-      "Large 30×10×8.6 ft office with 50mm glass wool insulation.",
-      "White color-coated MS build for multi-unit site deployments.",
-      "7–15 day delivery across India.",
-    ],
+    description: "Insulated office cabin, delivered in 7–15 days.",
     image: "/assets/2025/10/White-Steel-Portable-Cabin.jpg",
     href: "/product/white-steel-portable-cabin",
   },

@@ -28,6 +28,11 @@
     box-sizing: border-box;
   }
 
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+  }
+
   html {
     scroll-behavior: smooth;
     --trust-bar-height: 36px;
